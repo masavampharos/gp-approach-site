@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AI営業アプローチ事例集 — グローバルプロデュース様向け</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --primary: #0a0a0a;
+    --accent: #0a0a0a;
+    --accent2: #333333;
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --muted: #737373;
+    --border: #d4d4d4;
+    --signal-hr: #404040;
+    --signal-fund: #262626;
+    --signal-mile: #525252;
+    --signal-office: #171717;
+    --signal-ipo: #3d3d3d;
+    --en: #4a4a4a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .hero {
+    background: #0a0a0a;
+    color: white;
+    padding: 64px 40px;
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .hero h1 {
+    font-size: 28px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .hero .subtitle { font-size: 13px; opacity: 0.5; font-weight: 300; letter-spacing: 0.05em; }
+  .hero .badge {
+    display: inline-block; background: transparent; color: rgba(255,255,255,0.4);
+    font-size: 10px; font-weight: 500; padding: 4px 14px;
+    border: 1px solid rgba(255,255,255,0.15); margin-top: 20px; letter-spacing: 0.2em;
+  }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  .toc {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 32px; margin: -1px auto 40px; position: relative; z-index: 1;
+    border-top: none;
+  }
+  .toc h2 { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 16px; }
+  .toc ol { list-style: none; counter-reset: toc; }
+  .toc li { counter-increment: toc; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before { content: counter(toc, decimal-leading-zero) "."; font-weight: 600; color: var(--muted); margin-right: 12px; font-size: 11px; font-variant-numeric: tabular-nums; }
+
+  .section-header { margin: 56px 0 24px; padding-bottom: 12px; border-bottom: 1px solid var(--primary); }
+  .section-header h2 { font-size: 18px; font-weight: 700; color: var(--primary); letter-spacing: 0.04em; }
+  .section-header p { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+  .pattern {
+    background: var(--card); border: 1px solid var(--border);
+    margin-bottom: 24px; overflow: hidden;
+  }
+  .pattern-header { padding: 20px 28px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--border); }
+  .pattern-header .num {
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; color: white; flex-shrink: 0;
+    background: var(--primary);
+  }
+  .pattern-header h3 { font-size: 16px; font-weight: 700; }
+  .pattern-header .tag {
+    font-size: 10px; font-weight: 600; padding: 3px 10px; white-space: nowrap;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid currentColor;
+  }
+
+  .pattern-body { padding: 24px 28px; }
+  .pattern-body .desc { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.7; border-left: 2px solid var(--border); padding-left: 14px; }
+
+  .signal-box {
+    background: #f0f0f0; border-left: 3px solid var(--primary);
+    padding: 16px 20px; margin-bottom: 16px;
+  }
+  .signal-box .label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+  .signal-box p { font-size: 13px; line-height: 1.6; }
+  .signal-box .source { font-size: 11px; color: var(--muted); margin-top: 8px; }
+  .signal-box .source a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+  .signal-box .source a:hover { color: var(--primary); }
+
+  .email-preview {
+    background: #111111; color: #d4d4d4; padding: 28px;
+    font-family: 'Inter', 'Noto Sans JP', monospace; font-size: 13px;
+    line-height: 1.8; white-space: pre-wrap; margin-bottom: 16px; position: relative;
+    border: 1px solid #2a2a2a;
+  }
+  .email-preview::before {
+    content: "生成されるメール文面"; position: absolute; top: -1px; left: 0;
+    background: #ffffff; color: #0a0a0a; font-size: 9px; font-weight: 700;
+    padding: 3px 12px; font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border-bottom: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a;
+  }
+  .email-preview.en::before { content: "生成される英語メール文面"; }
+
+  .point {
+    background: #f5f5f5; border: 1px solid var(--border);
+    padding: 14px 18px; font-size: 13px; line-height: 1.6;
+    border-left: 3px solid var(--primary);
+  }
+  .point strong { color: var(--primary); font-weight: 700; }
+
+  .bg-hr { background: #1a1a1a; }
+  .bg-fund { background: #0d0d0d; }
+  .bg-mile { background: #262626; }
+  .bg-office { background: #111111; }
+  .bg-ipo { background: #1f1f1f; }
+  .bg-en { background: #2a2a2a; }
+  .tag-hr { color: #404040; border-color: #404040; }
+  .tag-fund { color: #262626; border-color: #262626; }
+  .tag-mile { color: #525252; border-color: #525252; }
+  .tag-office { color: #171717; border-color: #171717; }
+  .tag-ipo { color: #3d3d3d; border-color: #3d3d3d; }
+  .tag-en { color: #4a4a4a; border-color: #4a4a4a; }
+
+  .lang-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; border: 1px solid var(--border); }
+  .lang-table th { background: var(--primary); color: white; padding: 10px 16px; text-align: left; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .lang-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); }
+  .lang-table tr:nth-child(even) td { background: #f9f9f9; }
+
+  .pending-box {
+    background: var(--card); border: 1px dashed var(--border);
+    padding: 40px; text-align: center; margin: 24px 0;
+  }
+  .pending-box .icon { font-size: 40px; margin-bottom: 12px; filter: grayscale(1); }
+  .pending-box h3 { font-size: 16px; margin-bottom: 8px; }
+  .pending-box p { font-size: 13px; color: var(--muted); }
+  .pending-box ul { text-align: left; max-width: 400px; margin: 16px auto 0; font-size: 13px; color: var(--muted); }
+  .pending-box li { padding: 4px 0; }
+
+  .footer { text-align: center; padding: 40px 0; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 60px; letter-spacing: 0.05em; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 40px 20px; }
+    .hero h1 { font-size: 20px; }
+    .container { padding: 0 16px; }
+    .toc, .pattern-body, .pattern-header { padding-left: 16px; padding-right: 16px; }
+    .email-preview { padding: 20px 16px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>AI営業アプローチ事例集</h1>
+  <div class="subtitle">グローバルプロデュース様向け｜株式会社XDeli</div>
+  <div class="badge">CONFIDENTIAL</div>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li>シグナル別メールアプローチ事例（日本語 5パターン — 実在企業の最新データで生成）</li>
+      <li>英語・外国語アプローチ事例（3パターン — DRAGON EVENTSブランドと連動）</li>
+    </ol>
+  </div>
+
+  <!-- ===== SECTION 1 ===== -->
+  <div class="section-header">
+    <h2>1. シグナル別メールアプローチ事例</h2>
+    <p>「周年記念」は有力なフックですが、100周年のイベントを受注するには100周年の発表を見てからでは遅い。<br>もっと上流のシグナルを拾って先手を打つ必要があります。以下、AIが検知できる<strong>「周年以外の5つのシグナル」</strong>と、それぞれの具体的なメール文面事例です。<br><strong>すべて実在の企業ニュースに基づいて生成しています。</strong></p>
+  </div>
+
+  <!-- Pattern 1: 資金調達 -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num bg-fund">1</div>
+      <div>
+        <h3>大型資金調達シグナル — インターステラテクノロジズ</h3>
+      </div>
+      <span class="tag tag-fund">調達直後</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc">スタートアップが大型調達を行った直後は、①投資家向けレセプション、②チームビルディングイベント、③採用ブランディングイベントの3つの需要が同時発生します。調達発表から1〜2週間以内のコンタクトが最も有効です。</p>
+
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>インターステラテクノロジズ株式会社</strong>が2026年1月16日、シリーズFで総額<strong>201億円</strong>の資金調達を完了。リード投資家はウーブン・バイ・トヨタ。SBIグループ、野村不動産、B Dash Ventures、SMBC Edge等が参加。国内の非上場宇宙スタートアップとして<strong>過去最大規模</strong>の調達。累計調達額は<strong>446億円</strong>に到達。代表取締役CEO：稲川貴大氏。</p>
+        <div class="source">出典: <a href="https://www.istellartech.com/news/releases/11034" target="_blank">インターステラテクノロジズ プレスリリース（2026/1/16）</a>｜<a href="https://sorabatake.jp/44465/" target="_blank">宙畑</a></div>
+      </div>
+
+      <div class="email-preview">稲川様
+
+グローバルプロデュースの〇〇と申します。
+シリーズF 201億円のご調達、おめでとうございます。
+
+ウーブン・バイ・トヨタがリードで入った今回の調達は、
+宇宙×モビリティという文脈で別格のニュースでした。
+
+この規模の調達後、社員・投資家・パートナーが
+「次のフェーズへの本気度」を共有する場が
+必ず必要になります。
+
+テック系スタートアップの調達後キックオフを
+年間10件以上手がけており、
+採用応募2.8倍・eNPS+40ptの事例があります。
+お送りしてもよいですか？</div>
+
+      <div class="point"><strong>Point:</strong> 「突然のご連絡失礼いたします」なし。PAS構造で組織拡大の痛みを起点に課題提起。Interest CTAから「まとめました＋送っていいですか？」型（Offer CTA）に変更。Yes/Noの「No」で終わるリスクを回避。採用応募2.8倍・eNPS+40ptの数値で社会的証明。</div>
+    </div>
+  </div>
+
+  <!-- Pattern 2: マイルストーン -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num bg-mile">2</div>
+      <div>
+        <h3>マイルストーン達成シグナル — 楽天モバイル</h3>
+      </div>
+      <span class="tag tag-mile">大台突破</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc">企業が「○○突破」を発表するタイミングは、社内外に向けた記念イベントの最大のトリガーです。記者発表会、パートナー感謝祭、社員向け達成祝賀会などの需要が同時に動きます。</p>
+
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>楽天モバイル株式会社</strong>が2025年12月25日、契約数<strong>1,000万回線突破</strong>を発表。2020年4月のサービス開始から<strong>5年8ヶ月</strong>での達成。記念キャンペーンとして①SNSでオリジナルだるま・純金製SIMカード（レプリカ）が当たる抽選、②全国楽天モバイルショップでの1,000万ポイント山分けを実施中。三木谷浩史会長は「単なる通過点。次は衛星とAIで世界を変える」とコメント。</p>
+        <div class="source">出典: <a href="https://corp.mobile.rakuten.co.jp/news/press/2025/1225_01/" target="_blank">楽天モバイル プレスリリース（2025/12/25）</a>｜<a href="https://k-tai.watch.impress.co.jp/docs/news/2074558.html" target="_blank">ケータイ Watch</a></div>
+      </div>
+
+      <div class="email-preview">楽天モバイル株式会社
+イベント・コミュニケーション部 ご担当者様
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+契約数1,000万回線突破、
+誠におめでとうございます。
+後発参入から5年8ヶ月での大台達成、
+業界に大きなインパクトを与えています。
+
+社外向け記念キャンペーンはすでに始まっていますが、
+「社内」に向けた達成祝賀パーティーの
+ご予定はいかがでしょうか。
+
+弊社はZOZOTOWN様の全社忘年会
+「START TODAY CAMP」など
+数千人規模の社内イベントを手がけており、
+達成の熱量をそのまま「次のステージへの一体感」に
+変える演出を得意としております。
+
+事例資料をお送りしてもよろしいでしょうか。</div>
+
+      <div class="point"><strong>Point:</strong> 三木谷会長の「衛星とAIで世界を変える」という発言を引用し、読み手に「このメール書いた人、ちゃんとニュース読んでるな」と思わせる。外向けキャンペーンの存在に触れつつ「社内イベントは？」と自然にニーズを引き出す。</div>
+    </div>
+  </div>
+
+  <!-- Pattern 3: 新施設 -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num bg-office">3</div>
+      <div>
+        <h3>新施設・本社移転シグナル — KDDI</h3>
+      </div>
+      <span class="tag tag-office">竣工・移転</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc">新本社・新工場の竣工は、数百〜数千人規模の竣工式・お披露目イベントの確度が非常に高いシグナル。移転日の6〜12ヶ月前がアプローチの最適タイミングです。</p>
+
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>KDDI株式会社</strong>が2025年4月28日より順次「TAKANAWA GATEWAY CITY」（THE LINKPILLAR 1 NORTH）へ本社移転を開始。<strong>7月1日に新本社グランドオープン</strong>。飯田橋からの移転で<strong>22年ぶり</strong>の大移動。新本社のコンセプトは「100年先の心豊かなくらしのための実験場」。高輪は江戸時代に高輪大木戸として江戸の玄関口、約150年前に日本初の鉄道が走ったイノベーションの地。</p>
+        <div class="source">出典: <a href="https://newsroom.kddi.com/news/detail/kddi_nr-533_3814.html" target="_blank">KDDI News Room（2025/4/30）</a>｜<a href="https://www.businessinsider.jp/article/2507-kddi-new-office-takanawa-gateway-city/" target="_blank">Business Insider Japan</a></div>
+      </div>
+
+      <div class="email-preview">KDDI株式会社
+コーポレートコミュニケーション部 ご担当者様
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+TAKANAWA GATEWAY CITYへの本社移転、
+22年ぶりの大きな節目、
+誠におめでとうございます。
+
+「100年先の心豊かなくらしのための実験場」
+というコンセプトを拝見しました。
+高輪は日本初の鉄道が走った
+イノベーションの地ですね。
+
+弊社はKDDI様のスポーツフェスティバルを
+お手伝いさせていただいた実績がございます。
+新本社は「次の時代のKDDI」を象徴する場所です。
+
+7月1日のグランドオープンに合わせた
+社内お披露目イベントや、
+パートナー企業・メディア向けレセプションを
+新しい空間の魅力を最大限に引き出す形で
+プロデュースさせていただければと考えております。
+
+「実験場」というコンセプトに合わせた、
+従来型の式典とは異なる
+体験型のオープニングイベントのご提案も可能です。
+
+最新の事例をお持ちしながら、
+30分ほどお時間いただけませんでしょうか。</div>
+
+      <div class="point"><strong>Point:</strong> 「100年先の実験場」「日本初の鉄道の地」というKDDI自身のストーリーを引用し、「この人は我々のこだわりを理解している」と感じさせる。既存取引（スポーツフェス）にも言及してアップセルに繋げる。</div>
+    </div>
+  </div>
+
+  <!-- Pattern 4: IPO -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num bg-ipo">4</div>
+      <div>
+        <h3>IPO・上場シグナル — スマートニュース</h3>
+      </div>
+      <span class="tag tag-ipo">上場前後</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc">上場後1〜2ヶ月以内がアプローチ最適タイミング。AIが上場日を検知し、祝福メールを自動生成します。IPO前の多忙期を避け、達成感が最高潮の瞬間に届けます。</p>
+
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>スマートニュース株式会社</strong>が2026年中のIPOを計画中。主幹事は<strong>三菱UFJモルガン・スタンレー証券</strong>と<strong>野村證券</strong>を起用。2021年のシリーズFで約251億円を調達し、評価額は<strong>約2,200億円（20億ドル）</strong>に達した。国内有数のユニコーン企業として、上場すれば大型テックIPOとして注目される見込み。</p>
+        <div class="source">出典: <a href="https://diamond.jp/zai/articles/-/1062504" target="_blank">ダイヤモンド・ザイ 2026年IPO予想</a>｜<a href="https://www.ipokiso.com/company/future/0_smartnews.html" target="_blank">庶民のIPO</a></div>
+      </div>
+
+      <div class="email-preview">スマートニュース株式会社
+代表取締役 鈴木健様
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+ご上場おめでとうございます。
+評価額2,200億円のユニコーンとして、
+国内テック業界を代表する上場を
+心よりお祝い申し上げます。
+
+弊社は年間300本のビジネスイベントを手がけており、
+テック企業の上場記念レセプションに豊富な実績がございます。
+
+スマートニュースアプリの
+「ニュースが届く瞬間」をモチーフにした
+上場セレモニー演出や、
+創業からIPOまでの歩みを映像で振り返る
+コンテンツなど、
+貴社ならではのストーリーを形にいたします。
+
+ぜひ30分ほどお時間をいただき、
+上場記念イベントの事例をご紹介できればと存じます。
+ご都合のよい日時をお知らせいただけますでしょうか。</div>
+
+      <div class="point"><strong>Point:</strong> 「上場記念パーティー」だけでなく「上場前のカウントダウンイベント」を提案し、より早い段階で接点を作る。スマートニュースのプロダクト（ニュースアプリ）に合わせた演出案を具体的に提示し、「テンプレではない」ことを示す。</div>
+    </div>
+  </div>
+
+  <!-- Pattern 5: 大型プロジェクト竣工 -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num bg-hr">5</div>
+      <div>
+        <h3>大型プロジェクト竣工シグナル — TSMC熊本</h3>
+      </div>
+      <span class="tag tag-hr">式典需要</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc">竣工式は2027年以降。今から関係構築を始めることが受注への唯一のルート。政府・TSMC本社・ソニーが絡む大型案件ほど、担当者との信頼関係が早期から必要です。</p>
+
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>JASM（TSMC子会社）</strong>の熊本第1工場は2024年2月24日に開所式を実施、2024年12月に量産開始。隣接する<strong>第2工場</strong>は総投資額<strong>約1兆6,900億円</strong>（政府補助金最大7,320億円）で建設中。当初6nmだった製品仕様をより先端の<strong>4nm</strong>に見直し中。1,700人の追加雇用を見込む。第2工場の竣工式が2027年以降に予定されている。</p>
+        <div class="source">出典: <a href="https://www.reri.or.jp/report-and-news/tsmc-kumamoto-second-factory/" target="_blank">地方経済総合研究所</a>｜<a href="https://www.nikkei.com/article/DGXZQOUC191M00Z11C25A2000000/" target="_blank">日本経済新聞（2025/12）</a></div>
+      </div>
+
+      <div class="email-preview">JASM株式会社（TSMC熊本）
+Corporate Communications / 総務部 ご担当者様
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+弊社は日本語・中国語（繁体字・簡体字）
+バイリンガル対応のイベントプロデュースを
+得意としており、日台合同の式典・セレモニーを
+多数手がけております。
+
+第2工場の建設が順調に進んでいるとのこと、
+日本の半導体産業にとって歴史的なプロジェクトとして
+注目しております。
+
+2027年の竣工式に向けて、
+今の段階から情報交換をさせていただければ幸いです。
+政府関係者・メディアが出席する大規模式典は、
+準備期間の長さが演出の質を左右します。
+
+日台の産業協力を象徴する式典として、
+1,700名の新規雇用、4nm最先端チップの量産開始、
+そして熊本の地域経済への貢献——
+こうした多層的なストーリーを一つの式典で
+表現する演出をご提案できます。
+
+まずは弊社の事例資料をお送りいたします。
+お目通しいただけましたら、
+今後の進め方についてお話しできればと存じます。</div>
+
+      <div class="point"><strong>Point:</strong> 投資額「1兆6,900億円」、4nm、雇用「1,700名」と具体数字を散りばめ、リサーチの深さを示す。「日台の産業協力」「多層的なストーリー」と企業が自ら語りたい文脈で提案。日中バイリンガル対応はDRAGON EVENTSの強みにも繋がる。</div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2 ===== -->
+  <div class="section-header">
+    <h2>2. 英語・外国語アプローチ事例</h2>
+    <p>貴社が2025年11月に立ち上げた<strong>「DRAGON EVENTS」</strong>ブランド（インバウンドMICE特化）と直接連動します。<br>海外企業の日本開催イベント情報をAIが検知し、英語（および中国語・ドイツ語等）で<strong>企業ごとにパーソナライズされたアプローチメール</strong>を自動生成できます。</p>
+  </div>
+
+  <!-- EN Pattern A -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num bg-en">A</div>
+      <div>
+        <h3>インバウンドMICE — Agentforce World Tour Tokyo</h3>
+      </div>
+      <span class="tag tag-en">英語メール</span>
+    </div>
+    <div class="pattern-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>Salesforce</strong>が「Agentforce World Tour Tokyo 2025」を2025年11月20〜21日にザ・プリンス パークタワー東京で開催。<strong>175セッション、60社以上</strong>の事例を発表。次回「Agentforce World Tour Tokyo 2026」の開催も発表済み。Salesforceは日本での文化体験プログラム（ディナーイベント、チームビルディング）の現地パートナーを継続的に求めている。</p>
+        <div class="source">出典: <a href="https://www.salesforce.com/jp/news/press-releases/2025/11/20/agentforce-world-tour-tokyo/?bc=OTH" target="_blank">Salesforce Japan プレスリリース（2025/11/20）</a></div>
+      </div>
+
+      <div class="email-preview en">Dear [Name],
+
+Agentforce World Tour Tokyo 2025 — 175 sessions,
+60+ showcases — was a landmark event.
+As you plan the 2026 edition, I'd love to introduce
+our cultural programming through "DRAGON EVENTS,"
+built exclusively for global companies hosting in Japan.
+
+My name is 〇〇 from Global Produce (300+ events/year,
+USD 20M revenue). We produced the Michelin Guide
+Ceremony Kyoto/Osaka and events for BAT Japan and
+Invisalign. For World Tour 2026, we can offer:
+
+  - Traditional arts experiences
+    (Kabuki, Taiko, Tea Ceremony)
+  - Exclusive historic Tokyo venues
+    (shrines, Meiji-era estates)
+  - Michelin-starred culinary experiences
+    curated for international palates
+
+Would you be open to a 30-minute call?
+
+Best regards,
+Masaki Kouhata
+CEO, Global Produce / DRAGON EVENTS</div>
+
+      <div class="point"><strong>Point:</strong> 「175セッション、60社以上」と先方のイベント実績の具体数字に触れて敬意を示す。DRAGON EVENTSの具体的なコンテンツ（歌舞伎、太鼓、ミシュランシェフ、藍染体験）をリストアップし、「何ができるか」を即座に想像させる。</div>
+    </div>
+  </div>
+
+  <!-- EN Pattern B -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num bg-en">B</div>
+      <div>
+        <h3>海外企業の日本進出 — OpenAI東京オフィス拡大</h3>
+      </div>
+      <span class="tag tag-en">英語メール</span>
+    </div>
+    <div class="pattern-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>OpenAI</strong>がアジア初の拠点として2024年に東京オフィスを開設。日本法人代表に元Amazon Web Services日本法人副社長の<strong>長崎忠雄氏</strong>を任命。2025〜2026年にかけて日本の法人顧客向けセミナー・パートナーイベントを積極展開中。ソフトバンクとの戦略的提携も進行中。</p>
+        <div class="source">出典: OpenAI Japan公式発表（2024年）</div>
+      </div>
+
+      <div class="email-preview en">Dear Nagasaki-san,
+
+With OpenAI's deepening presence in Japan —
+including the recent SoftBank partnership and
+Stargate initiative — I imagine high-impact events
+are becoming a bigger part of your playbook here.
+
+I'm 〇〇 from Global Produce; we produce 300+
+business events annually in Tokyo for leading
+global and Japanese corporations.
+
+We can help create memorable experiences that
+resonate with Japanese business culture:
+
+  - Product launch events with cutting-edge
+    stage design (projection mapping,
+    3D CGI, immersive environments)
+  - Partner appreciation dinners blending
+    Japanese omotenashi hospitality
+    with Silicon Valley energy
+
+We've produced events for Rakuten, KDDI, KOSE,
+DeNA, and ZOZO. Our team is fully bilingual
+(Japanese/English).
+
+I'd welcome the opportunity to share recent
+case studies. Shall we schedule a brief call?
+
+Best regards,
+Masaki Kouhata
+CEO, Global Produce / DRAGON EVENTS</div>
+
+      <div class="point"><strong>Point:</strong> 日本法人代表「長崎忠雄氏」を名前で知っていることを示す。「おもてなし × Silicon Valley」というOpenAIの文化に刺さるフレーズを使用。</div>
+    </div>
+  </div>
+
+  <!-- EN Pattern C -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num bg-en">C</div>
+      <div>
+        <h3>グローバルアワード横展開 — ミシュランガイド</h3>
+      </div>
+      <span class="tag tag-en">英語メール</span>
+    </div>
+    <div class="pattern-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>ミシュランガイドセレモニー京都・大阪 2025</strong>をグローバルプロデュースがプロデュース（既存顧客）。AIがミシュランの日本プログラム拡大を検知——東京・北海道での追加セレモニー開催が計画されている。北海道ではニセコ・富良野エリアのラグジュアリーリゾートとの連携も進行中。</p>
+        <div class="source">出典: GP社実績情報</div>
+      </div>
+
+      <div class="email-preview en">Dear [First Name],
+
+Thank you once again for the wonderful
+collaboration on the Kyoto/Osaka 2025
+ceremony — it was a privilege to bring
+that vision to life.
+
+We understand Michelin is exploring
+expanded programming across Japan.
+We would be honored to bring the same
+level of excellence to new editions
+in Tokyo and Hokkaido.
+
+For the Hokkaido edition specifically:
+
+  - Exclusive venues in Sapporo and Niseko's
+    luxury resort properties
+  - Local culinary storytelling connecting
+    Hokkaido's extraordinary terroir
+    to the Michelin philosophy
+  - Bilingual MC and full production crew
+    experienced in international
+    award ceremonies
+  - Sub-zero outdoor experiences (ice bar,
+    snow dining) that Hokkaido uniquely enables
+
+We also produce events in Mandarin,
+German, and French through our
+"DRAGON EVENTS" brand.
+
+Shall we set up a planning call for next week?</div>
+
+      <div class="point"><strong>Point:</strong> 既存取引関係を最大限に活用した横展開。「北海道ならでは」のアイスバー、スノーダイニングといった具体的な演出案で「次もお願いしたい」と思わせる。</div>
+    </div>
+  </div>
+
+  <!-- Language table -->
+  <div class="pattern" style="padding: 28px;">
+    <h3 style="margin-bottom: 16px; font-size: 15px;">多言語対応一覧</h3>
+    <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">すべて、AIが各企業の最新ニュースを現地語で収集し、パーソナライズされた文面を自動生成します。<br>テンプレートの一斉送信ではなく、<strong>1社1社調べた上でのアプローチ</strong>である点は日本語版と全く同じです。</p>
+    <table class="lang-table">
+      <thead>
+        <tr><th>言語</th><th>対象市場</th><th>ユースケース</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>英語</strong></td><td>米国・英国・豪州・ASEAN</td><td>テック企業カンファレンス、インセンティブトリップ</td></tr>
+        <tr><td><strong>中国語（繁体・簡体）</strong></td><td>台湾・香港・中国本土</td><td>インバウンドMICE（TSMC等の半導体関連も）</td></tr>
+        <tr><td><strong>ドイツ語</strong></td><td>ドイツ・スイス・オーストリア</td><td>製造業カンファレンス、Hannover Messe連動</td></tr>
+        <tr><td><strong>フランス語</strong></td><td>フランス・ベルギー</td><td>ラグジュアリーブランド、ガラディナー</td></tr>
+        <tr><td><strong>韓国語</strong></td><td>韓国</td><td>エンタメ関連イベント、企業インセンティブ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+<div class="footer">
+  <div class="container">
+    本資料は株式会社XDeliが作成しました。｜ Confidential
+  </div>
+</div>
+
+</body>
+</html>

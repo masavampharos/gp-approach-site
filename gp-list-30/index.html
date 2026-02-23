@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AIリサーチ×アプローチメール 30社事例集 — グローバルプロデュース様向け</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --primary: #1a1a2e;
+    --accent: #e94560;
+    --accent2: #0f3460;
+    --bg: #f5f5f7;
+    --card: #ffffff;
+    --text: #2d2d2d;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --c-saas: #7c3aed;
+    --c-enterprise: #0284c7;
+    --c-hr: #059669;
+    --c-award: #d97706;
+    --c-global: #dc2626;
+    --c-kickoff: #2563eb;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    color: white;
+    padding: 64px 40px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 30px; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 10px; }
+  .hero .subtitle { font-size: 14px; opacity: 0.75; font-weight: 300; margin-bottom: 20px; }
+  .hero .badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 16px; }
+  .hero .badge {
+    display: inline-block; color: white; font-size: 11px; font-weight: 600;
+    padding: 4px 14px; border-radius: 20px; letter-spacing: 0.08em;
+  }
+  .badge-red { background: var(--accent); }
+  .badge-blue { background: var(--accent2); }
+  .badge-green { background: #059669; }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* 概要ボックス */
+  .overview {
+    background: var(--card); border-radius: 14px; border: 1px solid var(--border);
+    padding: 36px 40px; margin: -32px auto 48px; position: relative; z-index: 1;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+  }
+  .overview h2 { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; }
+  .overview p { font-size: 14px; line-height: 1.85; margin-bottom: 12px; }
+  .overview p:last-child { margin-bottom: 0; }
+  .overview .highlight { background: #fef3c7; padding: 2px 6px; border-radius: 4px; font-weight: 500; }
+
+  /* カテゴリヘッダー */
+  .cat-header {
+    margin: 56px 0 24px;
+    padding: 20px 28px;
+    border-radius: 12px;
+    color: white;
+  }
+  .cat-header h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .cat-header p { font-size: 13px; opacity: 0.85; }
+  .cat-saas { background: linear-gradient(135deg, #5b21b6, #7c3aed); }
+  .cat-enterprise { background: linear-gradient(135deg, #075985, #0284c7); }
+  .cat-hr { background: linear-gradient(135deg, #065f46, #059669); }
+  .cat-award { background: linear-gradient(135deg, #92400e, #d97706); }
+  .cat-global { background: linear-gradient(135deg, #991b1b, #dc2626); }
+
+  /* 会社カード */
+  .company-card {
+    background: var(--card); border-radius: 14px; border: 1px solid var(--border);
+    margin-bottom: 36px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  }
+  .card-header {
+    padding: 20px 28px; display: flex; align-items: flex-start; gap: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .card-num {
+    width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; color: white;
+  }
+  .card-header-info h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .card-header-info .meta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 6px;
+    white-space: nowrap;
+  }
+  .tag-saas { background: #ede9fe; color: var(--c-saas); }
+  .tag-enterprise { background: #e0f2fe; color: var(--c-enterprise); }
+  .tag-hr { background: #d1fae5; color: var(--c-hr); }
+  .tag-award { background: #fef3c7; color: var(--c-award); }
+  .tag-global { background: #fee2e2; color: var(--c-global); }
+  .tag-kickoff { background: #dbeafe; color: var(--c-kickoff); }
+
+  .card-body { padding: 24px 28px; }
+
+  /* シグナルボックス */
+  .signal-box {
+    background: #f8faff; border-left: 4px solid var(--accent2);
+    border-radius: 0 10px 10px 0; padding: 18px 22px; margin-bottom: 20px;
+  }
+  .signal-box .label {
+    font-size: 11px; font-weight: 700; color: var(--accent2);
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .signal-box p { font-size: 13.5px; line-height: 1.75; }
+  .signal-box .source { font-size: 11px; color: var(--muted); margin-top: 10px; }
+  .signal-box .source a { color: var(--accent2); text-decoration: none; }
+  .signal-box .source a:hover { text-decoration: underline; }
+
+  /* メールプレビュー */
+  .email-wrap { position: relative; margin-bottom: 18px; }
+  .email-label {
+    position: absolute; top: -10px; left: 16px; z-index: 1;
+    font-size: 10px; font-weight: 700; padding: 2px 12px; border-radius: 4px;
+    color: white; letter-spacing: 0.08em;
+  }
+  .email-preview {
+    background: #1e1e2e; color: #cdd6f4; border-radius: 12px; padding: 26px 28px;
+    font-family: 'Inter', 'Noto Sans JP', monospace; font-size: 13px;
+    line-height: 1.85; white-space: pre-wrap;
+  }
+
+  /* ポイント */
+  .point-box {
+    background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px;
+    padding: 14px 18px; font-size: 13px; line-height: 1.7;
+  }
+  .point-box strong { color: #b45309; }
+
+  /* 仕切り */
+  .divider { border: none; border-top: 2px dashed var(--border); margin: 12px 0 24px; }
+
+  /* 多言語テーブル */
+  .lang-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; }
+  .lang-table th { background: var(--primary); color: white; padding: 10px 16px; text-align: left; font-weight: 500; font-size: 12px; }
+  .lang-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); }
+  .lang-table tr:nth-child(even) td { background: #f9fafb; }
+
+  /* 英語メール */
+  .email-preview.en { }
+
+  /* フッター */
+  .footer { text-align: center; padding: 48px 0; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 64px; }
+
+  /* カラーユーティリティ */
+  .bg-saas { background: var(--c-saas); }
+  .bg-enterprise { background: var(--c-enterprise); }
+  .bg-hr { background: var(--c-hr); }
+  .bg-award { background: var(--c-award); }
+  .bg-global { background: var(--c-global); }
+  .bg-kickoff { background: var(--c-kickoff); }
+  .label-saas { background: var(--c-saas); }
+  .label-enterprise { background: var(--c-enterprise); }
+  .label-hr { background: var(--c-hr); }
+  .label-award { background: var(--c-award); }
+  .label-global { background: var(--c-global); }
+  .label-kickoff { background: var(--c-kickoff); }
+
+  @media (max-width: 640px) {
+    .hero { padding: 48px 20px; }
+    .hero h1 { font-size: 22px; }
+    .container { padding: 0 16px; }
+    .overview, .card-body, .card-header { padding-left: 18px; padding-right: 18px; }
+    .email-preview { padding: 20px 16px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>AIリサーチ × アプローチメール 30社事例集</h1>
+  <div class="subtitle">グローバルプロデュース様向け｜株式会社XDeli｜2026年2月</div>
+  <div class="badges">
+    <span class="badge badge-red">CONFIDENTIAL</span>
+    <span class="badge badge-blue">GPリスト ランクS企業から30社選定</span>
+    <span class="badge badge-green">全社 実在ニュースに基づく文面</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="overview">
+    <h2>このページについて</h2>
+    <p>本ページは、グローバルプロデュース様の<span class="highlight">コールセンター送付リスト（ランクS企業）</span>の中から30社を選定し、各社の最新ニュース・業績・イベント実績をAIでリサーチした上で作成した<strong>ハイパーパーソナライズメール文面</strong>の事例集です。</p>
+    <p><strong>「読む楽しさ」の設計方針：</strong>メールの前半は「この会社のことを本当に調べた」と感じさせる情報量で書く。単なる褒め言葉ではなく、<span class="highlight">具体的な数字・人名・出来事・ニュース</span>を織り込むことで、開封後すぐに「自分たちのための文章だ」と認識させる。グローバルプロデュースジャーナルのトピック（AI活用・DRAGON EVENTS・実績数字）も自然に盛り込みます。</p>
+    <p><strong>対象企業の選定基準：</strong>①情報発信が活発でリサーチ素材が豊富、②社員総会・キックオフ・アワード・カンファレンスなどGPの得意領域とのマッチが高い、③ナショナルクライアント規模で成約単価が期待できる、の3点を重視しました。</p>
+  </div>
+
+  <!-- ========== CATEGORY 1: SaaS/スタートアップ ========== -->
+  <div class="cat-header cat-saas">
+    <h2>🚀 カテゴリ1｜SaaS・スタートアップ（8社）</h2>
+    <p>急成長中のSaaS企業は毎年の「全社キックオフ」「社員総会」「ユーザーカンファレンス」が定例化。組織拡大のたびにイベント規模が大きくなるため、継続受注の可能性が高い。</p>
+  </div>
+
+  <!-- 1. Sansan -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-saas">1</div>
+      <div class="card-header-info">
+        <h3>Sansan株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-saas">SaaS</span>
+          <span class="tag tag-award">ユーザーカンファレンス</span>
+          <span class="tag tag-kickoff">AIファースト営業</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>Sansan株式会社</strong>（代表取締役CEO：寺田親弘氏）は、名刺管理サービス「Sansan」でシェア84%を誇る国内SaaS最大手の一角。2025年5月期末、新AI機能「Contract One」の契約件数が前年比<strong>77.0%増</strong>を記録。「AIファースト」を掲げ、1時間かかっていた営業準備が5分に短縮されるとする事例が日経ビジネスで特集された。毎年秋に開催する大規模ユーザーカンファレンス<strong>「Sansan Innovation Summit」</strong>は日本最大級のビジネスカンファレンスのひとつで、数千名規模での開催実績あり。</p>
+        <div class="source">出典: <a href="https://business.nikkei.com/atcl/gen/19/00843/021300006/" target="_blank">日経ビジネス「AIファースト営業で契約77%増」</a>｜<a href="https://jp.corp-sansan.com/news/" target="_blank">Sansan News</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-saas">生成されるメール文面</div>
+        <div class="email-preview">Sansan株式会社
+コーポレート本部 御中
+（または イベント担当部署 御中）
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+Contract Oneの契約件数が前年比77.0%増——
+日経ビジネスでの特集記事を拝見し、
+「AIが営業の1時間を5分に変える」というキャッチコピーに
+思わず手を止めました。
+
+イベントプロデュース業界でも今まさに同じことが起きています。
+弊社グローバルプロデュースでは、代表の光畑が
+2026年の年頭ご挨拶で「AI専任プランナー参画」
+「全社員4モニター体制でAIを常時起動」という
+AI全面活用を宣言いたしました。
+「優秀な人間を24時間動かす」ことへの問いかけは、
+SaaSとイベントプロデュース、業種は違えど
+同じベクトルを向いているのだと感じています。
+
+弊社は年間250件以上のビジネスイベントをプロデュースしており、
+SaaS企業様のユーザーカンファレンスや全社キックオフを
+数多く手がけております。
+
+「Sansan Innovation Summit」のような
+数千名規模のカンファレンスは、
+登壇者の魅せ方・会場の動線設計・ネットワーキングの演出まで、
+イベントそのものが「Sansanというブランドの体験」になる
+絶好の機会です。
+
+AIが「データをつなぐ」なら、
+弊社は「人と体験をつなぐ」——
+ぜひ一度、事例をご覧いただけませんでしょうか。
+
+30分ほどお時間いただけますと幸いです。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「Contract One 77%増」という具体数字でリサーチの深さを示す。GPの光畑代表のAI宣言を引用し「同じ問いを持つ会社」という共感を演出。「データをつなぐ vs 人をつなぐ」の対比でGPの存在価値を一行で表現する。</div>
+    </div>
+  </div>
+
+  <!-- 2. SmartHR -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-saas">2</div>
+      <div class="card-header-info">
+        <h3>株式会社SmartHR</h3>
+        <div class="meta">
+          <span class="tag tag-saas">SaaS</span>
+          <span class="tag tag-kickoff">ユーザーカンファレンス</span>
+          <span class="tag tag-hr">HR Tech</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>株式会社SmartHR</strong>は2024年7月、KKR・Ontario Teachers'をリード投資家として<strong>約214億円</strong>のシリーズE調達を完了。評価額は<strong>約1,674億円</strong>に達し、国内HR Techのユニコーン最有力。ARR（年間経常収益）は前年比150%成長で推移。2025年12月にはITコンサル企業をグループ会社化し、エンタープライズ向け展開を加速。毎年開催の<strong>「SmartHR Connect」</strong>はHR Tech分野で注目度の高いユーザーカンファレンス。2026年のIPOも視野に入っており、上場記念イベントの需要も想定される。</p>
+        <div class="source">出典: <a href="https://smarthr.co.jp/news/info/26682/" target="_blank">SmartHR「ARR150億円突破」</a>｜<a href="https://journal.nstock.com/article/smarthr_fund_raise" target="_blank">Stock Journal「214億円調達の裏側」</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-saas">生成されるメール文面</div>
+        <div class="email-preview">株式会社SmartHR
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+KKRとOntario Teachers'をリードに
+214億円の大型調達、誠におめでとうございます。
+評価額1,674億円というバリュエーションは、
+SmartHRが「日本の人事・労務の基盤インフラ」として
+市場に評価された証だと感じています。
+
+ARR前年比150%成長——この数字の裏には、
+新しい組織と向き合ってきた
+数万社の人事担当者の皆様の信頼があります。
+
+弊社グローバルプロデュースは、年間250件以上の
+ビジネスイベントをプロデュースしており、
+急成長SaaS企業様の「ユーザーカンファレンス」を
+特に得意としております。
+
+「SmartHR Connect」のようなイベントは、
+単なる機能発表の場を超えて、
+「SmartHRというブランドとともに成長してきた」
+という顧客のロイヤルティを可視化する場です。
+
+AIで自動化されていく業務が増える中で、
+「リアルで人と人が出会い、感情が動く体験」の価値は
+むしろ高まっています。
+弊社のイベントプロデュースは
+まさにその「感情創造」を核としています。
+
+もしIPOに向けて社内外の士気を
+さらに高めるタイミングがあれば、
+ぜひお力になれればと考えております。
+
+事例集をお送りできれば幸いです。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「214億円」「1,674億円」「ARR150%」と3つの具体数字を前半に。GPの「感情創造」というキーワード（GPジャーナル由来）を末尾に配置し、「AIにはできないことを我々がやる」という文脈で接続。IPO時の上場記念イベントまで視野に入れた長期提案。</div>
+    </div>
+  </div>
+
+  <!-- 3. ビジョナル -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-saas">3</div>
+      <div class="card-header-info">
+        <h3>ビジョナル株式会社（ビズリーチ）</h3>
+        <div class="meta">
+          <span class="tag tag-saas">上場SaaS</span>
+          <span class="tag tag-kickoff">全社キックオフ</span>
+          <span class="tag tag-award">HR SUCCESS SUMMIT</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>ビジョナル株式会社</strong>（東証プライム：4194）は2025年7月期の連結売上高<strong>約802億円（前年比121%）</strong>、経常利益<strong>227億円（前年比23%増）</strong>で6期連続過去最高益更新見通し。傘下のビズリーチが主催する<strong>「HR SUCCESS SUMMIT」</strong>は2025年7月10日に国際フォーラム ホールEで開催（2,500名超が参加した前回を上回る規模を目指す）。グループミッション「新しい可能性を、次々と。」のもと、M&A・物流DX・人材と事業を急拡大中。</p>
+        <div class="source">出典: <a href="https://bizreach.biz/landing/hrss/2025/" target="_blank">HR SUCCESS SUMMIT 2025 公式</a>｜<a href="https://www.visional.inc/ja/ir.html" target="_blank">ビジョナル IR</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-saas">生成されるメール文面</div>
+        <div class="email-preview">ビジョナル株式会社
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+2025年7月期の経常利益が前年比23%増で
+6期連続の最高益更新見込みとのこと、
+「新しい可能性を、次々と。」というミッションが
+数字で体現されている姿に感銘を受けました。
+
+ビズリーチ・HRMOS・BizReach SUCCEED・トラボックスと
+事業の幅が広がるにつれ、
+「グループ全体が同じ方向を向く瞬間」を
+どう設計するかがますます重要になるかと思います。
+
+HR SUCCESS SUMMITの2,500名超という規模、
+国際フォーラムという会場の格——
+この場で積み重ねてきたノウハウを
+「全社員向けの年次キックオフ」や
+「グループ合同の新春イベント」にも
+応用できればと考えております。
+
+弊社グローバルプロデュースは
+年間250件以上のビジネスイベントを担当しており、
+急成長グループ企業の「求心力を高める場」を
+設計するのが得意分野の一つです。
+
+まずは事例集をお送りしてもよろしいでしょうか？</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「6期連続最高益」という成長の文脈から「組織の求心力維持」という課題を自然に引き出す。HR SUCCESS SUMMITの実績数字（2,500名・国際フォーラム）に言及し、イベント知見への敬意を示しながらアップセルへ繋げる。</div>
+    </div>
+  </div>
+
+  <!-- 4. ラクスル -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-saas">4</div>
+      <div class="card-header-info">
+        <h3>ラクスル株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-saas">上場SaaS</span>
+          <span class="tag tag-kickoff">Vision DAY</span>
+          <span class="tag tag-enterprise">中小企業DX</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>ラクスル株式会社</strong>は「仕組みを変えれば、世界はもっと良くなる」をビジョンに掲げ、印刷・広告・物流・HR の産業DXを推進。FY2026は「グループエコシステム元年」を宣言、複数事業の横断連携でEnd-to-end型の経営課題解決プラットフォームを目指す。社内最大イベント<strong>「Vision DAY」</strong>は毎年1回、「M&A」「AI」「エコシステム」など時代のテーマを軸に全社員が一堂に会するイベント。2025年版でも特別対談セッションを複数実施し、グループ全体の方向性を確認する重要行事となっている。</p>
+        <div class="source">出典: <a href="https://note.raksul.com/n/n459f71fe4c70" target="_blank">ラクスル note「Vision Day 2025を開催しました」</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-saas">生成されるメール文面</div>
+        <div class="email-preview">ラクスル株式会社
+人事・広報部門 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「仕組みを変えれば、世界はもっと良くなる」——
+この一文に込められた哲学が、
+印刷、広告、物流、HRと
+まったく異なる産業を横断して
+体現され続けているのが本当に面白いと思っています。
+
+FY2026を「グループエコシステム元年」と位置づけ、
+M&A・AI・複数事業の連携を一気に推し進める——
+その「全員が同じ地図を見て走り出す瞬間」を
+Vision DAYが担っているのだと理解しています。
+
+弊社グローバルプロデュースは年間250件以上の
+ビジネスイベントを手がけており、
+「ビジョンを言葉ではなく体験として届ける」
+イベント演出を得意としています。
+
+たとえば、Vision DAYのオープニング映像で
+「ラクスルが変えた産業の数字」を
+リアルタイムで積み上げていく演出や、
+グループ各社のメンバーが「自分事」として
+ビジョンを語るワークショップの設計など——
+
+「年に一度、全員の心が揃う日」を
+さらに印象深いものにするお手伝いができればと思います。
+
+まずは事例集をお送りしてもよろしいでしょうか？</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> ビジョン文言を冒頭に引用し「ちゃんと読んでいる」を示す。「グループエコシステム元年」という自社の文脈に乗せて課題（全員が同じ地図を見る）を提示。演出例を2パターン具体的に提示することで即座にイメージさせる。</div>
+    </div>
+  </div>
+
+  <!-- 5. マネーフォワード -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-saas">5</div>
+      <div class="card-header-info">
+        <h3>株式会社マネーフォワード</h3>
+        <div class="meta">
+          <span class="tag tag-saas">上場SaaS</span>
+          <span class="tag tag-kickoff">社員総会</span>
+          <span class="tag tag-enterprise">フィンテック</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>株式会社マネーフォワード</strong>（代表取締役社長CEO：辻庸介氏）は法人向けSaaS ARRが前年比<strong>34%増で過去最高純増</strong>を記録。FY2026にAI投資に約20億円を投資予定で、AIエージェントを実装した次世代バックオフィスを開発中。2026年2月には会計ソフトのクラウド移行キャンペーンを開始し、既存顧客のDX推進を加速。年次の全社大型イベント「マネーフォワード社員総会」は参加者1,400名超、グループ企業含む一体感醸成の場として重要視されている。</p>
+        <div class="source">出典: <a href="https://corp.moneyforward.com/news/release/service/20260202-mf-press-1/" target="_blank">マネーフォワード 2026/2/2 プレスリリース</a>｜<a href="https://finance.logmi.jp/articles/382836" target="_blank">ログミーFinance「ARR過去最高」</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-saas">生成されるメール文面</div>
+        <div class="email-preview">株式会社マネーフォワード
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+法人向けARRの純増が過去最高を更新——
+辻CEOが「FY2026はAIに約20億円を投資し、
+バックオフィスをエージェント化する」と
+おっしゃっているのを拝見し、
+マネーフォワードが次のフェーズに入ったと
+強く感じています。
+
+「お金を前へ。人生をもっと自由に。」というミッションは
+個人向けアプリから始まり、
+今や企業の経営基盤そのものを変えようとしている——
+その進化の物語を、毎年の社員総会が
+「社員全員の記憶」として刻んでいる場だと思います。
+
+弊社グローバルプロデュースは
+ZOZOTOWNやKDDI、資生堂といった
+大手企業の全社イベントを年間250件以上担当しており、
+「1,400名が一堂に会する大型総会」の
+演出設計を得意としております。
+
+特に、成長フェーズの企業が直面する
+「創業期の熱量を、組織が大きくなっても伝え続ける」という
+課題に対して、映像・空間・進行の三位一体で
+解決策をご提案することが可能です。
+
+ぜひ一度、事例をご覧いただけますでしょうか。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「ARR過去最高」「AI20億円投資」の2つの数字でリサーチ感を演出。ミッション文言を引用しつつ「物語の進化」という視点で共感を引く。GPの既存クライアント（ZOZO・KDDI・資生堂）を列挙して信頼感を醸成。</div>
+    </div>
+  </div>
+
+  <!-- 6. freee -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-saas">6</div>
+      <div class="card-header-info">
+        <h3>freee株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-saas">上場SaaS</span>
+          <span class="tag tag-kickoff">freee Spirit（全社キックオフ）</span>
+          <span class="tag tag-hr">中小企業向け</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>freee株式会社</strong>は「スモールビジネスを、世界の主役に。」をミッションに会計・人事労務SaaSを展開。GPのリサーチリストには「freee Spirit（全社キックオフ）」「freee Advisor Day」の2イベントが登録されており、定期的に大型社内・社外イベントを開催。社員数は1,700名超に成長し、毎年恒例の全社キックオフ「freee Spirit」は会場を借り切って開催する規模のイベントとして社内外に知られる。2025〜2026年は中小企業のAI活用支援を強化中。</p>
+        <div class="source">出典: <a href="https://note.com/kussy_freee/n/n27d8d401e3b0" target="_blank">freee「freee Spirit」note記事</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-saas">生成されるメール文面</div>
+        <div class="email-preview">freee株式会社
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「スモールビジネスを、世界の主役に。」——
+このミッションを掲げた会社が
+1,700名を超える組織になった時、
+「全員がスモールビジネスのために戦っている」
+という実感をどうつなぎとめるか——
+freee Spiritはその答えの一つだと思っています。
+
+会計・労務・申告と、
+バックオフィスの煩雑さを取り除くことで
+「本来やりたいこと」に集中できる世界を作る——
+その哲学を、年に一度の全社キックオフで
+「体験として届ける」ことは、
+AIで効率化できない、人間にしかできない仕事だと思います。
+
+弊社グローバルプロデュースは
+急成長SaaS企業の全社イベントを多数担当しており、
+「ミッションを言葉ではなく感情として届ける演出」を
+得意としています。
+
+freee Spiritをさらに進化させる
+プロデュースのご提案が可能です。
+
+30分ほどお時間いただけますでしょうか。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「1,700名に成長した今だからこそ、ミッションをどうつなぎとめるか」という課題提起でリアリティを出す。「AIで効率化できないことを我々がやる」という文脈は、freeeの顧客（中小企業）が抱える課題とも共鳴する。</div>
+    </div>
+  </div>
+
+  <!-- 7. サイボウズ -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-saas">7</div>
+      <div class="card-header-info">
+        <h3>サイボウズ株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-saas">上場SaaS</span>
+          <span class="tag tag-kickoff">Cybozu Days</span>
+          <span class="tag tag-award">kintone hive</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>サイボウズ株式会社</strong>は「チームワークあふれる社会を創る」をミッションに、kintone・Garoon・cybozu.comを展開。毎年開催のユーザーカンファレンス<strong>「Cybozu Days」</strong>は東京ビッグサイト等で数千名規模で開催し、外部登壇者や展示ブースも充実した大型B2Bイベント。また<strong>「kintone hive」</strong>はユーザーによる活用事例発表の場として年間を通じて各地で開催し、最終大会（東京）は特に盛況。2025年以降はAI連携機能の強化が報じられており、イベントコンテンツのアップデート需要も高い。</p>
+        <div class="source">出典: <a href="https://cybozu.co.jp/" target="_blank">サイボウズ公式</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-saas">生成されるメール文面</div>
+        <div class="email-preview">サイボウズ株式会社
+マーケティング本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「チームワークあふれる社会を創る」という言葉は、
+kintoneの導入事例を読むたびに
+地方の製造業、医療法人、NPOと
+業種を超えて体現されているのが伝わります。
+
+Cybozu Daysは、そのストーリーを持ち寄る場——
+「自分たちの使い方がここに載っている」と
+ユーザーが誇りを感じ、
+「こんな使い方もあるのか」と
+新たな可能性に目が開く場だと思っています。
+
+弊社グローバルプロデュースは
+大型B2Bカンファレンスの演出設計を得意とし、
+OpenAIジャパンのDevDayや
+NRI未来創発フォーラムなどを担当しております。
+
+kintone hiveの最終大会のような
+「ユーザーが主役の舞台」において、
+登壇者が最大限輝けるステージ演出と、
+参加者の熱量が会場全体に広がる
+空間設計をご提案できます。
+
+ぜひ一度、事例をご覧いただけますでしょうか。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「ユーザーが主役」というサイボウズのイベントの哲学に寄り添った切り口。GPの実績（OpenAI DevDay、NRI）を挙げて信頼感を示す。「登壇者が輝く」「熱量が広がる」という具体的な価値提案。</div>
+    </div>
+  </div>
+
+  <!-- 8. MIXI -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-saas">8</div>
+      <div class="card-header-info">
+        <h3>株式会社MIXI</h3>
+        <div class="meta">
+          <span class="tag tag-saas">上場・エンタメ</span>
+          <span class="tag tag-award">MIXI AWARD</span>
+          <span class="tag tag-kickoff">全社総会</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>株式会社MIXI</strong>（代表取締役CEO：木村弘毅氏）は2024年12月に新SNS<strong>「mixi2」</strong>をリリース。モンスターストライクは累計利用者数<strong>6,300万人超・累計売上1.3兆円超</strong>（2024年10月時点）の超ロングランIPに成長。2026年3月期にモンストのインド版リリースを計画するなど海外展開を加速。スポーツ事業では400億円規模のM&Aも実施し、FC東京・千葉ジェッツなどを傘下に持つ。「MIXI AWARD」は全社総会の目玉として、理念を体現した社員を表彰する重要イベント。</p>
+        <div class="source">出典: <a href="https://www.gamebusiness.jp/article/2025/06/12/24409.html" target="_blank">GameBusiness.jp「MIXIゲーム事業利益率47%」</a>｜<a href="https://diamond.jp/articles/-/361459" target="_blank">ダイヤモンド「スポーツと海外を強化」</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-saas">生成されるメール文面</div>
+        <div class="email-preview">株式会社MIXI
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+モンスト累計1.3兆円、mixi2リリース、
+スポーツ事業400億円M&A、インド版モンスト開発——
+MIXIが「つながりを軸に世界を広げる」
+フェーズに入ったことを、
+2025〜2026年の動きが鮮明に物語っています。
+
+「コミュニティ」を原点に持つMIXIが、
+ゲーム・スポーツ・SNSと事業を広げながら
+「MIXIらしさ」をどう組織全体で保ち続けるか——
+その問いに向き合う場が、全社総会であり
+MIXI AWARDではないかと思っています。
+
+FC東京・千葉ジェッツなど
+スポーツクラブを持つMIXIならではの
+「選手とファンとビジネスパーソンが一体になる」
+大型イベントの可能性も
+ぜひ一緒に考えてみたいと思っています。
+
+弊社グローバルプロデュースは年間250件以上の
+ビジネスイベントをプロデュースしており、
+エンタメ×ビジネスのクロスオーバーが得意分野です。
+
+ぜひ事例をご覧ください。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「1.3兆円・400億M&A・mixi2・インド」と4つの最新ニュースを凝縮。スポーツクラブ保有という「MIXIならでは」の要素からユニークな大型イベント提案へ展開。エンタメ×ビジネスという文脈でGPの強みと自然に接続。</div>
+    </div>
+  </div>
+
+  <!-- ========== CATEGORY 2: エンタープライズ/大手 ========== -->
+  <div class="cat-header cat-enterprise">
+    <h2>🏢 カテゴリ2｜エンタープライズ・大手企業（8社）</h2>
+    <p>年間イベント予算が大きく、グローバル対応・多拠点対応が求められる大手企業群。GPのDRAGON EVENTSブランドとの連携も有効。</p>
+  </div>
+
+  <!-- 9. KDDI -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-enterprise">9</div>
+      <div class="card-header-info">
+        <h3>KDDI株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-enterprise">通信大手</span>
+          <span class="tag tag-kickoff">KDDI SUMMIT</span>
+          <span class="tag tag-award">既存顧客</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>KDDI株式会社</strong>は2025年7月1日、品川「TAKANAWA GATEWAY CITY」に本社移転（THE LINKPILLAR 1 NORTH）。飯田橋から<strong>22年ぶり</strong>の大移動で、新本社コンセプトは「100年先の心豊かなくらしのための実験場」。高輪は日本初の鉄道が走ったイノベーションの地であるという歴史的文脈も持つ。グローバルプロデュースとはスポーツフェスティバルで既存取引実績あり。<strong>「KDDI SUMMIT 2025」</strong>は大型カンファレンスとして業界注目度も高い。</p>
+        <div class="source">出典: <a href="https://newsroom.kddi.com/news/detail/kddi_nr-533_3814.html" target="_blank">KDDI News Room 本社移転発表</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-enterprise">生成されるメール文面（既存顧客フォロー版）</div>
+        <div class="email-preview">KDDI株式会社
+総務部 / イベント担当部署 御中
+
+いつもお世話になっております。
+グローバルプロデュースの〇〇です。
+
+先日のスポーツフェスティバルでは
+大変お世話になりました。
+本日はKDDI様の新しい門出に
+ぜひお力になれればとご連絡いたしました。
+
+TAKANAWA GATEWAY CITYへの移転、
+22年ぶりの大きな節目、
+誠におめでとうございます。
+
+「100年先の心豊かなくらしのための実験場」——
+このコンセプトを拝見した瞬間、
+「これはただのオフィス移転ではない」と感じました。
+高輪は日本初の鉄道が走った場所。
+テクノロジーで人々の暮らしを変えてきた
+KDDIの歴史と、この土地の持つ
+イノベーションの記憶が重なります。
+
+移転後の最初の大型イベントは
+「新しいKDDIの始まり」を
+社内外に宣言する場になります。
+
+グランドオープンに合わせた
+パートナー企業・メディア向けレセプション、
+または全社員向けの「新本社キックオフ」——
+「実験場」というコンセプトに合わせた
+体験型の演出で、従来の式典とは
+一線を画すイベントをご提案できます。
+
+ぜひ一度ご相談させていただけますでしょうか。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 既存顧客として関係性から入りつつ、「22年ぶり・実験場・日本初の鉄道の地」という3つの固有情報でリサーチの深さを示す。「これはただの移転ではない」という解釈を提示してGPの感性の高さを印象づける。</div>
+    </div>
+  </div>
+
+  <!-- 10. 楽天 -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-enterprise">10</div>
+      <div class="card-header-info">
+        <h3>楽天グループ株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-enterprise">メガ企業</span>
+          <span class="tag tag-kickoff">楽天新春カンファレンス</span>
+          <span class="tag tag-award">楽天テクノロジーカンファレンス</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>楽天グループ株式会社</strong>は連結従業員数<strong>30,830名</strong>、売上高<strong>2兆2,792億円</strong>の国内最大級IT企業。2025年は楽天モバイルが契約数1,000万回線を突破し、Rakuten AI Optimismイベントも開催。毎年1月開催の<strong>「楽天新春カンファレンス」</strong>は三木谷代表が登壇する大型カンファレンスとして国内外の注目を集める。テクノロジーカンファレンスも毎年秋に開催。3万人規模のグループを束ねるイベントニーズは大きく、グローバル対応（英語・日本語バイリンガル）が必須。</p>
+        <div class="source">出典: <a href="https://corp.rakuten.co.jp/about/" target="_blank">楽天グループ企業情報</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-enterprise">生成されるメール文面</div>
+        <div class="email-preview">楽天グループ株式会社
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+楽天モバイルが契約数1,000万回線を突破し、
+三木谷会長が「次は衛星とAIで世界を変える」と
+コメントされていたのが印象的でした。
+Rakuten AI Optimismというイベント名称に、
+楽天グループがAIを次の柱として
+本気で育てようとしている意志が滲んでいます。
+
+3万名超のグローバルグループを
+同じ熱量で束ねる「楽天新春カンファレンス」——
+英語・日本語バイリンガルでの
+大型カンファレンス運営は、
+国内のイベント会社の中でも
+対応できる会社が限られます。
+
+弊社グローバルプロデュースは
+多言語対応（英語・中国語・韓国語等）の
+大型カンファレンス運営に実績があり、
+2025年には「DRAGON EVENTS」ブランドで
+インバウンドMICE事業を本格始動いたしました。
+
+グローバルスタンダードの演出と
+日本のおもてなし文化を融合した
+楽天グループならではのイベントを
+ご提案できます。
+
+ぜひ事例資料をお送りいたします。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「1,000万回線」「衛星とAIで世界を変える」「Rakuten AI Optimism」という3つの固有情報で深いリサーチを示す。DRAGON EVENTSブランドを自然に導入し、グローバル対応の強みと結びつける。</div>
+    </div>
+  </div>
+
+  <!-- 11. カカクコム -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-enterprise">11</div>
+      <div class="card-header-info">
+        <h3>株式会社カカクコム</h3>
+        <div class="meta">
+          <span class="tag tag-enterprise">上場・メディア</span>
+          <span class="tag tag-award">食べログ Award</span>
+          <span class="tag tag-kickoff">インバウンド需要急増</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>株式会社カカクコム</strong>は2025年3月期売上収益が前期比<strong>17.2%増</strong>の約784億円。食べログのインバウンド予約が好調で、外国人旅行者によるオンライン予約が急増中。2025年4〜6月期の食べログ売上収益は前年比<strong>21%増の92億円</strong>。毎年1月開催の<strong>「The Tabelog Award 2025」</strong>は優秀レストランを表彰する国内最大級のグルメアワードで、シェフ・料理人・飲食業界関係者が一堂に会する注目イベント。インバウンドの文脈でDRAGON EVENTSとの連携も期待できる。</p>
+        <div class="source">出典: <a href="https://honichi.com/news/2025/05/30/kakakucom/" target="_blank">訪日ラボ「食べログインバウンド好調」</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-enterprise">生成されるメール文面</div>
+        <div class="email-preview">株式会社カカクコム
+食べログ事業部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+食べログのインバウンド予約が前年比21%増——
+訪日外客3,686万人という2024年の歴史的な数字が
+食べログという「日本のグルメインフラ」の
+価値を世界規模で証明した年でもあったと思います。
+
+「The Tabelog Award」は
+単なる飲食店表彰イベントの枠を超えて、
+日本の食文化を代表するセレモニーとして
+年々その存在感を増しています。
+
+弊社グローバルプロデュースは
+ミシュランガイドセレモニー（京都・大阪）を
+プロデュースしており、
+世界最高峰の美食の場を演出してきました。
+また、インバウンド向けイベント専門ブランド
+「DRAGON EVENTS」も展開しており、
+外国人VIPが参加するセレモニーの
+バイリンガル進行・異文化配慮も得意としています。
+
+食べログのインバウンド展開が加速する中、
+「The Tabelog Award」をより国際的な
+グルメセレモニーに進化させるお手伝いを
+ぜひさせていただけませんでしょうか。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 食べログ×インバウンドという旬のトレンドを軸に、GPのミシュランガイド実績とDRAGON EVENTSを自然に繋げる。「日本のグルメインフラ」という解釈でブランドへの理解を示す。</div>
+    </div>
+  </div>
+
+  <!-- 12. 野村総研 -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-enterprise">12</div>
+      <div class="card-header-info">
+        <h3>株式会社野村総合研究所</h3>
+        <div class="meta">
+          <span class="tag tag-enterprise">シンクタンク大手</span>
+          <span class="tag tag-kickoff">NRI未来創発フォーラム</span>
+          <span class="tag tag-award">7,365億円売上</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>株式会社野村総合研究所</strong>は売上高<strong>7,365億円</strong>（ITコンサルティング・システム開発国内最大手）、従業員数<strong>7,206名</strong>。毎年開催の<strong>「NRI未来創発フォーラム」</strong>は国内屈指のシンクタンクが主催するビジネスカンファレンスで、政財界のリーダーを招く格の高いイベント。社内表彰・キックオフイベントの規模も大きく、グローバル展開（海外グループ会社含む）の需要も高い。GPのリサーチリストでランクS評価。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-enterprise">生成されるメール文面</div>
+        <div class="email-preview">株式会社野村総合研究所
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+NRI未来創発フォーラムを毎年拝見しており、
+日本のシンクタンクの最高峰として
+「未来をどう語るか」の基準を
+設定してきたイベントだと感じています。
+
+売上7,365億円、7,200名超の組織——
+その規模のシンクタンクが社外に発信するメッセージと、
+社内の結束を高める年次キックオフは
+表裏一体の関係にあります。
+
+弊社グローバルプロデュースは
+デロイトトーマツ・アビームコンサルティングといった
+コンサルティングファームの
+大型カンファレンスや社内キックオフを担当しており、
+「格の高いイベントを格調ある演出で届ける」
+ことを強みとしております。
+
+未来創発フォーラムのような
+「知の結集」を体現するカンファレンス演出、
+または社内の新年度キックオフのご支援——
+ぜひ一度、事例をご覧いただけますでしょうか。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「日本のシンクタンクの最高峰」という位置づけへの敬意を明示。コンサルファームへの実績（デロイト・アビーム）を提示してカテゴリ内の信頼感を醸成。社外発信と社内結束の「表裏一体」という洞察でGPの知見を示す。</div>
+    </div>
+  </div>
+
+  <!-- 13. デロイト -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-enterprise">13</div>
+      <div class="card-header-info">
+        <h3>デロイト トーマツ コンサルティング合同会社</h3>
+        <div class="meta">
+          <span class="tag tag-enterprise">外資コンサル</span>
+          <span class="tag tag-kickoff">Innovation Summit</span>
+          <span class="tag tag-award">5,111名</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>デロイト トーマツ コンサルティング合同会社</strong>（DTC）は国内コンサル最大手の一角、従業員数<strong>5,111名</strong>（Deloitte Tohmatsu グループ全体では約2万人超）。毎年開催の<strong>「Deloitte Tohmatsu Innovation Summit」</strong>はテクノロジー・イノベーション・人材をテーマにした大型B2Bカンファレンスで、クライアント企業を招く格の高いイベント。企業向けAI・DXコンサルの需要急増を背景に2025〜2026年は社外イベントの規模拡大傾向。グローバルなブランドガイドラインに準拠した演出が求められる。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-enterprise">生成されるメール文面</div>
+        <div class="email-preview">デロイト トーマツ コンサルティング合同会社
+マーケティング本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+Deloitte Tohmatsu Innovation Summit——
+テクノロジーとイノベーションの最前線を
+クライアントとともに語る場として、
+コンサルティング会社のカンファレンスの
+一つの到達点だと感じています。
+
+5,000名を超える組織が
+「Innovation」を旗印に一丸となれるのは、
+グローバルなブランドの力と
+日本のチームの熱量が融合しているからだと思います。
+
+弊社グローバルプロデュースは
+大型B2Bカンファレンスの演出設計において、
+グローバルブランドガイドラインへの準拠と
+日本市場に合わせたローカライゼーションを
+同時に実現することを強みとしています。
+
+「Innovation Summitをさらに印象深いものに」
+というご要望があれば、
+ステージデザイン、映像制作、
+登壇者サポートの各面でお力になれます。
+
+まずは事例集をお送りしてもよろしいでしょうか。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> グローバルブランドへの配慮（ガイドライン準拠）とローカライゼーションを同時に提示。「コンサルのカンファレンスの一つの到達点」という高い評価でブランド理解を示す。</div>
+    </div>
+  </div>
+
+  <!-- 14. アビーム -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-enterprise">14</div>
+      <div class="card-header-info">
+        <h3>アビームコンサルティング株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-enterprise">コンサル</span>
+          <span class="tag tag-kickoff">ABeam Kick off</span>
+          <span class="tag tag-award">8,278名</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>アビームコンサルティング株式会社</strong>は従業員数<strong>8,278名</strong>（国内最大規模のコンサルティングファームの一つ）。「Real Partner」を掲げ、SAP・DX・デジタル変革に強みを持つ。毎年の<strong>「ABeam Kick off Meeting」</strong>は新年度の方針発表と全社員の結束を図る重要イベント。8,000名規模のコンサルタントが向き合う「年次の方向性確認」という重要行事は、演出の質が社員のエンゲージメントに直結する。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-enterprise">生成されるメール文面</div>
+        <div class="email-preview">アビームコンサルティング株式会社
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+8,000名超のコンサルタントが
+「同じ方向を向く」瞬間——
+ABeam Kick off Meetingは
+その最も重要な場のひとつだと思います。
+
+「Real Partner」を掲げるアビームが
+どんな価値をクライアントに届けるかは、
+社員一人ひとりがそのビジョンを
+自分事として受け取れるかどうかに
+かかっています。
+
+弊社グローバルプロデュースは
+SAP・DXコンサル分野の大手企業の
+社内キックオフや年次大会を担当しており、
+「数千名規模でも全員が当事者として感じられる」
+演出設計のノウハウを蓄積しています。
+
+映像・ステージ・会場設計の三位一体で、
+「今年のアビームはここが違う」と
+参加者全員に伝わるキックオフを
+ご提案できます。
+
+ぜひ事例をご覧ください。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「8,000名が同じ方向を向く」という規模感の課題から入る。「Real Partner」というブランドメッセージとエンゲージメントの連関を示す。コンサル業界での実績をほのめかしながら信頼感を醸成。</div>
+    </div>
+  </div>
+
+  <!-- 15. 日経 -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-enterprise">15</div>
+      <div class="card-header-info">
+        <h3>日本経済新聞社</h3>
+        <div class="meta">
+          <span class="tag tag-enterprise">メディア大手</span>
+          <span class="tag tag-kickoff">日経フォーラム</span>
+          <span class="tag tag-award">3,054名・1,734億円</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>日本経済新聞社</strong>は売上高<strong>1,734億円</strong>、従業員数<strong>3,054名</strong>。毎年開催の<strong>「日経フォーラム 世界デジタルサミット（GDS）」</strong>は国内外の政財界リーダーが登壇する最高格のカンファレンスで、2024年のテーマは「Technology for Good」。日経電子版のDX戦略が進む中、リアルイベントの価値をどう再定義するかが課題。GDS2024は千人超規模で開催。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-enterprise">生成されるメール文面</div>
+        <div class="email-preview">株式会社日本経済新聞社
+イベント事業部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「Technology for Good」——
+世界デジタルサミット2024のテーマは、
+テクノロジーを「手段」として
+人類にとっての価値創造を問う
+最もタイムリーなメッセージだと感じました。
+
+日経フォーラムのような
+政財界のトップが集うカンファレンスは、
+発言内容と同じくらい
+「空間がどのようなメッセージを語っているか」が
+参加者の記憶に残ります。
+
+ステージのデザイン、照明の質、
+登壇者の導線設計、VIPへのホスピタリティ——
+これらを「日経ブランドに相応しい格」で
+実現するためのイベントプロデュースを
+弊社は専門としております。
+
+GPの実績として、内閣府主催イベント、
+ZOZO全社忘年会、PwCフォーラム等
+幅広い格のイベントを担当しております。
+
+事例集をお送りいたします。
+ぜひご覧ください。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「Technology for Good」というテーマを引用してメッセージ理解を示す。「発言内容と同じくらい空間がメッセージを語る」という洞察でGPの付加価値を端的に表現。内閣府・ZOZO・PwCという幅広い格の実績を並べる。</div>
+    </div>
+  </div>
+
+  <!-- ========== CATEGORY 3: HR/人材 ========== -->
+  <div class="cat-header cat-hr">
+    <h2>👥 カテゴリ3｜HR・人材・組織系（5社）</h2>
+    <p>人材・組織を事業の核とするHR企業は、「表彰」「社員総会」「キックオフ」への感度が高く、GPの提案が刺さりやすい。</p>
+  </div>
+
+  <!-- 16. ビズリーチ -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-hr">16</div>
+      <div class="card-header-info">
+        <h3>株式会社ビズリーチ（ビジョナル傘下）</h3>
+        <div class="meta">
+          <span class="tag tag-hr">HR Tech</span>
+          <span class="tag tag-award">HR SUCCESS SUMMIT</span>
+          <span class="tag tag-kickoff">2,500名超</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>株式会社ビズリーチ</strong>主催<strong>「HR SUCCESS SUMMIT 2025」</strong>は2025年7月10日に国際フォーラム ホールEで開催（前回2,500名超）。今回は過去最大規模のセッション数・来場者数を目指す。基調講演、パネルセッション、ワークショップ、アワード、懇親会で構成された「日本最大級のHRラーニングイベント」。採用・人事担当者を対象とし、HR SUCCESS AWARDも同時開催。参加費10万円（有料）という高単価イベント。</p>
+        <div class="source">出典: <a href="https://bizreach.biz/landing/hrss/2025/" target="_blank">HR SUCCESS SUMMIT 2025 公式</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-hr">生成されるメール文面</div>
+        <div class="email-preview">株式会社ビズリーチ
+イベント担当部門 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+HR SUCCESS SUMMIT——
+参加費10万円で2,500名超が集まる
+日本最大級のHRラーニングイベント。
+単に「採用ノウハウを学ぶ場」を超えて、
+HR業界全体の知の結集点になっている
+素晴らしいイベントだと思っています。
+
+国際フォーラム ホールEという会場の
+スケール感に相応しい
+ステージ演出・空間設計を実現するためには、
+B2Bカンファレンスの演出に特化した
+プロデューサーの関与が
+イベントの格をさらに高めます。
+
+弊社グローバルプロデュースは
+Sansan Innovation SummitやSalesforce World Tour、
+OpenAIのDevDayなど
+国内外の大型B2Bカンファレンスを担当しており、
+「登壇者の専門性を最大限に輝かせる
+ステージ設計」を強みとしています。
+
+HR SUCCESS SUMMITの演出を
+さらに一段上のレベルへ——
+ぜひご相談させていただけますでしょうか。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「参加費10万円で2,500名」という数字でイベントの価値への理解を示す。「知の結集点」という解釈でブランドへの敬意を示しつつ、GPの大型B2Bカンファレンス実績（Sansan・Salesforce・OpenAI）で信頼感を醸成。</div>
+    </div>
+  </div>
+
+  <!-- 17. ネオキャリア -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-hr">17</div>
+      <div class="card-header-info">
+        <h3>株式会社ネオキャリア</h3>
+        <div class="meta">
+          <span class="tag tag-hr">HR・採用</span>
+          <span class="tag tag-kickoff">社員総会</span>
+          <span class="tag tag-award">IPO準備中・3,486名</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>株式会社ネオキャリア</strong>は2025年2月期売上高<strong>524億円</strong>（前年比103%）、従業員数<strong>3,486名</strong>。2030年に売上高2,000億円・IPOを目標に掲げ急成長中。採用支援・介護・保育・HR Tech等を多角展開。社員総会はGPリサーチリストでランクS評価。組織拡大フェーズにあり、全社一体感を醸成するイベントの重要性が高い。「採用」を軸とした会社が、採用した人材をどう束ねるか、というテーマは今が最も旬。</p>
+        <div class="source">出典: <a href="https://www.neo-career.co.jp/recruit/company/data/" target="_blank">ネオキャリア 数字で見る会社</a></div>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-hr">生成されるメール文面</div>
+        <div class="email-preview">株式会社ネオキャリア
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+2030年に売上2,000億円・IPO——
+採用から介護・保育・HRテックまで
+「人」を軸に事業を広げ続けるネオキャリアが
+次のフェーズに向けて走り始めているのを
+感じています。
+
+「採用のプロ」が集まる会社だからこそ、
+自分たちの会社に入社した人材を
+いかに巻き込み、エンゲージメントを高めるか——
+社員総会はその最も重要な舞台です。
+
+3,486名の組織が「ネオキャリアとして一枚岩」になる瞬間を、
+弊社グローバルプロデュースは
+映像・空間・演出の力で創り出すことが得意です。
+
+IPOへのカウントダウンが始まる今、
+「全員が誇りを持って走り出せる」
+社員総会の演出をぜひご提案させてください。
+
+30分ほどお時間いただけますでしょうか。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「採用のプロが集まる会社が、自社のエンゲージメントをどうするか」という逆説的な問いで思考を促す。IPOカウントダウンという時間軸の緊張感を加えてアプローチの必然性を演出。</div>
+    </div>
+  </div>
+
+  <!-- 18. メンバーズ -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-hr">18</div>
+      <div class="card-header-info">
+        <h3>株式会社メンバーズ</h3>
+        <div class="meta">
+          <span class="tag tag-hr">デジタル人材支援</span>
+          <span class="tag tag-award">Social Value Award</span>
+          <span class="tag tag-kickoff">3,087名</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>株式会社メンバーズ</strong>は売上高<strong>約205億円</strong>（2024年3月期・IFRS）、従業員数<strong>3,087名</strong>。デジタルマーケティング・DX人材の提供を核とし「社会課題の解決をビジネスとして推進」をミッションに。毎年開催の<strong>「Social Value Award」</strong>と<strong>「メンバーズ社員総会」</strong>はGPのリサーチリストに複数登録される重要イベント。社会課題解決をテーマにした独自のアワードは他社にはない差別化コンテンツ。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-hr">生成されるメール文面</div>
+        <div class="email-preview">株式会社メンバーズ
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「Social Value Award」——
+この名前だけで、
+メンバーズが「社会課題の解決をビジネスで実現する」
+という哲学を全社員と共有しようとしている
+意志が伝わります。
+
+デジタルマーケティングの仕事は
+クライアントを通じて社会に影響を与えます。
+その「社会へのインパクト」を
+可視化して称える場が社内にある——
+3,000名超の組織が同じ価値観で動く
+最も強力なエンジンだと思います。
+
+弊社グローバルプロデュースは
+「表彰・アワードイベント」を特に得意とし、
+登壇者の努力を最大限に輝かせる
+ステージ演出と、
+受賞の瞬間を一生の記憶にする
+感情設計を強みとしています。
+
+Social Value AwardやSocial Value Meetingを
+さらに印象深いものにするご提案が可能です。
+
+ぜひ事例をご覧いただけますでしょうか。</div>
+      </div>
+
+      <div class="point-box"><strong>Point:</strong> 「Social Value Award」という名前から会社の哲学を読み取って見せる。「社会へのインパクトを可視化する」という解釈でアワードの意義を再定義。GPの表彰イベント得意分野との親和性を自然に示す。</div>
+    </div>
+  </div>
+
+  <!-- 19. ラクス -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-hr">19</div>
+      <div class="card-header-info">
+        <h3>株式会社ラクス</h3>
+        <div class="meta">
+          <span class="tag tag-hr">SaaS・HR</span>
+          <span class="tag tag-kickoff">楽！フェス（社員総会）</span>
+          <span class="tag tag-award">2,561名</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>株式会社ラクス</strong>は「楽楽精算」「楽楽明細」等の経費精算・会計SaaSを展開する上場企業（東証プライム）。従業員数<strong>2,561名</strong>。毎年の社員総会<strong>「楽！フェス」</strong>は社名「楽しくする」という理念を体現した名称で、単なる業績報告会ではなく社員が楽しめるフェスティバル型の大型イベントとして実施。GPのリサーチリストでランクS評価。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-hr">生成されるメール文面</div>
+        <div class="email-preview">株式会社ラクス
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「楽！フェス」——
+社員総会にフェスティバルという名前をつける会社は、
+世の中にそれほど多くはないと思います。
+「楽しくする」というラクスの原点が、
+社内最大のイベントの名前にまで
+滲み出ているのが素敵だと感じました。
+
+楽楽精算、楽楽明細——
+経費精算や請求書という
+「面倒くさいもの」を「楽」にする製品を作る会社が、
+自社の社員総会も「楽しく」する——
+その一貫性がブランドとして強い。
+
+2,500名超が参加する「楽！フェス」を
+「また来年も楽しみにしている」と思える
+毎年進化するイベントにするために、
+演出・コンテンツ・会場体験の設計を
+ご支援できればと考えております。
+
+弊社グローバルプロデュースは
+フェスティバル型の社員総会や
+エンタメ要素の強い社内イベントを得意としており、
+社員の熱量を最高点に持っていく
+プロデュースができます。
+
+ぜひ事例をご覧ください。
+
+グローバルプロデュース
+〇〇</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">✦ このアプローチの設計意図</div>
+        <ul>
+          <li>「楽！フェス」という社名・理念・イベント名の<strong>一貫性</strong>を言語化。担当者が「よく調べてくれた」と感じる</li>
+          <li>楽楽精算→楽！フェスという<strong>製品→社内文化の連鎖</strong>を指摘することで深い共感を生む</li>
+          <li>フェスティバル型社員総会という<strong>エンタメ演出の得意領域</strong>をGPの強みとして自然にアピール</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /カテゴリ3 終了 -->
+
+  <!-- カテゴリ4: 製造・リテール大手 -->
+  <div class="category-header">
+    <h2>カテゴリ 4｜製造・リテール大手</h2>
+    <p>創業周年・社内表彰・キックオフなど大型式典ニーズを持つ</p>
+  </div>
+
+  <!-- 20. カインズ -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-enterprise">20</div>
+      <div class="card-header-info">
+        <h3>株式会社カインズ</h3>
+        <div class="meta">
+          <span class="tag tag-enterprise">リテール・ホームセンター</span>
+          <span class="tag tag-kickoff">合同入社式・周年記念</span>
+          <span class="tag tag-award">13,486名</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>株式会社カインズ</strong>は東証プライム上場のホームセンター最大手。従業員<strong>13,486名</strong>（正社員、2025年2月末）。創業は1989年3月1日で<strong>2025年に創業37周年</strong>。毎年2月〜3月に「創業祭」を開催する文化があり、グループ合同入社式も実施（2025年4月: 271名入社）。ハンズ・オートアールズを傘下に持つカインズグループとしての一体感を醸成するイベントニーズが高い。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-enterprise">生成されるメール文面</div>
+        <div class="email-preview">株式会社カインズ
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+1989年3月1日——
+その創業の日を、毎年「創業祭」という形で
+全国のお客様と一緒に祝える会社が
+どれほど素晴らしいか、と思います。
+
+ホームセンターという業態で
+日本最大の規模に成長しながら、
+ハンズ・オートアールズとのグループ経営へと
+進化し続けるカインズグループ。
+
+「暮らし」に直接向き合う会社だからこそ、
+社員一人ひとりが誇りを感じられるような
+節目のセレモニーが、ブランドの礎になると思っています。
+
+グループ合同入社式、周年記念式典、
+大型キックオフイベントなど——
+弊社グローバルプロデュースは
+年間250件以上のイベントプロデュース実績から、
+規模感を活かした迫力あるセレモニーと
+グループとしての一体感を生む演出をご提案できます。
+
+ぜひ一度、事例と合わせてご覧いただけますでしょうか。
+
+グローバルプロデュース
+〇〇</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">✦ このアプローチの設計意図</div>
+        <ul>
+          <li>創業日（3月1日）という具体的な日付に触れることで<strong>AIリサーチの精度</strong>を自然に示す</li>
+          <li>グループ経営（ハンズ・オートアールズ）への言及で<strong>多社を束ねるイベントニーズ</strong>を喚起</li>
+          <li>「暮らしに向き合う会社」という本質的な価値観に共鳴することで<strong>単なる業者でなくパートナー</strong>としての印象を与える</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 21. オムロン -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-enterprise">21</div>
+      <div class="card-header-info">
+        <h3>オムロン株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-enterprise">製造・ヘルスケア</span>
+          <span class="tag tag-kickoff">創業90周年（2023年）</span>
+          <span class="tag tag-award">28,450名</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>オムロン株式会社</strong>は1933年創業、制御機器・ヘルスケア・社会システムの東証プライム上場大手。グループ従業員<strong>28,450名</strong>（2024年3月末）。<strong>2023年に創業90周年</strong>を迎え「デザイン経営」を推進中。「企業は社会の公器」という理念（ソシアルニーズの創造）を掲げ、創業者・立石一真の「SINIC理論」が今も経営の根幹。創業80周年時（2013年）にはFounder's Day記念式典を開催。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-enterprise">生成されるメール文面</div>
+        <div class="email-preview">オムロン株式会社
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+1933年、立石一真氏が掲げた
+「機械にできることは機械に任せ、
+人間はより創造的な仕事に」という理念——
+創業から90年を経た今もSINIC理論として
+オムロンの経営の根幹にあることに、
+深い一貫性を感じます。
+
+制御機器・ヘルスケア・社会インフラと
+多岐にわたる事業を束ねながら、
+28,000名を超えるグループ社員が
+同じ創業理念のもとで働いている。
+
+その一体感を最大化するセレモニーを
+設計するのが弊社の得意とするところです。
+
+グローバルプロデュースは
+年間250件以上のイベント実績から、
+創業記念式典・グループキックオフ・
+海外拠点とのハイブリッドイベントまで
+対応できます。
+
+ぜひ過去の事例をご覧ください。
+
+グローバルプロデュース
+〇〇</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">✦ このアプローチの設計意図</div>
+        <ul>
+          <li>「SINIC理論」「立石一真」という固有名詞で<strong>深いリサーチ量</strong>を示す</li>
+          <li>創業90周年というタイミングを念頭に置きつつ、<strong>次の節目（100周年）への布石</strong>を暗示</li>
+          <li>海外拠点（グローバル28,000名）への言及で<strong>インバウンド・ハイブリッド対応</strong>をさりげなく訴求</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 22. 富士フイルム -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-enterprise">22</div>
+      <div class="card-header-info">
+        <h3>富士フイルムホールディングス株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-enterprise">製造・ヘルスケア</span>
+          <span class="tag tag-kickoff">創立90周年（2024年）パーパス制定</span>
+          <span class="tag tag-award">72,254名</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>富士フイルムホールディングス</strong>は1934年創立、グループ連結従業員<strong>72,254名</strong>（2024年3月末）。<strong>2024年1月に創立90周年</strong>を迎え、グループパーパス「地球上の笑顔の回数を増やしていく。」を新たに制定。記念展示会を東京ミッドタウン・フジフイルムスクエアで開催。フィルムから医療・ヘルスケア・マテリアルズへの多角化を遂げた「変革の90年」を全社員で祝う機運が高い。GPのリサーチリストでランクS評価。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-enterprise">生成されるメール文面</div>
+        <div class="email-preview">富士フイルムホールディングス株式会社
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「地球上の笑顔の回数を増やしていく。」
+
+2024年、創立90周年に新たに制定された
+このパーパスを読んだとき、
+フィルムで世界の記憶を残してきた会社が
+その先に何を見据えているかが
+鮮やかに伝わってきました。
+
+写真からヘルスケア、素材、半導体材料へ——
+72,000名を超えるグループ社員が
+それぞれ異なるフィールドで働きながら、
+「笑顔の回数を増やす」という一点で
+繋がっている。
+
+その一体感を、セレモニーという形で
+全社員の記憶に刻むお手伝いができると思います。
+
+グローバルプロデュースは
+周年記念式典・グループ全体のキックオフ・
+パーパス浸透イベントなど、
+大型社内イベントのプロデュースを得意としております。
+
+ぜひ事例をご覧いただけますでしょうか。
+
+グローバルプロデュース
+〇〇</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">✦ このアプローチの設計意図</div>
+        <ul>
+          <li>新パーパスを全文引用することで<strong>会社の最重要メッセージへの共鳴</strong>を示す</li>
+          <li>「フィルムの記憶→全社員の記憶に刻む」という<strong>写真文化との比喩</strong>でセレモニーの価値を語る</li>
+          <li>「パーパス浸透イベント」という切り口で<strong>90周年以降も続く需要</strong>を示唆</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 23. テルモ -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-enterprise">23</div>
+      <div class="card-header-info">
+        <h3>テルモ株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-enterprise">医療機器・グローバル</span>
+          <span class="tag tag-kickoff">創業100周年（2021年）</span>
+          <span class="tag tag-award">30,000名超</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>テルモ株式会社</strong>は1921年創業の医療機器メーカー、東証プライム上場。連結従業員<strong>30,000名超</strong>（160カ国以上で事業展開）。<strong>2021年に創業100周年</strong>を迎え、「医療を通じて社会に貢献する」ミッションを継続。医療現場向けの心臓・血管疾患、一般医療製品、医薬品製造支援の3領域で世界展開。GPのリサーチリストでランクS評価。グローバル社員総会・キックオフのニーズ有。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-enterprise">生成されるメール文面</div>
+        <div class="email-preview">テルモ株式会社
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+160カ国以上——
+テルモの製品が届いている国の数を
+改めて聞いて、「医療を通じて社会に貢献する」
+というミッションが、どれほどのスケールで
+実現されているかを実感しました。
+
+2021年に創業100周年を迎え、
+その次の100年へと歩みを進めるテルモ。
+
+国内外30,000名を超えるグループ社員が
+同じミッションのもとに集まる
+大型セレモニーは、次の100年に向けた
+意識の結節点になると思います。
+
+弊社グローバルプロデュースは
+DRAGON EVENTSブランドで
+インバウンドMICEや多言語対応の
+グローバルイベントにも対応しており、
+日英同時進行の社員総会や
+海外拠点とのハイブリッド式典を得意としています。
+
+ぜひ一度、事例をご覧いただけますでしょうか。
+
+グローバルプロデュース
+〇〇</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">✦ このアプローチの設計意図</div>
+        <ul>
+          <li>「160カ国以上」という具体数字でリサーチの深さを示しながら<strong>グローバルスケールへの共感</strong>を表現</li>
+          <li>「次の100年」という表現で<strong>過去の周年でなく未来への投資</strong>としてイベントを位置づける</li>
+          <li>DRAGON EVENTSブランドを自然に紹介し<strong>多言語・インバウンド対応力</strong>をアピール</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /カテゴリ4 終了 -->
+
+  <!-- カテゴリ5: グローバル/外資系 -->
+  <div class="category-header">
+    <h2>カテゴリ 5｜グローバル・外資系企業</h2>
+    <p>日本法人の社員総会・アワード・フォーラム開催ニーズ</p>
+  </div>
+
+  <!-- 24. デル・テクノロジーズ -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-global">24</div>
+      <div class="card-header-info">
+        <h3>デル・テクノロジーズ株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-global">外資系IT・グローバル</span>
+          <span class="tag tag-kickoff">Dell Technologies Forum（年次）</span>
+          <span class="tag tag-award">3,400名超参加</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>デル・テクノロジーズ株式会社</strong>はDell Technologiesの日本法人。毎年秋に「Dell Technologies Forum Japan」を開催する大型顧客向けイベントを主催。<strong>2025年は10月3日（金）ザ・プリンス パークタワー東京でハイブリッド開催</strong>、来場1,800名超・オンライン含む参加者3,400名超という過去最大規模を記録（テーマ：Reimagine what's possible）。2024年はグランドプリンスホテル新高輪で開催。GPのリサーチリストでランクS評価。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-global">生成されるメール文面</div>
+        <div class="email-preview">デル・テクノロジーズ株式会社
+マーケティング本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「Reimagine what's possible」——
+2025年の「Dell Technologies Forum」、
+来場1,800名超・オンライン含む3,400名超という
+過去最大規模での開催、おめでとうございます。
+
+AIとデータインフラの最前線を
+これほどの規模で、
+しかもハイブリッドで届けている。
+その設計力と発信力に、
+グローバル企業としての本気度を感じました。
+
+毎年進化するフォーラムを
+「また来年も楽しみにしている」と
+参加者が心待ちにするイベントにするために——
+会場演出・コンテンツ設計・登壇者体験など、
+プロデュースの観点でご提案できることがあると思います。
+
+弊社グローバルプロデュースは
+英語・多言語対応のハイブリッドイベントや
+大型フォーラムの演出を得意としており、
+グローバル本社とのコミュニケーション経験も豊富です。
+
+ぜひ事例をご覧ください。
+
+グローバルプロデュース
+〇〇</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">✦ このアプローチの設計意図</div>
+        <ul>
+          <li>2025年フォーラムの具体的な数字（1,800名・3,400名）と会場名を冒頭に入れ<strong>リアルタイムリサーチの精度</strong>を示す</li>
+          <li>フォーラムのテーマを引用することで<strong>マーケティング担当との共通言語</strong>を作る</li>
+          <li>社内総会でなく外部顧客向けフォーラムという<strong>異なる切り口</strong>から接触し、接点多様化を図る</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 25. SAPジャパン -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-global">25</div>
+      <div class="card-header-info">
+        <h3>SAPジャパン株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-global">外資系IT・ERP</span>
+          <span class="tag tag-kickoff">SAP NOW Japan（年次 3,000名超）</span>
+          <span class="tag tag-award">Customer Award</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>SAPジャパン株式会社</strong>はドイツSAPの日本法人。「SAP NOW Japan」は年次最高峰イベントとして毎年グランドプリンスホテル新高輪で開催、<strong>2024年は3,000名超来場</strong>（同時4イベント開催）、2025年は「SAP NOW AI Tour Tokyo & JSUG Conference」として過去最大規模を更新。さらに年間を通じて「SAP Japan Customer Award」表彰式も実施。「2024年をビジネスAI元年」と位置づける大型宣言も実施済み。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-global">生成されるメール文面</div>
+        <div class="email-preview">SAPジャパン株式会社
+マーケティング本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「SAP NOW Japan」——
+グランドプリンスホテル新高輪に
+3,000名超を集め、
+4つのイベントを同時並行で動かす。
+
+その設計の複雑さと、
+それを毎年進化させながら成立させている
+SAPジャパンのイベント運営力に
+素直に敬服しています。
+
+2025年はさらに「AI Tour」を冠した
+過去最大規模での開催——
+「ビジネスAI元年」から
+「AIスケール元年」への進化ですね。
+
+複数トラックが走る大型カンファレンスと
+カスタマーアワードが一体になった
+この構造を、さらにプロデュースの観点で
+磨き上げるご提案ができると思います。
+
+弊社グローバルプロデュースは
+多トラック並行・大型会場演出・
+英語同時通訳対応のハイブリッドイベントを得意とし、
+年間250件以上の実績があります。
+
+ぜひ一度、事例をご覧ください。
+
+グローバルプロデュース
+〇〇</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">✦ このアプローチの設計意図</div>
+        <ul>
+          <li>「4イベント同時並行」という複雑な構成の把握で<strong>深いリサーチと業務理解</strong>を示す</li>
+          <li>「AI元年→AIスケール元年」という年次の文脈を踏まえ<strong>担当者の言葉で会話する</strong></li>
+          <li>カスタマーアワードとカンファレンスの複合構造に言及し<strong>GPが対応できる幅の広さ</strong>を暗に示す</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 26. アドビ -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-global">26</div>
+      <div class="card-header-info">
+        <h3>アドビ株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-global">外資系IT・クリエイティブ</span>
+          <span class="tag tag-award">Adobe Experience Maker Awards</span>
+          <span class="tag tag-kickoff">Best of Adobe Summit Japan Edition</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>アドビ株式会社</strong>は米Adobe Systemsの日本法人。毎年「Adobe Experience Maker Awards」でAdobe Experience Cloud活用顧客を表彰（グローバル11部門）。2024年6月4日には東京ミッドタウンで「Best of Adobe Summit - Japan Edition」を開催（米ラスベガスSummitのダイジェストを日本向け再現）、「Japan Adobe Advocates」8名を授与。クリエイティブ・CXMソリューション企業として、社員・顧客向け双方のイベント文化が根付いている。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-global">生成されるメール文面</div>
+        <div class="email-preview">アドビ株式会社
+マーケティング本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「Adobe Experience Maker Awards」——
+自社製品を使い倒している顧客を
+毎年表彰する、という発想が
+製品とコミュニティへの本気の投資だと思います。
+
+それを、東京ミッドタウンで
+「Best of Adobe Summit - Japan Edition」という
+ローカライズされた特別版として届ける——
+ラスベガスのSummitを日本のお客様のために
+翻訳・再設計する、その手間を惜しまない姿勢が
+顧客ロイヤルティを作るのだと感じました。
+
+アドビが主催するイベントは
+「クリエイティブな場」そのものを
+体験として設計する機会だと思います。
+
+弊社グローバルプロデュースは
+アワードセレモニー・顧客向けカンファレンス・
+日英対応のハイブリッドイベントを得意とし、
+「体験」として完成度の高いイベント空間を
+プロデュースできます。
+
+ぜひ事例をご覧ください。
+
+グローバルプロデュース
+〇〇</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">✦ このアプローチの設計意図</div>
+        <ul>
+          <li>「ラスベガスSummitを日本向けに再設計する手間」を称えることで<strong>アドビのイベント哲学への共感</strong>を示す</li>
+          <li>クリエイティブ企業であるアドビへの提案に<strong>「体験設計」という言語</strong>を使い、共通価値観を演出</li>
+          <li>アワードとカンファレンスの二刀流に言及し<strong>複合イベントへの対応力</strong>を示す</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 27. ハウスコム -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-hr">27</div>
+      <div class="card-header-info">
+        <h3>ハウスコム株式会社</h3>
+        <div class="meta">
+          <span class="tag tag-hr">不動産・賃貸</span>
+          <span class="tag tag-kickoff">経営計画発表会・全社表彰</span>
+          <span class="tag tag-award">1,154名</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>ハウスコム株式会社</strong>は東証スタンダード上場の賃貸仲介専業会社。グループ従業員<strong>1,154名</strong>（2025年4月1日時点）。全国に200店舗超を展開する現場主導の組織文化。「全社員が集まる経営計画発表説明会を継続」「年に1回の社員総会で表彰実施」という文化が根付いており、現場の営業・店長・スタッフが一堂に集まるイベントは社員のモチベーション向上に直結している。GPのリサーチリストでランクS評価。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-hr">生成されるメール文面</div>
+        <div class="email-preview">ハウスコム株式会社
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「全社員が集まる経営計画発表会を
+ 継続し続ける」——
+これが、店舗で働くメンバーに
+会社の方向性と自分の仕事の意味を
+直接届ける場として機能しているのだと思います。
+
+賃貸仲介の最前線で
+お客様の「暮らしの入り口」に立つ
+1,000名超の現場スタッフが、
+年に一度、一堂に集まり
+同じビジョンを共有する。
+
+その場の「熱量」をどう作るか——
+表彰式の演出・登壇者の場の取り方・
+クロージングで全員が前を向けるような
+プログラム設計で
+弊社がご支援できると思います。
+
+グローバルプロデュースは
+現場スタッフが主役になれる
+エナジーあふれるイベント演出と
+経営と現場を繋ぐセレモニー設計を得意としています。
+
+ぜひ事例をご覧いただけますでしょうか。
+
+グローバルプロデュース
+〇〇</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">✦ このアプローチの設計意図</div>
+        <ul>
+          <li>「継続し続ける」という文化への敬意を示し<strong>その継続を支援したい</strong>というポジションを取る</li>
+          <li>「暮らしの入り口」という業態の本質に触れ<strong>不動産という仕事の誇り</strong>を共有</li>
+          <li>「表彰式・登壇・クロージング」という具体的な要素を挙げ<strong>プロデュースの具体イメージ</strong>を提供</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 28. 日本M&Aセンター -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-hr">28</div>
+      <div class="card-header-info">
+        <h3>株式会社日本M&amp;Aセンター</h3>
+        <div class="meta">
+          <span class="tag tag-hr">M&amp;A・金融</span>
+          <span class="tag tag-award">ギネス記録5年連続認定</span>
+          <span class="tag tag-kickoff">M&amp;Aカンファレンス・表彰式</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>株式会社日本M&amp;Aセンター</strong>は東証プライム上場、M&A仲介業界最大手。従業員<strong>1,118名</strong>（2025年6月末）。ギネス世界記録「最多のM&A成約実績」に<strong>5年連続認定</strong>（2025年10月）。2021年には創業30周年記念「M&amp;Aカンファレンス2021」を電通報が特集掲載。「経営活性化フォーラム」等のクライアント向けカンファレンスも毎年実施。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-hr">生成されるメール文面</div>
+        <div class="email-preview">株式会社日本M&Aセンター
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「最多のM&A成約実績」——
+ギネス世界記録に5年連続で認定される。
+
+これは単なる数字の達成ではなく、
+日本の中小企業の事業承継と成長に
+貢献し続けてきた証だと思います。
+
+その実績を、1,000名超の社員と
+取引先・関係者が集まる場で
+正しく称え、次の挑戦へのエネルギーに変える——
+M&Aカンファレンスや社員総会は
+そのための大切な舞台だと考えています。
+
+弊社グローバルプロデュースは
+表彰式の演出・カンファレンスの空間設計・
+登壇者体験の最適化を得意とし、
+年間250件以上のイベント実績があります。
+
+ぜひ一度、事例をご覧ください。
+
+グローバルプロデュース
+〇〇</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">✦ このアプローチの設計意図</div>
+        <ul>
+          <li>ギネス5年連続という<strong>業界内では著名だが外部からの視点</strong>で称えることで新鮮な共感を生む</li>
+          <li>「数字→中小企業への貢献」という変換で<strong>担当者の誇りに直接触れる</strong></li>
+          <li>カンファレンスと社員総会の両方に言及し<strong>複数の接点候補</strong>を提示</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /カテゴリ5 終了 -->
+
+  <!-- カテゴリ6: スポーツ・エンタメ -->
+  <div class="category-header">
+    <h2>カテゴリ 6｜スポーツ・エンタメ・メディア</h2>
+    <p>アワードショー・式典・スポーツエンタメイベントの専門ニーズ</p>
+  </div>
+
+  <!-- 29. B.LEAGUE -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-award">29</div>
+      <div class="card-header-info">
+        <h3>公益社団法人ジャパン・プロフェッショナル・バスケットボールリーグ（Bリーグ）</h3>
+        <div class="meta">
+          <span class="tag tag-award">スポーツ・エンタメ</span>
+          <span class="tag tag-kickoff">B.LEAGUE AWARD SHOW（毎年5月）</span>
+          <span class="tag tag-award">渋谷ヒカリエ開催</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>Bリーグ（JBBL）</strong>は2016年設立の日本プロバスケットボールリーグ。毎年5月に「B.LEAGUE AWARD SHOW」を開催。<strong>2024-25シーズンは5月30日、渋谷ヒカリエ9Fヒカリエホール</strong>にて開催、テーマ「WAY TO GO!」。三代目J SOUL BROTHERSの山下健二郎がホスト、オンライン配信も実施。MVP・ベスト5・新人王・ベスト守備選手など主要アワードを授与。日本バスケットボール協会会長・三屋裕子も登壇。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-award">生成されるメール文面</div>
+        <div class="email-preview">公益社団法人ジャパン・プロフェッショナル・バスケットボールリーグ
+事務局 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+「WAY TO GO!」——
+2024-25シーズンのAWARD SHOWのテーマ、
+シンプルでいて力強いと思いました。
+
+渋谷ヒカリエで、三代目J SOUL BROTHERSの
+山下健二郎さんをホストに迎え、
+選手・コーチ・審判・スタッフ全員の
+シーズンを丸ごと称える——
+スポーツのアワードショーとして
+エンタメとしての完成度が高い。
+
+Bリーグが2016年のリーグ創設から
+着実にエンタメとしての存在感を増している中で、
+AWARD SHOWの演出・会場体験・
+ライブ配信との連携を
+さらにグレードアップするための
+プロデュースパートナーとして
+ご提案できることがあると思います。
+
+弊社グローバルプロデュースは
+スポーツアワード・式典・
+エンタメ性の高いセレモニーを得意とし、
+アーティスト演出との融合から
+VIPゾーンの体験設計まで対応しています。
+
+ぜひ一度、事例をご覧ください。
+
+グローバルプロデュース
+〇〇</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">✦ このアプローチの設計意図</div>
+        <ul>
+          <li>テーマ「WAY TO GO!」と具体的なホスト名（山下健二郎）を引用し<strong>当日の雰囲気まで把握していること</strong>を示す</li>
+          <li>「エンタメとしての完成度」という切り口で<strong>スポーツイベント担当者が聞きたい評価軸</strong>から接触</li>
+          <li>アーティスト演出融合・VIPゾーン設計という<strong>GPの強みをスポーツ文脈</strong>で語る</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 30. ニコン -->
+  <div class="company-card">
+    <div class="card-header">
+      <div class="card-num bg-enterprise">30</div>
+      <div class="card-header-info">
+        <h3>株式会社ニコン</h3>
+        <div class="meta">
+          <span class="tag tag-enterprise">精密機器・製造</span>
+          <span class="tag tag-kickoff">創業100周年（2017年）</span>
+          <span class="tag tag-award">20,000名超</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="signal-box">
+        <div class="label">🔍 AIが検知した情報</div>
+        <p><strong>株式会社ニコン</strong>は1917年創業、東証プライム上場の精密機器メーカー。グループ連結従業員<strong>20,000名超</strong>。<strong>2017年に創業100周年</strong>を迎え、カメラ・半導体製造装置・FPD露光装置・産業機器の4事業を展開。「信頼と創造」の企業理念のもと、次の100年を見据えた変革期。GPのリサーチリストでランクS評価。2027年には創業110周年を迎える節目も控えており、次の周年式典ニーズが発生しうる。</p>
+      </div>
+
+      <div class="email-wrap">
+        <div class="email-label label-enterprise">生成されるメール文面</div>
+        <div class="email-preview">株式会社ニコン
+コーポレート本部 御中
+
+突然のご連絡失礼いたします。
+グローバルプロデュースの〇〇と申します。
+
+1917年——
+日本の精密工業の夜明けとともに
+産声を上げたニコン。
+
+カメラで世界の瞬間を切り取る技術が
+今や半導体の最先端を刻む——
+その100年超の変容は、
+単なる多角化ではなく、
+「精密さで世界を見る」という
+一本の軸が貫かれているように感じます。
+
+2027年には創業110周年を迎えます。
+
+節目の式典は、
+単なる「おめでとう」の場ではなく、
+20,000名のグループ社員が
+自分たちの仕事の意味を再確認し、
+次の10年に向けて揃って踏み出す場に
+できると思います。
+
+弊社グローバルプロデュースは
+創業記念式典・グループキックオフ・
+海外拠点とのハイブリッドイベントを得意とし、
+年間250件以上の実績があります。
+
+早めに設計を始めると、
+体験のクオリティが大きく変わります。
+
+ぜひ事例をご覧ください。
+
+グローバルプロデュース
+〇〇</div>
+      </div>
+
+      <div class="point-box">
+        <div class="point-title">✦ このアプローチの設計意図</div>
+        <ul>
+          <li>1917年から2027年（110周年）という具体的な年次を計算して提示し<strong>「先読みしている」感</strong>を演出</li>
+          <li>「カメラ→半導体」という変容を「精密さで世界を見る一本軸」と再解釈し<strong>ニコン社員が誇りに思う物語</strong>を語る</li>
+          <li>「早めに設計を始めると〜」という一文で<strong>今動くべき理由（緊急性）</strong>を自然に提供</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /カテゴリ6 終了 -->
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">GLOBAL PRODUCE × AI OUTREACH</div>
+      <p class="footer-tagline">AIが企業の「物語」を読み、心に届く一文を生成する</p>
+      <p class="footer-note">本資料は株式会社グローバルプロデュース様へのご提案専用資料です。<br>
+      掲載情報は公開情報をもとにAIがリサーチ・分析したものです（2025年2月時点）。<br>
+      無断転載・二次利用はご遠慮ください。</p>
+      <p class="footer-brand">Powered by LeadBooster AI</p>
+    </div>
+  </footer>
+
+</body>
+</html>
