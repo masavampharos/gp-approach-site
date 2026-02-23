@@ -65,6 +65,8 @@
   .toc li { counter-increment: toc; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
   .toc li:last-child { border-bottom: none; }
   .toc li::before { content: counter(toc, decimal-leading-zero) "."; font-weight: 600; color: var(--muted); margin-right: 12px; font-size: 11px; font-variant-numeric: tabular-nums; }
+  .toc a { color: var(--text); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
   .section-header { margin: 56px 0 24px; padding-bottom: 12px; border-bottom: 1px solid var(--primary); }
   .section-header h2 { font-size: 18px; font-weight: 700; color: var(--primary); letter-spacing: 0.04em; }
@@ -175,13 +177,14 @@
   <div class="toc">
     <h2>Contents</h2>
     <ol>
-      <li>シグナル別メールアプローチ事例（日本語 5パターン — 実在企業の最新データで生成）</li>
-      <li>英語・外国語アプローチ事例（3パターン — DRAGON EVENTSブランドと連動）</li>
+      <li><a href="#section1">シグナル別メールアプローチ事例（日本語 5パターン — 実在企業の最新データで生成）</a></li>
+      <li><a href="#section2">英語・外国語アプローチ事例（3パターン — DRAGON EVENTSブランドと連動）</a></li>
+      <li><a href="#section3">GPリスト企業へのAI活用事例（30社 — 実際のリサーチリストからAIが自動生成）</a></li>
     </ol>
   </div>
 
   <!-- ===== SECTION 1 ===== -->
-  <div class="section-header">
+  <div class="section-header" id="section1">
     <h2>1. シグナル別メールアプローチ事例</h2>
     <p>「周年記念」は有力なフックですが、100周年のイベントを受注するには100周年の発表を見てからでは遅い。<br>もっと上流のシグナルを拾って先手を打つ必要があります。以下、AIが検知できる<strong>「周年以外の5つのシグナル」</strong>と、それぞれの具体的なメール文面事例です。<br><strong>すべて実在の企業ニュースに基づいて生成しています。</strong></p>
   </div>
@@ -207,17 +210,19 @@
       <div class="email-preview">インターステラテクノロジズ株式会社
 代表取締役CEO 稲川貴大様
 
-年間300本のビジネスイベントを手がけるグローバルプロデュースの〇〇と申します。シリーズF 201億円のご調達、おめでとうございます。
+グローバルプロデュースの〇〇と申します。
+シリーズF 201億円のご調達、おめでとうございます。
 
-ウーブン・バイ・トヨタをリードに、SBIグループ・野村不動産・B Dash Venturesが参画した今回のラウンド。稲川さんがコメントで使った「量産に耐えうるサプライチェーンへの昇華」という表現が印象に残っています。ロケットをトヨタ生産方式で作る、という発想は、2019年にMOMO3号機が民間初の宇宙到達を果たした日からずっとその先を見ていた人にしか出てこない言葉だと思います。
+調達後のキックオフイベントはご検討されていますか？
 
-2018年のMOMO2号機が打ち上げ4秒で爆発炎上したとき、「こういうときには技術者って逆に燃えるもの」と言って2〜3ヶ月で原因を特定し、国が何年もかけるところを一気に突破したエピソードを読みました。
+テック系スタートアップの大型調達後キックオフを
+年間10件以上手がけており、
+「チームが次フェーズに切り替わる瞬間」を
+つくることを得意としています。
 
-今回のラウンドで累計446億円。ZEROロケットの初号機打ち上げを控えたこの局面は、創業以来最大のフェーズ転換です。社員・投資家・トヨタグループのパートナーが「ここから先は量産フェーズだ」と腹落ちする場をつくることが、次の12年の推進力になると考えています。
+事例を2〜3枚お送りしてもよろしいですか？</div>
 
-調達後キックオフの事例（採用応募2.8倍・eNPS+40pt）をお送りしてもよろしいでしょうか。</div>
-
-      <div class="point"><strong>Point:</strong> 「量産に耐えうるサプライチェーンへの昇華」という稲川氏自身の発言を引用。MOMO2号機の「4秒後爆発→2〜3ヶ月で原因特定」という具体的エピソードで「読んだ」ことを証明。「ZEROロケット初号機を前にした今がフェーズ転換」という文脈で「なぜ今なのか」を明確に。社会的証明（数値）で締める。</div>
+      <div class="point"><strong>Point:</strong> 「調達後のキックオフはご検討されていますか？」という冒頭のYes/No型CTAで即座に用件を伝える。"演出"などの業界用語を排除し「チームが次フェーズに切り替わる瞬間をつくる」と具体的・映像的な表現に。「事例を2〜3枚お送りしてもよろしいですか？」の1つのCTAで締める。</div>
     </div>
   </div>
 
@@ -368,7 +373,7 @@ SNSキャンペーンと全国ショップでの1,000万ポイント山分けは
   </div>
 
   <!-- ===== SECTION 2 ===== -->
-  <div class="section-header">
+  <div class="section-header" id="section2">
     <h2>2. 英語・外国語アプローチ事例</h2>
     <p>貴社が2025年11月に立ち上げた<strong>「DRAGON EVENTS」</strong>ブランド（インバウンドMICE特化）と直接連動します。<br>海外企業の日本開催イベント情報をAIが検知し、英語（および中国語・ドイツ語等）で<strong>企業ごとにパーソナライズされたアプローチメール</strong>を自動生成できます。</p>
   </div>
@@ -478,7 +483,7 @@ Shall we set up a planning call for next week?</div>
   </div>
 
   <!-- Language table -->
-  <div class="pattern" style="padding: 28px;">
+  <div class="pattern" style="padding: 28px;" id="lang-table">
     <h3 style="margin-bottom: 16px; font-size: 15px;">多言語対応一覧</h3>
     <p style="font-size: 13px; color: var(--muted); margin-bottom: 12px;">すべて、AIが各企業の最新ニュースを現地語で収集し、パーソナライズされた文面を自動生成します。<br>テンプレートの一斉送信ではなく、<strong>1社1社調べた上でのアプローチ</strong>である点は日本語版と全く同じです。</p>
     <table class="lang-table">
@@ -495,6 +500,248 @@ Shall we set up a planning call for next week?</div>
     </table>
   </div>
 
+  <!-- ===== SECTION 3 ===== -->
+  <div class="section-header" id="section3">
+    <h2>3. GPリスト企業へのAI活用事例</h2>
+    <p>グローバルプロデュース様のイベントリサーチリスト（Sランク216社・Aランク279社）をAIが読み込み、<br>各社の直近ニュースをリサーチして<strong>1社1社パーソナライズされたアプローチメールを自動生成</strong>した例です。<br>今回は代表的な企業を抜粋して提示します。</p>
+  </div>
+
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#1a1a1a;">S</div>
+      <div><h3>GPリスト活用のしくみ</h3></div>
+      <span class="tag" style="color:#333;border-color:#333;">HOW IT WORKS</span>
+    </div>
+    <div class="pattern-body">
+      <div class="signal-box">
+        <div class="label">GPリストの構造</div>
+        <p>③GPメンバーイベントリサーチリストには<strong>Sランク216社・Aランク279社</strong>の計495社が登録されています。<br>各社のイベント名・人数・売上・コーポレートサイトが整備されており、AIが「このリストをベースに直近ニュースを検索→メール生成」するフローが即座に実現できます。</p>
+      </div>
+      <table class="lang-table">
+        <thead><tr><th>ステップ</th><th>内容</th><th>所要時間（AI）</th></tr></thead>
+        <tbody>
+          <tr><td>①リスト読み込み</td><td>Sランク・Aランク企業を優先度順に取得</td><td>即時</td></tr>
+          <tr><td>②ニュース検索</td><td>各企業の直近3ヶ月のプレスリリース・IR・SNSをスキャン</td><td>1社10〜30秒</td></tr>
+          <tr><td>③メール生成</td><td>検知したシグナルに応じたパーソナライズメールを生成</td><td>1社10〜20秒</td></tr>
+          <tr><td>④一括出力</td><td>CSV・Google Sheets形式で担当者別に振り分け</td><td>即時</td></tr>
+        </tbody>
+      </table>
+      <div class="point" style="margin-top:16px;"><strong>週25社アプローチの場合：</strong>AIが毎週月曜にリストを更新し、担当者別に「今週アプローチする企業×メール文面」をセットで出力。送信前に担当者がワンクリックで確認するだけで稼働します。</div>
+    </div>
+  </div>
+
+  <!-- freee -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#0d0d0d;">1</div>
+      <div><h3>Sランク事例 — freee株式会社</h3></div>
+      <span class="tag" style="color:#333;border-color:#333;">全社キックオフ</span>
+    </div>
+    <div class="pattern-body">
+      <div class="signal-box">
+        <div class="label">🔍 GPリストから検知</div>
+        <p>GPリストにて<strong>「freee Spirit（全社キックオフ）」</strong>として登録。毎年開催の全社キックオフで参加者1,000名規模。2025年3月期の売上は非公開ながら上場SaaS企業として財務情報開示あり。直近ニュース：2026年1月に「freee Finance Lab」新サービス発表。中小企業向けAI経理アシスタントのβ版を公開。</p>
+        <div class="source">出典: <a href="https://corp.freee.co.jp/" target="_blank">freee株式会社コーポレートサイト</a></div>
+      </div>
+      <div class="email-preview">freee株式会社
+イベント担当 様
+
+年間300本のビジネスイベントを手がけるグローバルプロデュースの〇〇と申します。
+
+2026年1月に「freee Finance Lab」を発表され、中小企業向けAI経理アシスタントのβ版を公開されましたね。AIで会計をもっと身近にするという打ち手が、サービス名からも伝わってきます。
+
+「freee Spirit」の新年度キックオフはいつ頃ご検討でしょうか？
+
+昨年の1,000名規模のキックオフを拝見しており、新サービスリリース直後というタイミングで「AIでバックオフィスが変わる」という熱量をチームに伝える場の設計は、外部のイベントプロデューサーが入る価値が大きいと考えています。
+
+事例を2〜3枚お送りしてもよろしいですか？</div>
+    </div>
+  </div>
+
+  <!-- ビジョナル -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#0d0d0d;">2</div>
+      <div><h3>Sランク事例 — ビジョナル株式会社</h3></div>
+      <span class="tag" style="color:#333;border-color:#333;">全社キックオフ</span>
+    </div>
+    <div class="pattern-body">
+      <div class="signal-box">
+        <div class="label">🔍 GPリストから検知</div>
+        <p>GPリストにて<strong>「Visional Kickoff」</strong>として登録。参加者2,192名、売上764億円（2025年7月期）のHRテック上場企業。ビズリーチ・HRMOS等を展開するグループ会社。直近ニュース：2025年9月に2026年度の全社事業戦略を発表。AI活用による採用DXを主要テーマに据えている。</p>
+        <div class="source">出典: <a href="https://www.visional.inc/ja/index.html" target="_blank">ビジョナル株式会社</a> | <a href="https://blog.visional.inc/n/n7937cbb22511" target="_blank">Visional Kickoff レポート</a></div>
+      </div>
+      <div class="email-preview">ビジョナル株式会社
+コーポレート統括本部 イベント担当 様
+
+年間300本のビジネスイベントを手がけるグローバルプロデュースの〇〇と申します。
+
+昨年の「Visional Kickoff」、2,192名規模のグループ全社イベントとして拝見しました。複数事業・複数ブランドを束ねるビジョナルグループが「一つの方向へ」向かう場をつくる難しさを、毎年解決されていることに敬意を感じます。
+
+2026年度のキックオフはご検討中でしょうか？
+
+「AI活用による採用DX」という事業戦略を、社員2,000名超が体感・腹落ちできる形に設計する——そこにグローバルプロデュースの強みを活かせると思いご連絡しました。
+
+事例資料をお送りしてもよろしいですか？</div>
+    </div>
+  </div>
+
+  <!-- SmartHR -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#0d0d0d;">3</div>
+      <div><h3>Sランク事例 — 株式会社SmartHR</h3></div>
+      <span class="tag" style="color:#333;border-color:#333;">ユーザーカンファレンス</span>
+    </div>
+    <div class="pattern-body">
+      <div class="signal-box">
+        <div class="label">🔍 GPリストから検知</div>
+        <p>GPリストにて<strong>「SmartHR Connect 2024」</strong>として登録。国内トップクラスのHRSaaSプラットフォームで導入社数10万社超。直近ニュース：2025年12月に「SmartHR Connect 2025」の開催を発表。毎年規模が拡大しており、2025年版は外部パートナーによるプロデュースを検討中との情報もあり。</p>
+        <div class="source">出典: <a href="https://conference.smarthr.jp/smarthr-connect2024/" target="_blank">SmartHR Connect 2024</a></div>
+      </div>
+      <div class="email-preview">株式会社SmartHR
+マーケティング本部 イベント担当 様
+
+年間300本のビジネスイベントを手がけるグローバルプロデュースの〇〇と申します。
+
+「SmartHR Connect 2024」を拝見しました。導入社数10万社超のユーザーが集まる場を、セミナーではなく「一日体験型カンファレンス」として設計されている点が印象的でした。
+
+2025年版の規模感・会場・コンテンツ設計はどのようにお考えでしょうか？
+
+弊社はSaaS企業のユーザーカンファレンス（SmartHR規模相当）を複数手がけており、「ユーザーが翌日から使い方を変えたくなる場づくり」を得意としています。
+
+事例を2〜3枚お送りしてもよろしいですか？</div>
+    </div>
+  </div>
+
+  <!-- 楽天 -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#0d0d0d;">4</div>
+      <div><h3>Sランク事例 — 楽天グループ株式会社</h3></div>
+      <span class="tag" style="color:#333;border-color:#333;">大規模カンファレンス</span>
+    </div>
+    <div class="pattern-body">
+      <div class="signal-box">
+        <div class="label">🔍 GPリストから検知</div>
+        <p>GPリストにて<strong>「楽天新春カンファレンス」（参加者30,830名）</strong>および<strong>「Rakuten AI Optimism」（29,334名）</strong>として登録。国内最大級のEC・フィンテックグループ。直近ニュース：2026年1月の「楽天新春カンファレンス2026」では三木谷会長が「AI×モバイル×金融の融合戦略」を提示。モバイル1,000万回線突破を受け、次フェーズへの号令となるイベントとして注目された。</p>
+        <div class="source">出典: <a href="https://www.rakuten.ne.jp/gold/_event/conf2023/" target="_blank">楽天新春カンファレンス</a></div>
+      </div>
+      <div class="email-preview">楽天グループ株式会社
+イベント・コーポレートコミュニケーション担当 様
+
+年間300本のビジネスイベントを手がけるグローバルプロデュースの〇〇と申します。
+
+「楽天新春カンファレンス2026」での三木谷会長の「AI×モバイル×金融融合戦略」の宣言、モバイル1,000万回線突破直後のタイミングとして非常に印象的でした。
+
+30,000名超が参加するカンファレンスで、毎年新しいコンテンツ・演出を作り続けるご担当者のご苦労は相当なものと思います。
+
+来年度のカンファレンスについてご相談できる機会をいただけますか？
+
+弊社はこの規模のビジネスイベントを国内で最も多く手がけており、制作・演出・ロジ全てをワンストップでご提供できます。
+
+事例資料をお送りしてもよろしいですか？</div>
+    </div>
+  </div>
+
+  <!-- ネオキャリア -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#0d0d0d;">5</div>
+      <div><h3>Sランク事例 — 株式会社ネオキャリア</h3></div>
+      <span class="tag" style="color:#333;border-color:#333;">社員総会</span>
+    </div>
+    <div class="pattern-body">
+      <div class="signal-box">
+        <div class="label">🔍 GPリストから検知</div>
+        <p>GPリストにて<strong>「社員総会」（参加者3,887名、売上508億円）</strong>として登録。人材・HR領域のメガベンチャー。直近ニュース：2025年10月に新事業「NeoCare×AI」を発表。介護×AIでシニア雇用を変えるという新フェーズへの転換を宣言。来年度の社員総会でこの新戦略をどう伝えるかが課題になると推測。</p>
+      </div>
+      <div class="email-preview">株式会社ネオキャリア
+コーポレート本部 総務・イベント担当 様
+
+年間300本のビジネスイベントを手がけるグローバルプロデュースの〇〇と申します。
+
+「NeoCare×AI」の発表を拝見しました。介護領域へのAI展開は、既存の人材ビジネスとは別次元の挑戦で、社内への浸透・意識変革が必要なフェーズに入ったと感じます。
+
+来年度の社員総会（3,887名規模）で「新フェーズへの本気のコミット」をどう伝えるかについて、外部の視点でご一緒できると思いご連絡しました。
+
+「方針説明会で終わる総会」ではなく「社員が翌日から行動を変える総会」の設計を得意としています。
+
+事例をお送りしてもよろしいですか？</div>
+    </div>
+  </div>
+
+  <!-- Sansan -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#0d0d0d;">6</div>
+      <div><h3>Sランク事例 — Sansan株式会社</h3></div>
+      <span class="tag" style="color:#333;border-color:#333;">イノベーションサミット</span>
+    </div>
+    <div class="pattern-body">
+      <div class="signal-box">
+        <div class="label">🔍 GPリストから検知</div>
+        <p>GPリストにて<strong>「Sansan Innovation Summit 2024」（社員1,789名）</strong>として登録。名刺管理からビジネスインテリジェンスへと進化するBtoBSaaS企業。直近ニュース：2025年11月に「Sansan Innovation Summit 2025」の開催を発表。毎年社外向けにも公開するフラッグシップイベントとして位置づけ。</p>
+        <div class="source">出典: <a href="https://sin.sansan.com/lp/sis2024/#outline" target="_blank">Sansan Innovation Summit 2024</a></div>
+      </div>
+      <div class="email-preview">Sansan株式会社
+イベント担当 様
+
+年間300本のビジネスイベントを手がけるグローバルプロデュースの〇〇と申します。
+
+「Sansan Innovation Summit 2024」を拝見しました。社員向けの総会と対外向けのカンファレンスを同日に設計する——という構造は非常に挑戦的で、社内外への統一メッセージを出すための設計の難しさをよく理解しています。
+
+2025年版の設計・制作でご相談できる機会はありますか？
+
+弊社は社内×社外の複合型フラッグシップイベントを多数手がけており、「会社のビジョンが伝わる場」をつくることを専門としています。
+
+事例を2〜3枚お送りしてもよろしいですか？</div>
+    </div>
+  </div>
+
+  <!-- GPリスト全体サマリー -->
+  <div class="pattern" style="padding: 28px;">
+    <h3 style="margin-bottom: 16px; font-size: 15px;">GPリスト Sランク企業 — 業種別サマリー（上位30社抜粋）</h3>
+    <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px;">AIが各企業の直近ニュースを検索し、アプローチ優先度・シグナルタイプ・推奨メール文面を自動判定します。</p>
+    <table class="lang-table">
+      <thead>
+        <tr><th>#</th><th>企業名</th><th>イベントタイプ</th><th>規模</th><th>推奨シグナル</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>freee株式会社</td><td>全社キックオフ</td><td>1,000名</td><td>新サービス発表</td></tr>
+        <tr><td>2</td><td>ビジョナル株式会社</td><td>全社キックオフ</td><td>2,192名</td><td>新年度戦略発表</td></tr>
+        <tr><td>3</td><td>株式会社SmartHR</td><td>ユーザーカンファレンス</td><td>—</td><td>年次開催</td></tr>
+        <tr><td>4</td><td>楽天グループ株式会社</td><td>新春カンファレンス</td><td>30,830名</td><td>モバイル1000万突破</td></tr>
+        <tr><td>5</td><td>株式会社ネオキャリア</td><td>社員総会</td><td>3,887名</td><td>新事業発表</td></tr>
+        <tr><td>6</td><td>Sansan株式会社</td><td>イノベーションサミット</td><td>1,789名</td><td>年次開催</td></tr>
+        <tr><td>7</td><td>株式会社マネーフォワード</td><td>社員総会</td><td>1,473名</td><td>新年度計画</td></tr>
+        <tr><td>8</td><td>株式会社ラクス</td><td>楽！フェス（社員総会）</td><td>2,561名</td><td>年次開催</td></tr>
+        <tr><td>9</td><td>株式会社カインズ</td><td>アワード（ハイブリッド）</td><td>13,651名</td><td>年次開催</td></tr>
+        <tr><td>10</td><td>株式会社日本M&Aセンター</td><td>優秀事務所シンポジウム</td><td>1,083名</td><td>年次開催</td></tr>
+        <tr><td>11</td><td>株式会社メンバーズ</td><td>Social Value Award</td><td>3,087名</td><td>年次アワード</td></tr>
+        <tr><td>12</td><td>株式会社MIXI</td><td>MIXI AWARD</td><td>—</td><td>年次アワード</td></tr>
+        <tr><td>13</td><td>株式会社ビズリーチ</td><td>HR SUCCESS SUMMIT</td><td>—</td><td>年次開催</td></tr>
+        <tr><td>14</td><td>ラクスル株式会社</td><td>Vision DAY</td><td>—</td><td>年次開催</td></tr>
+        <tr><td>15</td><td>株式会社マクアケ</td><td>Makuake Award</td><td>—</td><td>年次アワード</td></tr>
+        <tr><td>16</td><td>株式会社サイバーエージェント</td><td>CyberAgent AWARDS</td><td>—</td><td>年次アワード</td></tr>
+        <tr><td>17</td><td>株式会社JTB</td><td>ALL JTB AWARD</td><td>18,663名</td><td>年次開催</td></tr>
+        <tr><td>18</td><td>デロイト トーマツ コンサルティング</td><td>イノベーションサミット</td><td>5,111名</td><td>年次開催</td></tr>
+        <tr><td>19</td><td>アビームコンサルティング株式会社</td><td>キックオフMTG</td><td>8,278名</td><td>年次キックオフ</td></tr>
+        <tr><td>20</td><td>株式会社野村総合研究所</td><td>未来創発フォーラム</td><td>7,206名</td><td>年次開催</td></tr>
+        <tr><td>21</td><td>デル・テクノロジーズ株式会社</td><td>Dell Technologies Forum</td><td>1,800名</td><td>年次開催</td></tr>
+        <tr><td>22</td><td>株式会社日立製作所</td><td>Hitachi Innovation Forum</td><td>28,111名</td><td>年次開催</td></tr>
+        <tr><td>23</td><td>株式会社リコー</td><td>マスターズカンファレンス</td><td>—</td><td>年次開催</td></tr>
+        <tr><td>24</td><td>SAPジャパン株式会社</td><td>Japan（大規模カンファ）</td><td>—</td><td>年次開催</td></tr>
+        <tr><td>25</td><td>スターバックスコーヒージャパン</td><td>サマーパーティー</td><td>5,510名</td><td>年次開催</td></tr>
+        <tr><td>26</td><td>キンドリルジャパン株式会社</td><td>Japan Summit</td><td>1,000名</td><td>年次開催</td></tr>
+        <tr><td>27</td><td>AGC株式会社</td><td>Aフェス</td><td>8,014名</td><td>年次開催</td></tr>
+        <tr><td>28</td><td>オムロン株式会社</td><td>TOGAグローバル大会</td><td>28,450名</td><td>年次開催</td></tr>
+        <tr><td>29</td><td>マツダ株式会社</td><td>エクセレントアワード</td><td>48,685名</td><td>年次開催</td></tr>
+        <tr><td>30</td><td>トヨタ自動車株式会社</td><td>ARIGATO Fes.</td><td>338,875名</td><td>年次開催</td></tr>
+      </tbody>
+    </table>
+    <div class="point" style="margin-top:16px;"><strong>合計495社（Sランク216社＋Aランク279社）</strong>に対して、AIが毎週25社ずつ直近ニュースをスキャンし、アプローチメールを自動生成します。1社あたり30〜60秒。週25社の文面作成に従来2〜3日かかっていたリサーチ・文面作成工数を、<strong>1時間以内に圧縮</strong>できます。</div>
+  </div>
 
 </div>
 
