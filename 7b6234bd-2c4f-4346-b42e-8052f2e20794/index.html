@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>MTG準備メモ — インサイトパワーズ 辻本光邦様｜2/26 12:00</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --primary: #0a0a0a;
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --muted: #737373;
+    --border: #d4d4d4;
+    --accent-blue: #1e40af;
+    --accent-green: #166534;
+    --accent-amber: #92400e;
+    --accent-red: #991b1b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .hero {
+    background: #0a0a0a;
+    color: white;
+    padding: 48px 40px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .hero h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 8px; }
+  .hero .meta { font-size: 13px; opacity: 0.5; font-weight: 300; }
+  .hero .meta strong { opacity: 1; font-weight: 600; color: #60a5fa; }
+  .hero .badges { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .hero .badge {
+    display: inline-block; color: rgba(255,255,255,0.6);
+    font-size: 10px; font-weight: 500; padding: 3px 12px;
+    border: 1px solid rgba(255,255,255,0.2); letter-spacing: 0.15em;
+  }
+  .hero .badge.hot { border-color: #f87171; color: #f87171; }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  .section { margin: 40px 0 24px; padding-bottom: 10px; border-bottom: 2px solid var(--primary); }
+  .section h2 { font-size: 16px; font-weight: 700; letter-spacing: 0.04em; }
+  .section .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 24px 28px; margin-bottom: 16px;
+  }
+  .card h3 { font-size: 14px; font-weight: 700; margin-bottom: 12px; color: var(--primary); }
+  .card p, .card li { font-size: 13px; line-height: 1.7; }
+  .card ul { padding-left: 18px; }
+  .card li { margin-bottom: 4px; }
+
+  .profile-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+
+  .tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; letter-spacing: 0.08em; border: 1px solid; margin-right: 6px; margin-bottom: 4px; }
+  .tag-blue { color: var(--accent-blue); border-color: var(--accent-blue); }
+  .tag-green { color: var(--accent-green); border-color: var(--accent-green); }
+  .tag-amber { color: var(--accent-amber); border-color: var(--accent-amber); }
+  .tag-red { color: var(--accent-red); border-color: var(--accent-red); }
+
+  .timeline { border-left: 2px solid var(--border); padding-left: 20px; margin: 16px 0; }
+  .timeline .event { margin-bottom: 16px; position: relative; }
+  .timeline .event::before {
+    content: ''; position: absolute; left: -25px; top: 6px;
+    width: 8px; height: 8px; background: var(--primary); border-radius: 50%;
+  }
+  .timeline .event.them::before { background: #3b82f6; }
+  .timeline .date { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; }
+  .timeline .sender { font-size: 11px; font-weight: 700; margin-bottom: 2px; }
+  .timeline .sender.us { color: var(--primary); }
+  .timeline .sender.them { color: #2563eb; }
+  .timeline .msg { font-size: 13px; color: #333; background: #f9f9f9; padding: 10px 14px; border-left: 3px solid var(--border); }
+  .timeline .event.them .msg { border-left-color: #93c5fd; background: #eff6ff; }
+
+  .highlight-box {
+    background: #fef3c7; border: 1px solid #fbbf24; border-left: 4px solid #f59e0b;
+    padding: 16px 20px; margin: 16px 0;
+  }
+  .highlight-box .label { font-size: 10px; font-weight: 700; color: var(--accent-amber); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+  .highlight-box p, .highlight-box li { font-size: 13px; }
+  .highlight-box ul { padding-left: 18px; margin-top: 6px; }
+
+  .insight-box {
+    background: #eff6ff; border: 1px solid #93c5fd; border-left: 4px solid #3b82f6;
+    padding: 16px 20px; margin: 16px 0;
+  }
+  .insight-box .label { font-size: 10px; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+  .insight-box p, .insight-box li { font-size: 13px; }
+  .insight-box ul { padding-left: 18px; margin-top: 6px; }
+
+  .danger-box {
+    background: #fef2f2; border: 1px solid #fca5a5; border-left: 4px solid #ef4444;
+    padding: 16px 20px; margin: 16px 0;
+  }
+  .danger-box .label { font-size: 10px; font-weight: 700; color: var(--accent-red); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+  .danger-box p { font-size: 13px; }
+
+  .talk-track {
+    background: #111; color: #d4d4d4; padding: 24px; font-size: 13px; line-height: 1.8;
+    margin: 12px 0; border: 1px solid #2a2a2a; position: relative;
+  }
+  .talk-track::before {
+    content: attr(data-label); position: absolute; top: -1px; left: 0;
+    background: #fff; color: #0a0a0a; font-size: 9px; font-weight: 700;
+    padding: 3px 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    border-bottom: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a;
+  }
+  .talk-track em { color: #60a5fa; font-style: normal; font-weight: 600; }
+  .talk-track strong { color: #f9f9f9; }
+
+  table.info-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+  table.info-table th { background: #0a0a0a; color: white; padding: 8px 14px; text-align: left; font-weight: 600; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+  table.info-table td { padding: 8px 14px; border-bottom: 1px solid var(--border); }
+  table.info-table tr:nth-child(even) td { background: #f9f9f9; }
+
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 6px 0; font-size: 13px; display: flex; align-items: flex-start; gap: 8px; }
+  .checklist li::before { content: ''; flex-shrink: 0; width: 16px; height: 16px; border: 1.5px solid var(--border); margin-top: 2px; }
+
+  .footer { text-align: center; padding: 32px 0; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 48px; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 32px 20px; }
+    .container { padding: 0 16px; }
+    .profile-grid { grid-template-columns: 1fr; }
+    .card { padding: 16px; }
+    .talk-track { padding: 20px 16px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>MTG準備メモ — インサイトパワーズ 辻本光邦様</h1>
+  <div class="meta"><strong>2026/2/26（木）12:00-13:00</strong>｜Google Meet｜リードブースターサービス説明会</div>
+  <div class="meta" style="margin-top:4px;">参加: 辻本光邦（代表取締役）× 高田（XDeli）</div>
+  <div class="badges">
+    <span class="badge">INTERNAL USE ONLY</span>
+    <span class="badge hot">LINKEDIN経由リード</span>
+    <span class="badge">自ら予約→温度感高い</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ==================== 1. 相手を知る ==================== -->
+  <div class="section">
+    <h2>1. 相手を知る</h2>
+    <div class="sub">辻本光邦（つじもと みつくに）/ 株式会社インサイトパワーズ 代表取締役</div>
+  </div>
+
+  <div class="profile-grid">
+    <div class="card">
+      <h3>会社概要</h3>
+      <table class="info-table">
+        <tr><td style="font-weight:600;width:100px;">社名</td><td>株式会社インサイトパワーズ</td></tr>
+        <tr><td style="font-weight:600;">設立</td><td>2010年</td></tr>
+        <tr><td style="font-weight:600;">所在地</td><td>港区六本木7-7-7 トライセブンロッポンギ8F</td></tr>
+        <tr><td style="font-weight:600;">業種</td><td>経営コンサルタント（人材育成・研修）</td></tr>
+        <tr><td style="font-weight:600;">規模感</td><td>ブティック型（少数精鋭）、代表1人+外部講師</td></tr>
+        <tr><td style="font-weight:600;">顧客</td><td>日立、富士通、キヤノンMJ、ヤマト運輸、中外製薬</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>辻本氏のキャリア</h3>
+      <ul>
+        <li><strong>東京外国語大学</strong>卒（1984年）</li>
+        <li><strong>富士通</strong> — 海外向け電子交換機PM、海外政府機関向け大規模PJ</li>
+        <li><strong>ケプナー・トリゴー社</strong> — NJ本社勤務→<strong>日本支社長</strong>。KT法（問題解決の世界的標準）</li>
+        <li><strong>日本マイクロソフト</strong> — <strong>執行役員</strong></li>
+        <li><strong>2010年〜</strong> インサイトパワーズ設立</li>
+        <li><strong>2013年</strong>「1on1」を商標登録（先見性）</li>
+        <li><strong>2024年</strong> エグゼクティブコーチング協会認定取得</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>提供サービス一覧</h3>
+    <table class="info-table">
+      <thead><tr><th>#</th><th>サービス</th><th>特徴</th><th>ターゲット</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>生成AI実践eラーニング</strong></td><td>全28レッスン、3ヶ月完結 <span class="tag tag-red">NEW</span></td><td>全業種・助成金対応</td></tr>
+        <tr><td>2</td><td><strong>問題発見力強化</strong>（KT法）</td><td>ケプナー・トリゴー直伝</td><td>製造業・品質管理部門</td></tr>
+        <tr><td>3</td><td><strong>コーチング＆ヒューニング</strong></td><td>独自手法「ヒューニング」、1on1商標</td><td>経営層・マネージャー</td></tr>
+        <tr><td>4</td><td><strong>DX人材育成</strong></td><td>経営層の意識変革+社内世論形成</td><td>DX推進部</td></tr>
+        <tr><td>5</td><td><strong>リスクマネジメント研修</strong></td><td>富士通PM経験ベース</td><td>プロジェクト管理部門</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 2. やり取りの経緯 ==================== -->
+  <div class="section">
+    <h2>2. やり取りの経緯</h2>
+    <div class="sub">LinkedIn DM → Cal.com予約（セルフサーブ）</div>
+  </div>
+
+  <div class="card">
+    <div class="timeline">
+      <div class="event">
+        <div class="date">2/20（木）7:28</div>
+        <div class="sender us">高田 → 辻本</div>
+        <div class="msg">はじめまして。XDeliの高田と申します。AIを活用した営業自動化に取り組んでおり、近しい領域の方と情報交換できればと思いご連絡しました。</div>
+      </div>
+
+      <div class="event">
+        <div class="date">2/20（木）11:56</div>
+        <div class="sender us">高田 → 辻本（承認後フォロー）</div>
+        <div class="msg">承認ありがとうございます！弊社ではAIを活用した営業自動化（リスト作成→メール生成→送信まで一気通貫）に取り組んでいます。新規開拓の営業、どのように進めていらっしゃいますか？</div>
+      </div>
+
+      <div class="event them">
+        <div class="date">2/20（木）15:34</div>
+        <div class="sender them">辻本 → 高田（キーメッセージ）</div>
+        <div class="msg">助成金を活用した実践的な生成AIのeラーニング講座や、私自身の企業研修の営業活動に課題を持っています。意思決定に関わる変革のプログラムも長くお付き合いする<strong>日立製作所の研究者のアドバイスを得て発信したい</strong>とも考えています。<br><br><strong>知人からの案件紹介が唯一の方法</strong>と取り組んできていますが、コロナ禍以降、企業の動きが変わりました。営業自動化に生成AIがどのように役立てることができるかの知見がございません。貴社サービスでどのような可能性があるのか、<strong>サービス内容と事例</strong>を教えていただけましたらと思います。</div>
+      </div>
+
+      <div class="event">
+        <div class="date">2/24（火）13:51</div>
+        <div class="sender us">高田 → 辻本</div>
+        <div class="msg">「知人からの案件紹介が唯一の方法」とのこと、まさにそこを変えられるのが弊社のサービスです。AIがターゲット企業をリサーチし、パーソナライズしたメッセージを自動で届けます。30分ほどお時間いただけますでしょうか？<br>→ <strong>Cal.comリンク送付</strong></div>
+      </div>
+
+      <div class="event them">
+        <div class="date">2/24（火）</div>
+        <div class="sender them">辻本（アクション）</div>
+        <div class="msg"><strong>Cal.comから自分で予約を完了。</strong> 2/26（木）12:00-13:00を選択。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 3. 辻本さんの課題 ==================== -->
+  <div class="section">
+    <h2>3. 辻本さんの課題（本人の言葉から抽出）</h2>
+  </div>
+
+  <div class="highlight-box">
+    <div class="label">最重要課題: 新規開拓の手段がない</div>
+    <p><strong>「知人からの案件紹介が唯一の方法」</strong> — コロナ禍以降、企業の動きが変わり、紹介だけでは回らなくなっている。営業自動化の知見ゼロ。</p>
+  </div>
+
+  <div class="profile-grid">
+    <div class="insight-box">
+      <div class="label">課題1: 生成AI eラーニングの営業</div>
+      <p>助成金対応の新サービスを作ったが、それを<strong>どう売るか</strong>の手段がない。プロダクトは良いがデリバリーチャネルがない状態。</p>
+    </div>
+    <div class="insight-box">
+      <div class="label">課題2: 意思決定プログラムの発信</div>
+      <p>日立の研究者と連携した新プログラムを<strong>「発信したい」</strong>と明言。コンテンツはあるがリーチできていない。</p>
+    </div>
+    <div class="insight-box">
+      <div class="label">課題3: ブティック型ゆえのリソース制約</div>
+      <p>代表1人 + 外部講師のモデル。営業専任がいない。だからこそ<strong>自動化で少人数でも回る仕組み</strong>が必要。</p>
+    </div>
+    <div class="insight-box">
+      <div class="label">課題4: デジタルマーケの不在</div>
+      <p>SNS発信なし、ブログなし、PR TIMESなし。Webサイトも一部404。<strong>オンラインでの存在感がほぼゼロ</strong>。</p>
+    </div>
+  </div>
+
+  <!-- ==================== 4. MTGのゴール ==================== -->
+  <div class="section">
+    <h2>4. MTGのゴールとアジェンダ</h2>
+  </div>
+
+  <div class="card">
+    <h3>ゴール</h3>
+    <p style="font-size:15px;font-weight:700;margin-bottom:8px;">辻本さんに「これなら自分でも新規開拓できる」と感じてもらい、トライアルまたは契約に進む</p>
+    <p style="font-size:13px;color:var(--muted);">温度感は高い（自ら予約）。サービス内容と事例を求めている。「自分の場合どうなるか」が最大の関心事。</p>
+  </div>
+
+  <div class="card">
+    <h3>アジェンダ（60分）</h3>
+    <table class="info-table">
+      <thead><tr><th>時間</th><th>内容</th><th>ポイント</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap;">0-5分</td><td>アイスブレイク＋自己紹介</td><td>辻本さんのキャリア（KT、MS）に触れる</td></tr>
+        <tr><td>5-15分</td><td><strong>ヒアリング</strong></td><td>下記の質問リストを使う</td></tr>
+        <tr><td>15-30分</td><td><strong>パーソナライズページを画面共有で見せる</strong></td><td>「もし辻本さんがリードブースターを使ったら」のデモ</td></tr>
+        <tr><td>30-45分</td><td>リードブースターの仕組み説明</td><td>リスト→リサーチ→メール生成→送信の流れ</td></tr>
+        <tr><td>45-55分</td><td>Q&A + 料金・導入ステップ</td><td>助成金との組み合わせ提案も</td></tr>
+        <tr><td>55-60分</td><td>ネクストステップ確認</td><td>トライアル or 契約の方向性を確認</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 5. ヒアリング質問 ==================== -->
+  <div class="section">
+    <h2>5. ヒアリング質問リスト</h2>
+    <div class="sub">辻本さんの状況を深堀りして、提案の精度を上げる</div>
+  </div>
+
+  <div class="card">
+    <h3>現状の営業プロセス</h3>
+    <ul class="checklist">
+      <li>今の新規案件は100%知人紹介ですか？ 他にやったことがある施策は？</li>
+      <li>月に何件くらい新規の問い合わせ・引き合いがありますか？</li>
+      <li>理想的には月何件の商談があれば経営が安定しますか？</li>
+      <li>1案件あたりの単価感は？（研修1回○○万円、eラーニング○○万円/社など）</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>ターゲット像</h3>
+    <ul class="checklist">
+      <li>どんな企業が辻本さんのサービスを一番必要としていると感じますか？</li>
+      <li>企業規模の理想は？（従業員○○人以上、売上○○億以上など）</li>
+      <li>決裁者は誰になることが多い？（人事部長？ 経営企画？ CTO？）</li>
+      <li>既存顧客（日立、富士通等）はどういう経緯で案件になった？</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>生成AI eラーニング講座について</h3>
+    <ul class="checklist">
+      <li>この講座のターゲットは？ 全業種？ 特定業界？</li>
+      <li>助成金対応とのことですが、具体的にどの助成金？（人材開発支援助成金？）</li>
+      <li>受講料はいくらくらい？ 助成金で実質いくらになる？</li>
+      <li>この講座の営業を始めたのはいつから？ 今まで何社に提案した？</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>日立連携プログラムについて</h3>
+    <ul class="checklist">
+      <li>日立の研究者との連携プログラム、どういう内容？</li>
+      <li>「発信したい」とのことでしたが、具体的にどういう形で？（セミナー？ 記事？ メール営業？）</li>
+      <li>このプログラムのターゲット企業像は？</li>
+    </ul>
+  </div>
+
+  <!-- ==================== 6. トークトラック ==================== -->
+  <div class="section">
+    <h2>6. キートークトラック</h2>
+    <div class="sub">辻本さんの課題に合わせた話し方</div>
+  </div>
+
+  <div class="talk-track" data-label="オープニング">辻本様、本日はお時間いただきありがとうございます。
+
+LinkedInでお話しいただいた<em>「知人紹介が唯一の方法」</em>というお言葉がすごく印象に残っていまして。
+ケプナー・トリゴーの日本支社長、マイクロソフトの執行役員を歴任されてきた辻本様のサービスが、<em>紹介経由でしか届いていない</em>というのは、正直もったいないと思いました。
+
+今日は「もし辻本様がリードブースターを使ったら」というデモを準備してきましたので、まずはそれをお見せしながら、具体的なイメージをお伝えできればと思います。</div>
+
+  <div class="talk-track" data-label="パーソナライズページを見せるとき">こちらは、辻本様のサービスを<em>AIがどうやって企業に届けるか</em>を、実際に6社分デモとして作ったものです。
+
+例えばこのコマツの事例。コマツが新中期経営計画で<em>「DX Smart Construction」</em>を発表したというニュースをAIが検知して、辻本様の生成AI eラーニング講座を提案するメールを自動生成しています。
+
+重要なのは、これが<em>テンプレートの一斉送信ではない</em>ということです。1社1社、直近のニュースを調べて、その企業が「今なぜこの研修が必要か」を言語化しています。
+
+<strong>辻本様が知人を待っている間に、AIが毎週25社に辻本様の代わりにアプローチし続ける。</strong>これがリードブースターの世界です。</div>
+
+  <div class="talk-track" data-label="料金の話になったとき">料金は月額制でございまして、辻本様の研修やeラーニング1件の受注額を考えると、<em>1案件で十分にペイする</em>水準です。
+
+しかも辻本様は<em>助成金に精通</em>されていますよね。人材開発支援助成金の対象になる講座をお持ちなので、
+受注先の企業にとっても「助成金で実質1/4の費用で受講できる」という強い訴求ができます。
+リードブースターのコストは、<em>1件受注すれば何十倍にもなって返ってくる投資</em>です。</div>
+
+  <div class="talk-track" data-label="クロージング">辻本様のサービスは<em>中身は最高級</em>です。
+ケプナー・トリゴー直伝のKT法、マイクロソフト執行役員としての知見、日立の研究者との連携——こんな経歴を持つ講師は日本に何人もいません。
+
+足りないのは<em>デリバリーチャネルだけ</em>。そこをリードブースターが埋めます。
+
+まずは3週間のセットアップで、辻本様のターゲット企業を設計して、最初の25社にAIがアプローチする——そこから始めませんか？</div>
+
+  <!-- ==================== 7. 想定Q&A ==================== -->
+  <div class="section">
+    <h2>7. 想定Q&A</h2>
+  </div>
+
+  <div class="card">
+    <h3>Q: 研修業界でもフォーム営業やメール営業は効くの？</h3>
+    <p>→ 研修業界は特にフォーム営業が効きます。理由: ① 人事部・教育部門はメールで情報収集する文化がある ② 研修ニーズは顕在化しにくく、タイミング重視。AIが「DX推進発表」「組織改編」などのシグナルを拾って最適なタイミングでアプローチする価値が大きい。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: 自分は1人でやっている。運用の手間は？</h3>
+    <p>→ セットアップ後はほぼ自動です。AIがリサーチ→メール生成→送信まで行います。辻本様は<strong>送信前に文面を確認するだけ</strong>。週1回10分程度の確認で回ります。返信が来たら辻本様が直接対応する、という分業です。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: ターゲットリストはどうやって作る？</h3>
+    <p>→ 弊社側でヒアリング内容をもとに初期リストを作成します。業種・規模・DX推進度・研修予算の有無などでフィルタリング。辻本様の既存顧客（日立、富士通クラス）に近い属性の企業をリストアップします。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: 費用対効果は？ 1人の研修講師で元が取れる？</h3>
+    <p>→ 辻本様の研修1件の単価を考えてください。リードブースターの月額は研修1件の受注額の<strong>数分の1以下</strong>です。月25社にアプローチして、反応率3%なら月0.75件の商談。年間9件の新規商談が生まれます。うち30%が受注すれば<strong>年間3件の新規受注</strong>。ROIは圧倒的です。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: 助成金の講座をリードブースターで売る場合の訴求は？</h3>
+    <p>→ 「受講料75%補助で実質○○円」という訴求はメール営業と極めて相性が良い。企業の人事担当者は常に<strong>コスト正当化</strong>に苦労しています。「助成金で実質1/4」は決裁のハードルを劇的に下げるフック。これをAIが自動で企業ごとにカスタマイズして届けます。</p>
+  </div>
+
+  <!-- ==================== 8. 注意点 ==================== -->
+  <div class="section">
+    <h2>8. 注意点・リスク</h2>
+  </div>
+
+  <div class="danger-box">
+    <div class="label">注意: 辻本さんの年齢層とITリテラシー</div>
+    <p>東京外国語大学1984年卒 → 現在63歳前後。マイクロソフト執行役員を務めたのでIT自体には強いが、<strong>SaaSのダッシュボードを日常的に使う層ではない可能性</strong>。デモは画面共有で丁寧に見せる。「辻本様がやることはメール確認だけ」を繰り返し強調する。</p>
+  </div>
+
+  <div class="danger-box">
+    <div class="label">注意: ブティック型企業の予算感</div>
+    <p>1人法人のため、月額費用の意思決定はシンプル（即断可能）だが、<strong>固定費に敏感</strong>な可能性。「まず1ヶ月試してみましょう」のようなローリスクな入口を用意する。</p>
+  </div>
+
+  <div class="highlight-box">
+    <div class="label">勝ち筋</div>
+    <ul>
+      <li>パーソナライズページを見せた瞬間の「おお、こういうことか」というAHA体験</li>
+      <li>「知人紹介 → AI営業」への<strong>パラダイムシフト</strong>を体感してもらう</li>
+      <li>辻本さんの経歴（KT法、MS、富士通）を武器にしたメールは<strong>他の研修会社にはない差別化</strong>になると伝える</li>
+      <li>助成金 × リードブースター の組み合わせで「売れるものを売れる方法で売る」仕組みを提案</li>
+    </ul>
+  </div>
+
+  <!-- ==================== 9. デモページURL ==================== -->
+  <div class="section">
+    <h2>9. デモページ（画面共有で使用）</h2>
+  </div>
+
+  <div class="card" style="text-align:center; padding:32px;">
+    <p style="font-size:11px; color:var(--muted); margin-bottom:8px; letter-spacing:0.1em; text-transform:uppercase;">パーソナライズデモページ</p>
+    <p style="font-size:16px; font-weight:700; margin-bottom:4px;">インサイトパワーズ様向け AI営業アプローチ デモ</p>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">辻本さんのサービスをAIがどう売るかを6社分で実演</p>
+    <a href="../43c49a18-678c-4235-ab5d-11b916c5db11/" target="_blank" style="display:inline-block; background:#0a0a0a; color:white; padding:10px 28px; font-size:13px; font-weight:600; text-decoration:none; letter-spacing:0.05em;">デモページを開く</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  XDeli INTERNAL USE ONLY｜2026/2/26 MTG準備資料
+</div>
+
+</body>
+</html>
