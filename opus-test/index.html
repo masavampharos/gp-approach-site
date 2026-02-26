@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI営業アプローチ デモンストレーション | 株式会社インサイトパワーズ様</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+:root { --primary: #0a0a0a; --accent: #0a0a0a; --accent2: #333333; --bg: #f5f5f5; --card: #ffffff; --text: #1a1a1a; --muted: #737373; --border: #d4d4d4; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans JP', 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; font-size: 15px; }
+.hero { background: #0a0a0a; color: white; padding: 64px 40px; text-align: center; border-bottom: 1px solid #1a1a1a; }
+.hero h1 { font-size: 28px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 12px; text-transform: uppercase; }
+.hero .subtitle { font-size: 13px; opacity: 0.5; font-weight: 300; letter-spacing: 0.05em; }
+.hero .badge { display: inline-block; background: transparent; color: rgba(255,255,255,0.4); font-size: 10px; font-weight: 500; padding: 4px 14px; border: 1px solid rgba(255,255,255,0.15); margin-top: 20px; letter-spacing: 0.2em; }
+.container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+.intro { background: var(--card); border: 1px solid var(--border); padding: 32px; margin: -1px auto 40px; position: relative; z-index: 1; border-top: none; }
+.intro h2 { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 16px; }
+.intro p { font-size: 14px; line-height: 1.9; color: var(--text); }
+.intro p + p { margin-top: 12px; }
+.intro strong { font-weight: 700; }
+.toc { background: var(--card); border: 1px solid var(--border); padding: 28px 32px; margin-bottom: 40px; }
+.toc h2 { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 16px; }
+.toc ol { list-style: none; counter-reset: toc; }
+.toc li { counter-increment: toc; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+.toc li:last-child { border-bottom: none; }
+.toc li::before { content: counter(toc, decimal-leading-zero) "."; font-weight: 600; color: var(--muted); margin-right: 12px; font-size: 11px; }
+.toc a { color: var(--text); text-decoration: none; }
+.section-header { margin: 56px 0 24px; padding-bottom: 12px; border-bottom: 1px solid var(--primary); }
+.section-header h2 { font-size: 18px; font-weight: 700; color: var(--primary); letter-spacing: 0.04em; }
+.section-header p { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.pattern { background: var(--card); border: 1px solid var(--border); margin-bottom: 24px; overflow: hidden; }
+.pattern-header { padding: 20px 28px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+.pattern-header .num { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: white; flex-shrink: 0; background: var(--primary); }
+.pattern-header h3 { font-size: 16px; font-weight: 700; }
+.pattern-header .tag { font-size: 10px; font-weight: 600; padding: 3px 10px; white-space: nowrap; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid currentColor; color: #404040; }
+.pattern-body { padding: 24px 28px; }
+.pattern-body .desc { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.7; border-left: 2px solid var(--border); padding-left: 14px; }
+.signal-box { background: #f0f0f0; border-left: 3px solid var(--primary); padding: 16px 20px; margin-bottom: 16px; }
+.signal-box .label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+.signal-box p { font-size: 13px; line-height: 1.6; }
+.signal-box .source { font-size: 11px; color: var(--muted); margin-top: 8px; }
+.signal-box .source a { color: var(--text); text-decoration: underline; }
+.email-preview { background: #111111; color: #d4d4d4; padding: 28px; font-family: 'Inter', 'Noto Sans JP', monospace; font-size: 13px; line-height: 1.8; white-space: pre-line; margin-bottom: 16px; position: relative; border: 1px solid #2a2a2a; }
+.email-preview::before { content: "AIが生成するメール文面"; position: absolute; top: -1px; left: 0; background: #ffffff; color: #0a0a0a; font-size: 9px; font-weight: 700; padding: 3px 12px; font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.12em; text-transform: uppercase; border-bottom: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a; }
+.point { background: #f5f5f5; border: 1px solid var(--border); padding: 14px 18px; font-size: 13px; line-height: 1.6; border-left: 3px solid var(--primary); }
+.point strong { color: var(--primary); font-weight: 700; }
+.step-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; border: 1px solid var(--border); }
+.step-table th { background: var(--primary); color: white; padding: 10px 16px; text-align: left; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+.step-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; border: 1px solid var(--border); }
+.compare-table th { background: var(--primary); color: white; padding: 10px 16px; text-align: center; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; }
+.compare-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); text-align: center; }
+.compare-table td:first-child { text-align: left; font-weight: 600; }
+.sim-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; border: 1px solid var(--border); }
+.sim-table th { background: #262626; color: white; padding: 10px 16px; text-align: center; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; }
+.sim-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); text-align: center; }
+.sim-table td:first-child { text-align: left; font-weight: 500; }
+.sim-table .highlight { font-weight: 700; color: var(--primary); }
+.subsidy-box { background: #fafafa; border: 1px solid var(--border); padding: 24px 28px; margin: 20px 0; }
+.subsidy-box h4 { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+.subsidy-box ul { font-size: 13px; padding-left: 20px; line-height: 1.8; }
+.service-map { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+.service-map .svc { background: #fafafa; border: 1px solid var(--border); padding: 16px 20px; }
+.service-map .svc h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.service-map .svc p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.service-map .svc .target { font-size: 11px; color: #404040; margin-top: 8px; font-weight: 500; }
+.footer { text-align: center; padding: 40px 0; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 60px; letter-spacing: 0.05em; }
+@media (max-width: 640px) { .hero { padding: 40px 20px; } .hero h1 { font-size: 20px; } .container { padding: 0 16px; } .service-map { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- HERO -->
+<!-- ============================================================ -->
+<div class="hero">
+  <h1>AI営業アプローチ<br>デモンストレーション</h1>
+  <div class="subtitle">株式会社インサイトパワーズ 辻本光邦様 専用資料</div>
+  <div class="badge">CONFIDENTIAL</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 導入文 -->
+<!-- ============================================================ -->
+<div class="container">
+  <div class="intro">
+    <h2>Introduction</h2>
+    <p>辻本光邦様</p>
+    <p>LinkedInでのメッセージ、ありがとうございました。<strong>「知人からの案件紹介が唯一の営業方法だった」</strong>というお言葉が、強く印象に残っています。</p>
+    <p>ケプナー・トリゴー日本支社長、日本マイクロソフト執行役員を歴任され、現在は生成AIeラーニング講座、KT法ベースの問題発見力強化プログラム、コーチング&ヒューニング、1on1研修と、企業の本質的な課題に踏み込むサービスを展開されています。サービスの質は、日立製作所、ヤマト運輸、中外製薬、キヤノンマーケティングジャパンといったクライアントの顔ぶれが証明しています。</p>
+    <p>一方で、これほどの実績がありながら、新規開拓が「知人紹介」に限られているのは、率直にもったいないと感じました。</p>
+    <p>本日は、<strong>リードブースター</strong>がAIで企業のHP・ニュース・IR情報をリサーチし、辻本様のサービスに合った企業へ1社ごとにパーソナライズした営業文を自動生成・配信する仕組みを、<strong>実際の6社分のアプローチ例</strong>でご体感いただきます。</p>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 目次 -->
+  <!-- ============================================================ -->
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#service-map">サービスマップ（辻本様の4サービス x ターゲット企業）</a></li>
+      <li><a href="#approaches">ターゲット企業別アプローチ事例（6社）</a></li>
+      <li><a href="#mechanism">リードブースターの仕組み</a></li>
+      <li><a href="#subsidy">助成金 x リードブースター</a></li>
+      <li><a href="#next-steps">導入3ステップ &amp; ネクストアクション</a></li>
+    </ol>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 01. サービスマップ -->
+  <!-- ============================================================ -->
+  <div class="section-header" id="service-map">
+    <h2>01 — サービスマップ</h2>
+    <p>辻本様の4サービスとターゲット企業の対応関係</p>
+  </div>
+
+  <div class="service-map">
+    <div class="svc">
+      <h4>生成AI実践eラーニング講座</h4>
+      <p>全28レッスン・3ヶ月・助成金対応。DX推進の入口として全社員に展開可能。</p>
+      <div class="target">対象: コマツ / SCSK / ダイハツ工業 / 中堅製造業A社</div>
+    </div>
+    <div class="svc">
+      <h4>問題発見力強化プログラム</h4>
+      <p>KT法ベースの体系的問題分析手法。品質改善・コンサルの基盤スキルとして。</p>
+      <div class="target">対象: ダイハツ工業 / アクセンチュア / コマツ</div>
+    </div>
+    <div class="svc">
+      <h4>コーチング &amp; ヒューニング</h4>
+      <p>経営幹部・次世代リーダー向けの個別育成。意思決定力と人間力の両面を強化。</p>
+      <div class="target">対象: タイミー / アクセンチュア / SCSK</div>
+    </div>
+    <div class="svc">
+      <h4>1on1研修</h4>
+      <p>辻本様が2013年に商標登録。マネージャーの対話スキルを体系化した研修。</p>
+      <div class="target">対象: タイミー / SCSK / コマツ</div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 02. ターゲット企業別アプローチ事例 -->
+  <!-- ============================================================ -->
+  <div class="section-header" id="approaches">
+    <h2>02 — ターゲット企業別アプローチ事例</h2>
+    <p>AIが検知したシグナルをもとに、1社ずつパーソナライズしたメール文面を生成</p>
+  </div>
+
+  <!-- ===== 1. コマツ ===== -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">1</div>
+      <h3>小松製作所（コマツ）</h3>
+      <span class="tag">生成AI研修</span>
+    </div>
+    <div class="pattern-body">
+      <div class="desc">新中期経営計画「Driving value with ambition」でDX人材の育成・獲得を重点施策に据える。AI人材100名育成計画を推進中だが、全社レベルでの生成AIリテラシー底上げが次の課題。</div>
+
+      <div class="signal-box">
+        <div class="label">AIが検知した企業シグナル</div>
+        <p>コマツは2025年4月より新中期経営計画（2025-2027年度）「Driving value with ambition 価値創造への挑戦」を開始。イノベーションを担うデジタル人材（AI・DX）の育成を成長戦略の柱に位置づけ、DX人材教育では全社員への教育機会提供を推進している。</p>
+        <div class="source">出典: <a href="https://www.komatsu.jp/en/newsroom/2025/20250428_2" target="_blank">Komatsu Newsroom - New Strategic Growth Plan (FY2025-FY2027)</a> / <a href="https://komatsu.disclosure.site/ja/themes/91" target="_blank">コマツ CSR - デジタル人材/オープンイノベーション推進人材の育成</a></div>
+      </div>
+
+      <div class="email-preview">
+件名: コマツ様の「価値創造への挑戦」を支える生成AI人材育成のご提案
+
+小松製作所
+執行役員 人事部担当 村上正史様
+
+突然のご連絡失礼いたします。
+株式会社インサイトパワーズ代表の辻本光邦と申します。
+
+貴社の新中期経営計画「Driving value with ambition」において、DX人材の育成・獲得を成長戦略の柱に掲げられていることを拝見しました。AI人材100名の育成を進められる中、次のステップとして「全社員レベルでの生成AIリテラシー向上」が課題になるのではないでしょうか。
+
+弊社では、全28レッスン・3ヶ月完結の「生成AI実践eラーニング講座」を提供しております。製造業のお客様にも多くご導入いただいており、現場のエンジニアから管理職まで、実務に即したプロンプト設計と業務活用を体系的に習得できる内容です。
+
+厚生労働省の人材開発支援助成金（事業展開等リスキリング支援コース）にも対応しており、研修費用の最大75%が助成対象となります。
+
+15分ほどお時間をいただければ、貴社のDX人材育成計画に合わせたカリキュラムのご提案が可能です。ご都合のよい日時をご教示いただけますと幸いです。
+
+株式会社インサイトパワーズ
+代表 辻本光邦</div>
+
+      <div class="point"><strong>パーソナライズのポイント:</strong> 中期経営計画の固有名称「Driving value with ambition」に触れることで、企業研究済みであることを示し、AI人材100名→全社展開という具体的な課題の進化を指摘。助成金対応にも言及し、予算面のハードルを下げている。</div>
+    </div>
+  </div>
+
+  <!-- ===== 2. SCSK ===== -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">2</div>
+      <h3>SCSK</h3>
+      <span class="tag">SIerリスキリング</span>
+    </div>
+    <div class="pattern-body">
+      <div class="desc">「共創ITカンパニー」を標榜し、技術ビジョン2030を策定。AWSとのAI駆動開発ライフサイクル(AI-DLC)プロジェクトも始動し、全社的なAI人材の定義と育成プログラム整備が急務。</div>
+
+      <div class="signal-box">
+        <div class="label">AIが検知した企業シグナル</div>
+        <p>SCSKは「共創ITカンパニー」の実現に向け、グループ技術戦略「技術ビジョン2030」を策定。2025年12月にはAWS提唱の「AI駆動開発ライフサイクル（AI-DLC）」活用推進プロジェクトを始動し、高度デジタル人材の定義策定と全社教育プログラムの整備を進めている。また、2026年2月には「人的資本リーダーズ2025」「人的資本経営品質（ゴールド）」を受賞。</p>
+        <div class="source">出典: <a href="https://www.scsk.jp/news/2025/pdf/20251212.pdf" target="_blank">SCSK - AI-DLC活用推進プロジェクト始動（2025年12月）</a> / <a href="https://www.scsk.jp/sp/technology_strategy/index.html" target="_blank">SCSKグループ技術戦略 技術ビジョン2030</a></div>
+      </div>
+
+      <div class="email-preview">
+件名: SCSK様「技術ビジョン2030」に向けた生成AI実践力の全社底上げのご提案
+
+SCSK株式会社
+執行役員専務 人事分掌役員 田中拓也様
+
+突然のご連絡失礼いたします。
+株式会社インサイトパワーズ代表の辻本光邦と申します。
+
+貴社が「技術ビジョン2030」のもと、AI-DLC活用推進プロジェクトを始動され、高度デジタル人材の育成を加速されていることを拝見しました。SIer業界においては、エンジニアのAI活用スキルが競争力を左右する局面に入っています。
+
+弊社は、元日本マイクロソフト執行役員の経験をもとに、IT業界の実務に即した「生成AI実践eラーニング講座」を提供しております。全28レッスン・3ヶ月のカリキュラムで、プロンプト設計からコード生成補助、業務プロセス改善まで体系的にカバーしています。
+
+「人的資本リーダーズ2025」を受賞された貴社の人材投資への姿勢と、弊社プログラムの方向性は合致するものと考えております。15分ほど、貴社の育成計画に合わせたご提案の機会をいただけないでしょうか。
+
+株式会社インサイトパワーズ
+代表 辻本光邦</div>
+
+      <div class="point"><strong>パーソナライズのポイント:</strong> 「技術ビジョン2030」「AI-DLC」という社内固有の戦略名を使用。マイクロソフト執行役員経験に触れることでIT業界への理解を暗示。人的資本経営の受賞への言及で、人事投資への意識が高い企業としてのプライドに訴求している。</div>
+    </div>
+  </div>
+
+  <!-- ===== 3. ダイハツ工業 ===== -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">3</div>
+      <h3>ダイハツ工業</h3>
+      <span class="tag">品質不正後の問題発見力</span>
+    </div>
+    <div class="pattern-body">
+      <div class="desc">認証不正問題を受け「三つの誓い」（風土改革・経営改革・モノづくり改革）を掲げ再出発。専任の「三つの誓い」改革推進部を新設。同時にDX人材3,000名育成（2027年度目標）を打ち出し、組織変革と技術変革を同時に推進中。</div>
+
+      <div class="signal-box">
+        <div class="label">AIが検知した企業シグナル</div>
+        <p>ダイハツ工業は認証不正問題の再発防止策として「三つの誓い」（風土改革・経営改革・モノづくり/コトづくり改革）を掲げ、2024年4月に専任組織「三つの誓い改革推進部」を新設。さらに2025年10月、DX人材1,000名の育成目標を前倒し達成したことを発表し、2027年度までに3,000名体制への拡大を宣言。生成AIの全社展開も加速している。</p>
+        <div class="source">出典: <a href="https://www.daihatsu.com/jp/three_pledges/" target="_blank">ダイハツ - 再発防止の取組み「三つの誓い」</a> / <a href="https://www.daihatsu.com/jp/news/2025/20251020-1.html" target="_blank">ダイハツ - 2027年度までに3,000人のDX人材を育成（2025年10月）</a></div>
+      </div>
+
+      <div class="email-preview">
+件名: 「三つの誓い」を現場に定着させる問題発見力プログラムのご提案
+
+ダイハツ工業株式会社
+代表取締役副社長
+「三つの誓い」改革推進部長 星加宏昌様
+
+突然のご連絡失礼いたします。
+株式会社インサイトパワーズ代表の辻本光邦と申します。
+
+貴社が「三つの誓い」のもと、風土改革からモノづくり改革まで全社をあげて取り組まれていることに、深い敬意を抱いております。改革の成否を分けるのは、現場の一人ひとりが「おかしい」と感じたことを体系的に言語化し、上位に伝える力、すなわち「問題発見力」ではないでしょうか。
+
+弊社は、ケプナー・トリゴー日本支社長を10年務めた経験をもとに、KT法をベースとした「問題発見力強化プログラム」を提供しております。品質不正が発生する構造的要因を分析し、現場が自律的に異常を検知・報告できる思考フレームワークを全社に定着させるプログラムです。
+
+また、DX人材3,000名育成の目標に向けて、弊社の「生成AI実践eラーニング講座」(助成金対応)も組み合わせてご提案が可能です。問題発見力とデジタル活用力の両輪で、貴社の再生を支援できればと考えております。
+
+株式会社インサイトパワーズ
+代表 辻本光邦</div>
+
+      <div class="point"><strong>パーソナライズのポイント:</strong> 「三つの誓い」改革推進部長に直接宛名を設定。KT法を10年率いた経験と品質不正の構造的課題を接続し、「問題発見力」がまさに必要な文脈を構築。DX人材育成にも触れ、2サービスのクロスセルを仕込んでいる。</div>
+    </div>
+  </div>
+
+  <!-- ===== 4. アクセンチュア ===== -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">4</div>
+      <h3>アクセンチュア</h3>
+      <span class="tag">若手コンサルの問題解決力</span>
+    </div>
+    <div class="pattern-body">
+      <div class="desc">グローバルで成長モデルを刷新し「Reinvention Services」体制へ移行。AI対応を軸に人材の再編を実施する一方、日本法人は2.6万人超に拡大。急拡大する組織で若手コンサルタントの品質担保が経営課題に。</div>
+
+      <div class="signal-box">
+        <div class="label">AIが検知した企業シグナル</div>
+        <p>アクセンチュアは2025年9月、AI時代に向けた成長モデルの刷新を発表。「Reinvention Services」体制への移行とともに、グローバルで約1,300億円規模の人材再編を実施。一方、日本法人は2.6万人超に拡大を続けており、AI専門人材を7.7万人(グローバル)に倍増させる方針。急成長に伴う若手育成の質的課題が浮上している。</p>
+        <div class="source">出典: <a href="https://newsroom.accenture.jp/jp/news/2025/release-20250624" target="_blank">アクセンチュア - AI時代に向けて成長モデルを刷新（2025年6月）</a> / <a href="https://diamond.jp/articles/-/369584" target="_blank">ダイヤモンド - アクセンチュアが2万6000人を突破（2025年）</a></div>
+      </div>
+
+      <div class="email-preview">
+件名: 急拡大するアクセンチュア様の若手コンサルタント育成に関するご提案
+
+アクセンチュア株式会社
+執行役員 人事本部長 瀧澤明良様
+
+突然のご連絡失礼いたします。
+株式会社インサイトパワーズ代表の辻本光邦と申します。
+
+貴社がAI時代に向けた成長モデルの刷新を進められ、日本法人が2.6万人を超える規模に成長されていることを拝見しました。急速な組織拡大の中で、若手コンサルタントの「問題解決の型」をいかに短期間で身につけさせるかが、サービス品質を左右する重要課題ではないかと推察いたします。
+
+弊社代表の辻本は、ケプナー・トリゴー日本支社長を10年務め、KT法に基づく問題分析・意思決定の方法論を数千名のコンサルタント・ビジネスパーソンに指導してまいりました。若手がクライアントの前で即座に問題を構造化し、仮説を立てられるようになるプログラムを提供しております。
+
+また、マネージャー層の部下育成力向上に向けた「1on1研修」や「コーチング&ヒューニング」も併せてご提案可能です。15分ほどお時間をいただき、貴社の育成体系に合わせたご提案をさせていただければ幸いです。
+
+株式会社インサイトパワーズ
+代表 辻本光邦</div>
+
+      <div class="point"><strong>パーソナライズのポイント:</strong> 成長モデル刷新と組織拡大の事実に基づき、「若手の品質担保」という人事本部長が直面する具体的課題を指摘。KT法の「問題の構造化」とコンサルの基礎スキルを自然に接続し、1on1研修・コーチングのクロスセルも提示。</div>
+    </div>
+  </div>
+
+  <!-- ===== 5. タイミー ===== -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">5</div>
+      <h3>タイミー</h3>
+      <span class="tag">急成長企業のマネージャー育成</span>
+    </div>
+    <div class="pattern-body">
+      <div class="desc">従業員1,400名超、毎月30-60名が入社する超成長フェーズ。2025年11月に新たに8名の執行役員が就任し経営体制を強化。「ミッショングレード制」で抜擢人事を推進するが、マネジメント未経験のリーダーが急増する課題に直面。</div>
+
+      <div class="signal-box">
+        <div class="label">AIが検知した企業シグナル</div>
+        <p>タイミーは2025年11月、新たに8名の執行役員就任を発表し、事業拡大に向けた経営体制を強化。従業員1,400名超、毎月30-60名が入社する急成長の中、「ミッショングレード制」による抜擢人事を推進。管理職確保のため評価制度改革に着手し、昇格候補者を上司がプレゼンする独自の仕組みを導入している。</p>
+        <div class="source">出典: <a href="https://corp.timee.co.jp/news/detail-5469/" target="_blank">タイミー - 新執行役員就任のお知らせ（2025年11月）</a> / <a href="https://www.bizreach.jp/column/strategy-32/" target="_blank">ビズリーチ - 超速成長のタイミー、管理職確保へ「評価改革」</a></div>
+      </div>
+
+      <div class="email-preview">
+件名: 毎月数十名が入社するタイミー様のマネージャー育成に関するご提案
+
+株式会社タイミー
+執行役員 HR本部部長 緒方仁暁様
+
+突然のご連絡失礼いたします。
+株式会社インサイトパワーズ代表の辻本光邦と申します。
+
+貴社が毎月30名から60名のペースで組織を拡大され、ミッショングレード制で意欲ある人材を積極的に抜擢されていることを拝見しました。急成長企業が直面する最大の課題の一つは、「初めてマネージャーになる人材」をいかに短期間で戦力化するかだと考えています。
+
+弊社は2013年に「1on1」を商標登録し、日本における1on1面談の体系化に先駆的に取り組んでまいりました。新任マネージャーが部下との対話を通じて信頼関係を構築し、チームの生産性を高めるための実践的な研修プログラムを提供しております。
+
+併せて、経営幹部・次世代リーダー向けの「コーチング&ヒューニング」も、抜擢された若手執行役員の方々の成長加速に有効です。15分ほどお時間をいただき、貴社の育成課題に合わせたご提案ができればと存じます。
+
+株式会社インサイトパワーズ
+代表 辻本光邦</div>
+
+      <div class="point"><strong>パーソナライズのポイント:</strong> 「毎月30-60名入社」「ミッショングレード制」「抜擢人事」と企業固有の情報を盛り込み、「初めてのマネージャー問題」を具体的に指摘。1on1の商標登録者であることを権威付けとして活用し、コーチングのクロスセルも仕込んでいる。</div>
+    </div>
+  </div>
+
+  <!-- ===== 6. 中堅製造業A社 ===== -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">6</div>
+      <h3>中堅製造業A社（架空）</h3>
+      <span class="tag">助成金活用型講座</span>
+    </div>
+    <div class="pattern-body">
+      <div class="desc">従業員200名規模の中堅製造業。DX推進の必要性は認識しているが、予算と推進人材の不足が障壁。人材開発支援助成金の活用で、実質的な費用負担を大幅に軽減できるケース。</div>
+
+      <div class="signal-box">
+        <div class="label">AIが検知した企業シグナル</div>
+        <p>2025年4月より人材開発支援助成金（事業展開等リスキリング支援コース）が改定。中小企業の助成率75%は維持され、賃金助成は1人1時間あたり1,000円に拡充。生成AI・DX関連の外部研修が助成対象となり、中堅製造業にとってリスキリング投資のハードルが大幅に下がっている。</p>
+        <div class="source">出典: <a href="https://www.mhlw.go.jp/content/11800000/001514283.pdf" target="_blank">厚生労働省 - 人材開発支援助成金（事業展開等リスキリング支援コース）詳細版</a> / <a href="https://reskilling-navi.com/column/jyoseikin-reskilling" target="_blank">リスキリングナビ - 人材開発支援助成金を徹底解説【2025年版】</a></div>
+      </div>
+
+      <div class="email-preview">
+件名: 助成金で実質負担を75%軽減、生成AI研修導入のご提案
+
+A社
+人事部長 様
+
+突然のご連絡失礼いたします。
+株式会社インサイトパワーズ代表の辻本光邦と申します。
+
+製造業を取り巻くDXの波が加速する中、貴社でも生成AIの業務活用にご関心をお持ちではないでしょうか。2025年4月に改定された厚生労働省の「人材開発支援助成金（事業展開等リスキリング支援コース）」を活用することで、研修費用の75%が助成され、さらに受講時間に応じた賃金助成（1人1時間あたり1,000円）も受けられます。
+
+弊社の「生成AI実践eラーニング講座」は、全28レッスン・3ヶ月のカリキュラムで、本助成金の対象講座です。製造現場での品質管理レポート作成、設計仕様書のドラフト、社内ナレッジ検索など、実務に直結する生成AI活用を学べます。
+
+例えば従業員20名が受講される場合、助成金により実質負担額は1人あたり数万円程度まで圧縮可能です。助成金の申請手続きも弊社がサポートいたします。ご関心がございましたら、15分ほどお時間をいただけますでしょうか。
+
+株式会社インサイトパワーズ
+代表 辻本光邦</div>
+
+      <div class="point"><strong>パーソナライズのポイント:</strong> 中堅製造業の最大の関心事である「コスト」に正面から応え、助成金の具体的な助成率(75%)と賃金助成額(1,000円/時)を明記。製造現場での具体的なAI活用例を列挙し、「うちの会社でも使える」と感じさせる設計。</div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 03. リードブースターの仕組み -->
+  <!-- ============================================================ -->
+  <div class="section-header" id="mechanism">
+    <h2>03 — リードブースターの仕組み</h2>
+    <p>なぜパーソナライズされた営業アプローチが、従来の手法を圧倒するのか</p>
+  </div>
+
+  <div class="pattern">
+    <div class="pattern-body">
+      <div class="desc">上記6社の事例でご覧いただいた通り、リードブースターは「その企業にしか刺さらないメール」を自動で生成します。知人紹介では到達できない企業に、最適なタイミングで、最適な切り口でアプローチすることが可能になります。</div>
+
+      <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 16px;">4ステップで自動化されるAI営業プロセス</h4>
+
+      <table class="step-table">
+        <thead>
+          <tr>
+            <th style="width: 100px;">ステップ</th>
+            <th>内容</th>
+            <th style="width: 160px;">所要時間</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Step 1</strong></td>
+            <td><strong>ターゲット選定:</strong> 辻本様のサービスに合う業界・企業規模・課題を設定し、アプローチ候補企業をリストアップ</td>
+            <td>初回設定のみ</td>
+          </tr>
+          <tr>
+            <td><strong>Step 2</strong></td>
+            <td><strong>AIリサーチ:</strong> 各企業のHP、ニュースリリース、IR資料、採用情報などをAIが自動収集・分析し、「刺さるポイント」を特定</td>
+            <td>1社あたり約3分</td>
+          </tr>
+          <tr>
+            <td><strong>Step 3</strong></td>
+            <td><strong>メール生成:</strong> 企業シグナルと辻本様のサービス情報を掛け合わせ、1社ごとにパーソナライズしたメール文面を自動生成</td>
+            <td>1社あたり約1分</td>
+          </tr>
+          <tr>
+            <td><strong>Step 4</strong></td>
+            <td><strong>配信・効果測定:</strong> 生成されたメールを確認後、配信。開封率・返信率をトラッキングし、次回以降の精度を向上</td>
+            <td>確認のみ</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 style="font-size: 14px; font-weight: 700; margin: 32px 0 16px;">AIが検知する「シグナル」の例</h4>
+
+      <table class="step-table">
+        <thead>
+          <tr>
+            <th>シグナルの種類</th>
+            <th>具体例</th>
+            <th>活用方法</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>中期経営計画</td>
+            <td>「DX人材育成を重点施策に」</td>
+            <td>生成AI講座を提案</td>
+          </tr>
+          <tr>
+            <td>組織変更・新部署</td>
+            <td>「改革推進部を新設」</td>
+            <td>問題発見力プログラムを提案</td>
+          </tr>
+          <tr>
+            <td>人事・採用ニュース</td>
+            <td>「新任執行役員8名就任」</td>
+            <td>1on1研修・コーチングを提案</td>
+          </tr>
+          <tr>
+            <td>業績・IR情報</td>
+            <td>「売上成長率30%超」</td>
+            <td>マネージャー育成を提案</td>
+          </tr>
+          <tr>
+            <td>業界ニュース</td>
+            <td>「品質不正・コンプライアンス問題」</td>
+            <td>KT法による再発防止を提案</td>
+          </tr>
+          <tr>
+            <td>助成金情報</td>
+            <td>「リスキリング助成率75%」</td>
+            <td>助成金活用セットで提案</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 style="font-size: 14px; font-weight: 700; margin: 32px 0 16px;">週25社アプローチのシミュレーション</h4>
+
+      <table class="sim-table">
+        <thead>
+          <tr>
+            <th>指標</th>
+            <th>月間（100社）</th>
+            <th>3ヶ月（300社）</th>
+            <th>6ヶ月（600社）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>アプローチ企業数</td>
+            <td>100社</td>
+            <td>300社</td>
+            <td>600社</td>
+          </tr>
+          <tr>
+            <td>開封率（想定25%）</td>
+            <td>25社</td>
+            <td>75社</td>
+            <td>150社</td>
+          </tr>
+          <tr>
+            <td>返信率（想定3%）</td>
+            <td class="highlight">3社</td>
+            <td class="highlight">9社</td>
+            <td class="highlight">18社</td>
+          </tr>
+          <tr>
+            <td>商談化率（返信の50%）</td>
+            <td class="highlight">1-2件</td>
+            <td class="highlight">4-5件</td>
+            <td class="highlight">9件</td>
+          </tr>
+          <tr>
+            <td>受注（商談の30%想定）</td>
+            <td>0-1件</td>
+            <td class="highlight">1-2件</td>
+            <td class="highlight">2-3件</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="font-size: 12px; color: var(--muted); margin-top: 8px;">※ 数値はパーソナライズドメールの業界平均値をもとにした想定です。辻本様のサービスの単価・リピート率を考慮すると、半年で2-3件の新規受注でも投資対効果は十分に成立します。</p>
+
+      <h4 style="font-size: 14px; font-weight: 700; margin: 32px 0 16px;">知人紹介 vs リードブースター 比較</h4>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="text-align: left;">比較項目</th>
+            <th>知人紹介</th>
+            <th>リードブースター</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>月間アプローチ数</td>
+            <td>数社（紹介待ち）</td>
+            <td><strong>100社</strong></td>
+          </tr>
+          <tr>
+            <td>ターゲットの選定</td>
+            <td>紹介者の人脈に依存</td>
+            <td><strong>業界・課題で自由に設定</strong></td>
+          </tr>
+          <tr>
+            <td>パーソナライズ</td>
+            <td>紹介者の口頭説明のみ</td>
+            <td><strong>AIが企業情報を自動分析</strong></td>
+          </tr>
+          <tr>
+            <td>タイミング</td>
+            <td>偶発的</td>
+            <td><strong>シグナル検知で最適化</strong></td>
+          </tr>
+          <tr>
+            <td>スケーラビリティ</td>
+            <td>紹介者の数が上限</td>
+            <td><strong>業界横断で無制限</strong></td>
+          </tr>
+          <tr>
+            <td>辻本様の稼働</td>
+            <td>関係維持に時間を要する</td>
+            <td><strong>メール確認のみ（週30分）</strong></td>
+          </tr>
+          <tr>
+            <td>データ蓄積</td>
+            <td>属人的な記憶</td>
+            <td><strong>開封・返信率で継続改善</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="font-size: 13px; line-height: 1.7; margin-top: 16px;">知人紹介は「質が高い一方、量とタイミングをコントロールできない」のが課題です。リードブースターは知人紹介を置き換えるものではなく、<strong>知人紹介では到達できない企業層を開拓する「第二の営業チャネル」</strong>として機能します。</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 04. 助成金 x リードブースター -->
+  <!-- ============================================================ -->
+  <div class="section-header" id="subsidy">
+    <h2>04 — 助成金 x リードブースター</h2>
+    <p>辻本様のeラーニング講座は助成金対応。これをアプローチの武器に変える</p>
+  </div>
+
+  <div class="pattern">
+    <div class="pattern-body">
+      <div class="desc">生成AI実践eラーニング講座は、厚生労働省の人材開発支援助成金（事業展開等リスキリング支援コース）の対象です。これはターゲット企業にとって大きな決め手となり、メールの返信率を押し上げる強力な要素です。</div>
+
+      <div class="subsidy-box">
+        <h4>人材開発支援助成金（事業展開等リスキリング支援コース）の概要</h4>
+        <ul>
+          <li><strong>助成率:</strong> 中小企業 75% / 大企業 60%（経費助成）</li>
+          <li><strong>賃金助成:</strong> 中小企業 1,000円/時 / 大企業 500円/時（2025年4月改定）</li>
+          <li><strong>対象:</strong> DX・生成AI等、事業展開に伴うリスキリング訓練</li>
+          <li><strong>限度額:</strong> 1人あたり最大50万円</li>
+          <li><strong>制度期間:</strong> 2026年度まで継続予定</li>
+        </ul>
+      </div>
+
+      <h4 style="font-size: 14px; font-weight: 700; margin: 24px 0 16px;">リードブースターが助成金情報を営業に組み込む仕組み</h4>
+
+      <table class="step-table">
+        <thead>
+          <tr>
+            <th style="width: 140px;">活用方法</th>
+            <th>詳細</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>件名での訴求</strong></td>
+            <td>「助成金で実質負担75%軽減」をメール件名に含め、開封率を向上</td>
+          </tr>
+          <tr>
+            <td><strong>企業規模で出し分け</strong></td>
+            <td>中小企業には助成率75%を全面に、大企業にはDX戦略との接続を主軸に訴求</td>
+          </tr>
+          <tr>
+            <td><strong>年度末の駆け込み需要</strong></td>
+            <td>助成金の申請期限に合わせたタイミング配信で商談化率を向上</td>
+          </tr>
+          <tr>
+            <td><strong>ROI試算の自動生成</strong></td>
+            <td>受講人数に応じた助成金シミュレーションをメール本文に自動挿入</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="point" style="margin-top: 20px;"><strong>助成金対応は最強の営業フック:</strong> 「研修を受けたい」と思っていなかった企業でも、「75%助成で受けられるなら検討したい」と反応するケースは多い。特に中堅・中小企業へのアプローチにおいて、助成金情報の有無で返信率が2倍以上変わることもある。</div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 05. 導入3ステップ + CTA -->
+  <!-- ============================================================ -->
+  <div class="section-header" id="next-steps">
+    <h2>05 — 導入3ステップ &amp; ネクストアクション</h2>
+    <p>辻本光邦様が最短で新規開拓を開始するためのロードマップ</p>
+  </div>
+
+  <div class="pattern">
+    <div class="pattern-body">
+      <table class="step-table">
+        <thead>
+          <tr>
+            <th style="width: 120px;">ステップ</th>
+            <th>内容</th>
+            <th style="width: 120px;">所要期間</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Step 1</strong><br>ヒアリング</td>
+            <td>辻本様の4サービス（生成AI講座、問題発見力、コーチング&ヒューニング、1on1研修）の詳細・実績・ターゲット像をヒアリング。AIに学習させるサービス情報を整備。</td>
+            <td>1週間</td>
+          </tr>
+          <tr>
+            <td><strong>Step 2</strong><br>設定・テスト</td>
+            <td>ターゲット業界・企業規模・課題の条件を設定。テスト配信として10社分のメールを生成し、辻本様にご確認いただきトーン・内容を調整。</td>
+            <td>1週間</td>
+          </tr>
+          <tr>
+            <td><strong>Step 3</strong><br>本格稼働</td>
+            <td>週25社ペースでアプローチ開始。開封率・返信率をモニタリングし、シグナルの精度とメール文面を継続改善。</td>
+            <td>2週間目から</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: #0a0a0a; color: white; padding: 28px 32px; margin-top: 28px; text-align: center;">
+        <p style="font-size: 12px; opacity: 0.5; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px;">Next Action</p>
+        <p style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">辻本光邦様の新規開拓を、AIで加速する</p>
+        <p style="font-size: 13px; opacity: 0.7; line-height: 1.7;">「知人紹介だけ」から脱却し、毎週25社に辻本様の価値を届ける仕組みを構築しませんか。<br>本日のデモ内容をもとに、具体的な導入プランをご提案いたします。</p>
+        <p style="font-size: 14px; font-weight: 700; margin-top: 20px; letter-spacing: 0.02em;">株式会社XDeli / リードブースター</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- フッター -->
+<!-- ============================================================ -->
+<div class="footer">
+  <div class="container">
+    <p>CONFIDENTIAL | 本資料は株式会社インサイトパワーズ 辻本光邦様専用に作成されたものです。</p>
+    <p style="margin-top: 6px;">作成日: 2026年2月26日 | 株式会社XDeli / リードブースター</p>
+  </div>
+</div>
+
+</body>
+</html>
