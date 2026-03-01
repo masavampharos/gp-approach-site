@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AI営業アプローチ デモンストレーション — 吉川工業様向け</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --primary: #0a0a0a;
+    --accent: #0a0a0a;
+    --accent2: #333333;
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --muted: #737373;
+    --border: #d4d4d4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .hero {
+    background: #0a0a0a;
+    color: white;
+    padding: 64px 40px;
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .hero h1 {
+    font-size: 28px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .hero .subtitle { font-size: 13px; opacity: 0.5; font-weight: 300; letter-spacing: 0.05em; }
+  .hero .badge {
+    display: inline-block; background: transparent; color: rgba(255,255,255,0.4);
+    font-size: 10px; font-weight: 500; padding: 4px 14px;
+    border: 1px solid rgba(255,255,255,0.15); margin-top: 20px; letter-spacing: 0.2em;
+  }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  .intro {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 32px; margin: -1px auto 40px; position: relative; z-index: 1;
+    border-top: none;
+  }
+  .intro h2 { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 16px; }
+  .intro p { font-size: 14px; line-height: 1.9; color: var(--text); }
+  .intro p + p { margin-top: 12px; }
+  .intro strong { font-weight: 700; }
+
+  .toc {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 28px 32px; margin-bottom: 40px;
+  }
+  .toc h2 { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 16px; }
+  .toc ol { list-style: none; counter-reset: toc; }
+  .toc li { counter-increment: toc; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before { content: counter(toc, decimal-leading-zero) "."; font-weight: 600; color: var(--muted); margin-right: 12px; font-size: 11px; font-variant-numeric: tabular-nums; }
+  .toc a { color: var(--text); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  .section-header { margin: 56px 0 24px; padding-bottom: 12px; border-bottom: 1px solid var(--primary); }
+  .section-header h2 { font-size: 18px; font-weight: 700; color: var(--primary); letter-spacing: 0.04em; }
+  .section-header p { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+  .pattern {
+    background: var(--card); border: 1px solid var(--border);
+    margin-bottom: 24px; overflow: hidden;
+  }
+  .pattern-header { padding: 20px 28px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+  .pattern-header .num {
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; color: white; flex-shrink: 0;
+    background: var(--primary);
+  }
+  .pattern-header h3 { font-size: 16px; font-weight: 700; }
+  .pattern-header .tag {
+    font-size: 10px; font-weight: 600; padding: 3px 10px; white-space: nowrap;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid currentColor; color: #404040;
+  }
+
+  .pattern-body { padding: 24px 28px; }
+  .pattern-body .desc { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.7; border-left: 2px solid var(--border); padding-left: 14px; }
+
+  .signal-box {
+    background: #f0f0f0; border-left: 3px solid var(--primary);
+    padding: 16px 20px; margin-bottom: 16px;
+  }
+  .signal-box .label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+  .signal-box p { font-size: 13px; line-height: 1.6; }
+  .signal-box .source { font-size: 11px; color: var(--muted); margin-top: 8px; }
+  .signal-box .source a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+  .signal-box .source a:hover { color: var(--primary); }
+
+  .email-preview {
+    background: #111111; color: #d4d4d4; padding: 28px;
+    font-family: 'Inter', 'Noto Sans JP', monospace; font-size: 13px;
+    line-height: 1.8; white-space: pre-line; margin-bottom: 16px; position: relative;
+    border: 1px solid #2a2a2a;
+  }
+  .email-preview::before {
+    content: "AIが生成するメール文面"; position: absolute; top: -1px; left: 0;
+    background: #ffffff; color: #0a0a0a; font-size: 9px; font-weight: 700;
+    padding: 3px 12px; font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border-bottom: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a;
+  }
+
+  .point {
+    background: #f5f5f5; border: 1px solid var(--border);
+    padding: 14px 18px; font-size: 13px; line-height: 1.6;
+    border-left: 3px solid var(--primary);
+  }
+  .point strong { color: var(--primary); font-weight: 700; }
+
+  .step-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; border: 1px solid var(--border); }
+  .step-table th { background: var(--primary); color: white; padding: 10px 16px; text-align: left; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .step-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); }
+  .step-table tr:nth-child(even) td { background: #f9f9f9; }
+
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; border: 1px solid var(--border); }
+  .compare-table th { background: var(--primary); color: white; padding: 10px 16px; text-align: center; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; }
+  .compare-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); text-align: center; }
+  .compare-table td:first-child { text-align: left; font-weight: 600; }
+  .compare-table tr:nth-child(even) td { background: #f9f9f9; }
+
+  .sim-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; border: 1px solid var(--border); }
+  .sim-table th { background: #262626; color: white; padding: 10px 16px; text-align: center; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; }
+  .sim-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); text-align: center; }
+  .sim-table td:first-child { text-align: left; font-weight: 500; }
+  .sim-table tr:nth-child(even) td { background: #f9f9f9; }
+  .sim-table .highlight { font-weight: 700; color: var(--primary); }
+
+  .subsidy-box {
+    background: #fafafa; border: 1px solid var(--border);
+    padding: 24px 28px; margin: 20px 0;
+  }
+  .subsidy-box h4 { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+  .subsidy-box ul { font-size: 13px; padding-left: 20px; line-height: 1.8; }
+  .subsidy-box li { margin-bottom: 4px; }
+
+  .service-map {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0;
+  }
+  .service-map .svc {
+    background: #fafafa; border: 1px solid var(--border); padding: 16px 20px;
+  }
+  .service-map .svc h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .service-map .svc p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+  .service-map .svc .target { font-size: 11px; color: #404040; margin-top: 8px; font-weight: 500; }
+
+  .footer { text-align: center; padding: 40px 0; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 60px; letter-spacing: 0.05em; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 40px 20px; }
+    .hero h1 { font-size: 20px; }
+    .container { padding: 0 16px; }
+    .intro, .toc, .pattern-body, .pattern-header { padding-left: 16px; padding-right: 16px; }
+    .email-preview { padding: 20px 16px; font-size: 12px; }
+    .pattern-header { gap: 10px; }
+    .service-map { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>AI営業アプローチ デモンストレーション</h1>
+  <div class="subtitle">吉川工業様向け｜株式会社XDeli</div>
+  <div class="badge">CONFIDENTIAL</div>
+</div>
+
+<div class="container">
+
+  <!-- 導入文 -->
+  <div class="intro">
+    <h2>Introduction</h2>
+    <p><strong>西川晋</strong>様、先日はリードブースターのサービス説明会にお時間をいただき、ありがとうございました。</p>
+    <p>説明会でお伺いした<strong>「製造業の現場にはSNSやLinkedInでリーチできない。展示会とWebサイトへの問い合わせ待ちが中心で、能動的に新規顧客を開拓する手段が限られている」</strong>という課題。安全機器という業種特性上、現場の安全管理担当者にピンポイントで届くアプローチが必要になる。これは多くの製造業向けメーカーに共通する課題です。</p>
+    <p>以下は、<strong>もし吉川工業様がリードブースターを使ったら</strong>、AIがどのように企業をリサーチし、西川様の製品を提案するパーソナライズドメールを自動生成するか。その<strong>実際のデモンストレーション</strong>です。</p>
+    <p>6社の実在企業に対して、吉川工業様の製品ラインナップ（Wアラート、ハーネスアラートクラウド、Y-GATE、AIソリューション）をAIが理解したうえで、各企業の直近ニュースを調査し、最適なタイミング、最適な切り口でアプローチするメール文面を生成しました。<strong>すべて実在のニュースに基づいています。</strong></p>
+    <p>ポイントは、<strong>吉川工業様の製品が「安全」という共通テーマで結ばれている</strong>ことです。Wアラートのフォークリフト接近検知（累計8,000台超）、ハーネスアラートクラウドの墜落防止、Y-GATEの入退場管理。これらをAIが理解し、相手企業の業種や直近の安全課題に応じて最適な製品を提案するメールを自動生成します。</p>
+  </div>
+
+  <!-- 目次 -->
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#section1">ターゲット企業別アプローチ事例（6社。製品カテゴリごとに最適な企業を選定）</a></li>
+      <li><a href="#section2">リードブースターの仕組み（4ステップ。週25社アプローチのシミュレーション）</a></li>
+      <li><a href="#section3">吉川工業様の営業課題に合わせた追加提案</a></li>
+    </ol>
+  </div>
+
+  <!-- ===== SECTION 1: ターゲット企業別アプローチ事例 ===== -->
+  <div class="section-header" id="section1">
+    <h2>1. ターゲット企業別アプローチ事例</h2>
+    <p>吉川工業様の製品を4つのカテゴリに分け、それぞれに最適な企業をAIが選定しました。<br><strong>各企業の直近ニュースを調査し、1社1社パーソナライズされたメール文面を自動生成</strong>した実例です。</p>
+  </div>
+
+  <!-- サービスマップ -->
+  <div class="pattern" style="padding: 28px;">
+    <h3 style="margin-bottom: 8px; font-size: 15px;">西川様の製品 × ターゲット企業マッピング</h3>
+    <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.6;">リードブースターはまず吉川工業様の製品ラインナップを理解し、各製品に最適なターゲット企業の「シグナル」を定義します。<br>以下のマッピングに基づいて、AIが企業ニュースをスキャンし、アプローチのタイミングを自動判定します。</p>
+    <div class="service-map">
+      <div class="svc">
+        <h4>A. Wアラート（フォークリフト接近検知）</h4>
+        <p>RFID/UWBによるフォークリフト接近警告システム。累計8,000台超の導入実績。物流倉庫・食品工場のフォークリフト事故防止に。</p>
+        <div class="target">事例1: 篠崎運送倉庫 ／ 事例2: ホイテクノ物流 ／ 事例5: ノムラフーズ</div>
+      </div>
+      <div class="svc">
+        <h4>B. ハーネスアラートクラウド（墜落防止）</h4>
+        <p>安全帯フック装着状況をリアルタイム検知・クラウド管理。NETIS登録。2025年11月リリースの新製品。建設現場・プラントの高所作業に。</p>
+        <div class="target">事例3: 萩原建設工業 ／ 事例4: 朝日建設 ／ 事例6: 三機テクノサポート</div>
+      </div>
+      <div class="svc">
+        <h4>C. Y-GATE（RFID入退場管理）</h4>
+        <p>作業者の入退場をRFIDで自動記録。工場・プラント・食品工場のセキュリティと安全管理を一元化。</p>
+        <div class="target">事例5: ノムラフーズ ／ 事例6: 三機テクノサポート</div>
+      </div>
+      <div class="svc">
+        <h4>D. AIソリューション（i-PRO AIカメラ連携）</h4>
+        <p>AIカメラによる危険行動検知・安全管理の高度化。既存のWアラートやY-GATEとの連携で総合安全管理を実現。</p>
+        <div class="target">事例5: ノムラフーズ（新工場でのAIカメラ活用提案）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 事例1: 篠崎運送倉庫 — Wアラート -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">1</div>
+      <div>
+        <h3>篠崎運送倉庫 — 新倉庫竣工×フォークリフト安全</h3>
+      </div>
+      <span class="tag">Wアラート</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc">埼玉県鴻巣市に本社を構え、保有倉庫面積17,000坪を展開する物流企業。2025年10月に岩手県北上市に「純木造定温倉庫」を新たに竣工し、拠点を拡大中。新倉庫の稼働開始に伴い、フォークリフトの運用台数が増加するタイミング。環境配慮型の先進的な取り組みで知られ、安全テクノロジーの導入にも前向きな企業文化がある。</p>
+
+      <div class="signal-box">
+        <div class="label">AIが検知した企業情報</div>
+        <p><strong>株式会社篠崎運送倉庫</strong>が2025年10月、岩手県北上市に国内3棟目となる<strong>「純木造定温倉庫」</strong>を竣工。CO2排出量抑制と高機能保管を両立させた環境配慮型倉庫で、東北地方の玄米保管に対応。従業員143名、保有倉庫面積17,000坪。「日本初 純木造定温倉庫のパイオニア」を掲げ、先進的な物流インフラ投資を継続中。</p>
+        <div class="source">出典: <a href="https://prtimes.jp/main/html/rd/p/000000008.000118645.html" target="_blank">PR TIMES - 篠崎運送倉庫 純木造定温倉庫を竣工</a></div>
+      </div>
+
+      <div class="email-preview">株式会社篠崎運送倉庫
+総務部 ご担当者様
+
+はじめまして。吉川工業株式会社の西川晋と申します。
+
+貴社が2025年10月に岩手県北上市に竣工された「純木造定温倉庫」の記事を拝見しました。CO2排出量を抑えながら高機能保管を実現するという取り組みは、物流業界の先進事例として注目しています。
+
+国内3棟目の新倉庫の稼働に伴い、フォークリフトの運用が拡大されることと存じます。倉庫内でのフォークリフトと作業員の接触事故は物流業界の重大リスクであり、新拠点の立ち上げ時は特にオペレーションが安定するまでの期間にリスクが高まります。
+
+弊社が製造・販売する「Wアラート」は、RFIDとUWBを活用したフォークリフト接近検知・警告システムです。フォークリフトと作業者の接近を自動検知し、双方に警告を発することで接触事故を未然に防ぎます。累計8,000台以上の導入実績があり、NETIS（国土交通省 新技術情報提供システム）にも登録されています。
+
+貴社のように複数拠点で倉庫を運営されている場合、拠点ごとの安全対策の統一化が課題になることが多いと伺います。Wアラートはクラウドでの一元管理にも対応しており、各拠点の安全データを本社で把握いただけます。
+
+まずは15分ほど、新倉庫の安全対策についてお話しさせていただけませんか。</div>
+
+      <div class="point"><strong>Point:</strong> 新倉庫竣工という「設備投資のタイミング」を捉えたアプローチ。「純木造定温倉庫」という固有名詞に触れることで調査の深さを示す。累計8,000台のWアラート実績を提示し、「新拠点の立ち上げ時はリスクが高まる」という物流企業の安全担当者が実感する課題に言及。複数拠点のクラウド一元管理という提案は、拠点拡大中の篠崎運送倉庫に刺さるポイント。</div>
+    </div>
+  </div>
+
+  <!-- 事例2: ホイテクノ物流 — Wアラート -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">2</div>
+      <div>
+        <h3>ホイテクノ物流 — M&A拡大期×安全統一化</h3>
+      </div>
+      <span class="tag">Wアラート</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc">愛知県蒲郡市に本社を構え、全国12拠点以上を展開する物流企業。創業85年超。2021〜2022年にM&Aで2社をグループ化し、売上100億円を目標に事業を拡大中。「安全は全てに優先する」を基本方針に掲げ、安全講習会を各拠点で実施。2024年問題への対応で非熟練ドライバーの増加が見込まれ、倉庫内のフォークリフト安全対策の強化が急務。</p>
+
+      <div class="signal-box">
+        <div class="label">AIが検知した企業情報</div>
+        <p><strong>ホイテクノ物流株式会社</strong>が2021〜2022年にM&Aで2社をグループ化し、グループ全体で<strong>売上100億円</strong>を目標に事業拡大中。従業員375名、全国12拠点以上。「<strong>安全は全てに優先する</strong>」を基本方針に掲げ、各拠点で安全講習会を実施。メーカーから直接仕事を請けてセンター運営から配送まで一貫対応しており、倉庫内のフォークリフト稼働台数が多い。<strong>2024年問題</strong>への対応で輸送経済新聞の取材を受けるなど、業界課題に積極的に対応。</p>
+        <div class="source">出典: <a href="https://www.hoitechno.co.jp/blog/1057/" target="_blank">ホイテクノ物流 2024年問題から1年経った今</a>｜<a href="https://tgnr.jp/company/hoitechno/" target="_blank">ツグナラ M&A情報</a></div>
+      </div>
+
+      <div class="email-preview">ホイテクノ物流株式会社
+安全推進部門 ご担当者様
+
+はじめまして。吉川工業株式会社の西川晋と申します。
+
+M&Aによるグループ拡大と売上100億円への挑戦、そして「安全は全てに優先する」という基本方針を貫かれている姿勢に感銘を受けています。
+
+グループ拡大に伴い、買収先を含めた各拠点での安全基準の統一化が課題になっているのではないかと拝察します。特に、メーカーからの直接受託でセンター運営を担われているとのことですので、倉庫内のフォークリフト稼働台数は相当な規模になっていると思います。
+
+2024年問題の影響で、経験の浅いオペレーターが現場に入るケースも増えているのではないでしょうか。熟練者であれば感覚的に避けられる接触リスクも、経験不足の作業者にとっては重大事故につながります。
+
+弊社の「Wアラート」は、RFIDとUWBを活用したフォークリフト接近検知・警告システムです。フォークリフトが作業者に接近すると自動で双方に警告を発し、接触事故を未然に防ぎます。累計8,000台以上の導入実績があり、物流倉庫・工場での採用が急拡大しています。
+
+M&Aでグループ化された拠点を含め、全拠点で統一的な安全システムを導入したいというニーズにもお応えできます。クラウド管理機能により、本社から各拠点のアラート発生状況をリアルタイムで把握いただけます。
+
+15分ほど、グループ全体の安全対策についてお話しさせていただけませんか。</div>
+
+      <div class="point"><strong>Point:</strong> 「M&Aによるグループ拡大」「売上100億円目標」「安全は全てに優先する」とホイテクノ物流固有の情報を複数織り込み、調査の深さを証明。「2024年問題で経験の浅いオペレーターが増加」という業界共通の課題を具体的に提起し、Wアラートの必要性を自然に導く。M&A後の安全基準統一化というニーズは、成長企業の安全担当者にとって喫緊の課題。</div>
+    </div>
+  </div>
+
+  <!-- 事例3: 萩原建設工業 — ハーネスアラートクラウド -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">3</div>
+      <div>
+        <h3>萩原建設工業 — DX先進企業×安全帯管理</h3>
+      </div>
+      <span class="tag">ハーネスアラート</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc">北海道帯広市の総合建設会社。大正7年創業で100年以上の歴史を持ちながら、「インフラDX大賞」優秀賞受賞、北海道内建設業初の「DX認定」取得と、テクノロジー活用に極めて積極的。2025年4月の安全大会には協力業者314名を含む400名が参加するなど、安全に対する投資と組織文化が明確。</p>
+
+      <div class="signal-box">
+        <div class="label">AIが検知した企業情報</div>
+        <p><strong>萩原建設工業株式会社</strong>が2025年4月、令和7年度安全大会を開催。協力業者314名を含む<strong>総勢400名が参加</strong>し、萩原社長が災害防止の危機意識を呼びかけ。同社は<strong>「令和5年度インフラDX大賞」優秀賞</strong>を受賞し、北海道内建設業初の<strong>「DX認定」</strong>を取得。iPhoneLiDARを活用した3D測量アプリの共同開発も手がける。建設業労働安全衛生マネジメントシステム<strong>COHSMS評価証</strong>を北海道で2番目に取得。2026年1月には釧路労働基準監督署より<strong>無災害表彰</strong>を受賞。</p>
+        <div class="source">出典: <a href="https://www.hagiwara-inc.co.jp/news/2025/7720/" target="_blank">萩原建設工業 安全大会</a>｜<a href="https://www.hagiwara-inc.co.jp/challenge/dx/" target="_blank">DXへの取り組み</a></div>
+      </div>
+
+      <div class="email-preview">萩原建設工業株式会社
+安全衛生管理部門 ご担当者様
+
+はじめまして。吉川工業株式会社の西川晋と申します。
+
+令和7年度安全大会のレポートを拝見しました。協力業者314名を含む400名規模での開催は、安全に対する貴社の本気度を示すものだと感じています。釧路労働基準監督署からの無災害表彰も、おめでとうございます。
+
+インフラDX大賞の受賞やDX認定の取得など、新しいテクノロジーを積極的に現場に導入されている貴社だからこそ、安全管理の分野でもICTの活用をご検討されているのではないかと思いご連絡しました。
+
+弊社は2025年11月に「ハーネスアラートクラウド」をリリースしました。フルハーネス型安全帯のフック掛け状況をセンサーでリアルタイムに検知し、未装着の場合に作業者と管理者の双方にアラートを発するシステムです。NETIS（国土交通省 新技術情報提供システム）にも登録済みです。
+
+特にお伝えしたいのは、クラウド管理の機能です。現場ごとのフック掛け率をデータで可視化し、どの現場で、どの時間帯に未装着リスクが高いかを分析できます。COHSMS（建設業労働安全衛生マネジメントシステム）を導入されている貴社であれば、安全データの客観的な把握と継続改善にご活用いただけるはずです。
+
+また、協力業者314社を束ねる元請の立場として、現場全体の安全管理にハーネスアラートクラウドを活用いただくことで、作業者一人ひとりの安全帯装着状況を「感覚」ではなく「データ」で管理できるようになります。
+
+15分ほど、クラウド管理のデモ画面をお見せしながらご説明させていただけませんか。</div>
+
+      <div class="point"><strong>Point:</strong> 「安全大会400名」「インフラDX大賞」「COHSMS」「無災害表彰」と4つの固有情報に触れ、徹底的に調べている印象を与える。NETIS登録のハーネスアラートクラウドは、DXに積極的な建設会社にとって「次に導入すべきICTツール」として自然に位置づけられる。「協力業者314社の安全管理」というスケール感を示すことで、導入規模の大きさを暗示。COHSMSとの連携を提案することで、既存の安全管理体制への自然な統合をイメージさせる。</div>
+    </div>
+  </div>
+
+  <!-- 事例4: 朝日建設 — ハーネスアラートクラウド -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">4</div>
+      <div>
+        <h3>朝日建設 — 創業50周年×RC造高所作業の安全</h3>
+      </div>
+      <span class="tag">ハーネスアラート</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc">神奈川県相模原市のRC造マンション建設に特化した建設会社。2025年に創業50周年。従業員98名。神奈川県の賃貸マンション建設完工数ランキングで7年連続1位の実績（通算15回）。RC造はコンクリートの型枠工事や鉄筋工事で高所作業が頻繁に発生する。年間多数の現場を並行して進める体制で、各現場での安全帯管理の効率化が課題。</p>
+
+      <div class="signal-box">
+        <div class="label">AIが検知した企業情報</div>
+        <p><strong>朝日建設株式会社</strong>が<strong>2025年に創業50周年</strong>を迎えた。RC造（鉄筋コンクリート造）に特化し、施工実績<strong>713棟・9,915戸</strong>（2024年7月末現在）。神奈川県の賃貸マンション建設完工数ランキングで<strong>7年連続1位</strong>（通算15回）。売上高93億円、従業員98名。高耐震・高耐久・高耐火のRC造マンションを設計施工一貫体制で建設。2025年4月の労安法改正で保護措置の対象が一人親方等にも拡大されており、協力業者を含めた安全管理の強化が必須。</p>
+        <div class="source">出典: <a href="https://asahi21.co.jp/company/profile.html" target="_blank">朝日建設 会社案内</a>｜<a href="https://job.mynavi.jp/26/pc/search/corp55468/outline.html" target="_blank">マイナビ2026 会社概要</a></div>
+      </div>
+
+      <div class="email-preview">朝日建設株式会社
+工事部 安全管理 ご担当者様
+
+はじめまして。吉川工業株式会社の西川晋と申します。
+
+創業50周年、おめでとうございます。RC造マンション713棟・9,915戸の施工実績、そして神奈川県の賃貸マンション建設完工数ランキング7年連続1位という記録は、品質と信頼の証だと思います。
+
+RC造の建設現場では、型枠工事や鉄筋の配筋作業など高所での作業が日常的に発生します。年間で複数の現場を同時に進行されている貴社では、各現場のフルハーネス型安全帯の装着管理にご苦労されているのではないかと拝察しています。
+
+2025年4月の労働安全衛生法改正により、保護措置の対象が一人親方や個人事業者にも拡大されました。元請として協力業者の作業者を含めた安全帯管理の責任が、これまで以上に重くなっています。
+
+弊社の「ハーネスアラートクラウド」は、フルハーネス型安全帯のフック掛け状況をセンサーでリアルタイム検知するシステムです。2025年11月にリリースしたばかりの新製品で、NETIS登録済みです。
+
+クラウド管理により、複数の現場をまたいで安全帯の装着状況を一元把握できます。貴社のように年間多数の現場を並行して運営されている場合、「どの現場のどの時間帯にフック掛け忘れが多いか」をデータで分析できることは、安全管理体制の強化に直結します。
+
+創業50周年を機に、安全管理の次のステージとしてICT活用をご検討いただけませんか。15分でデモ画面をお見せできます。</div>
+
+      <div class="point"><strong>Point:</strong> 「創業50周年」「713棟・9,915戸」「7年連続1位」と具体的な数字を複数引用。RC造の建設現場特有の高所作業リスクに言及することで、業界を理解しているメッセージを伝える。2025年4月の労安法改正に触れることで、「法改正への対応」という緊急性の高い切り口を提供。「創業50周年を機に」というフレーズは、節目の年に新しい取り組みを始めるきっかけとして自然。従業員98名と選定条件にも合致。</div>
+    </div>
+  </div>
+
+  <!-- 事例5: ノムラフーズ — Wアラート + Y-GATE -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">5</div>
+      <div>
+        <h3>ノムラフーズ — 80億円新工場×総合安全管理</h3>
+      </div>
+      <span class="tag">Wアラート + Y-GATE</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc">京都府の冷凍おせち料理・和惣菜メーカー。「京菜味のむら」ブランド。日清製粉グループ。80億円を投じて宇治市に「次世代型冷凍食品工場」を建設中（2027年6月稼働予定）。新工場の設備導入計画がまさに進行している段階であり、安全機器の新規採用を提案する絶好のタイミング。</p>
+
+      <div class="signal-box">
+        <div class="label">AIが検知した企業情報</div>
+        <p><strong>株式会社ノムラフーズ</strong>（日清製粉グループ）が京都府宇治市に<strong>冷凍食品の新工場を建設中</strong>。総工費<strong>約80億円</strong>、敷地面積1万平方メートル、年間1,800万食の生産能力。2025年12月頃着工、<strong>2027年6月頃稼働開始</strong>予定。「<strong>次世代型冷凍食品工場</strong>」として<strong>自動化・省人化技術</strong>を導入予定。従業員120名。1978年創業。</p>
+        <div class="source">出典: <a href="https://www.nisshin.com/release/details/20250908093507.html" target="_blank">日清製粉グループ ニュースリリース</a>｜<a href="https://www.automation-news.jp/2025/11/98519/" target="_blank">オートメーション新聞</a></div>
+      </div>
+
+      <div class="email-preview">株式会社ノムラフーズ
+総務部 ご担当者様
+
+はじめまして。吉川工業株式会社の西川晋と申します。
+
+宇治市での新工場建設計画の記事を拝見しました。80億円を投じた「次世代型冷凍食品工場」、年間1,800万食の生産能力とのことで、ノムラフーズ様の大きな成長戦略の柱になる事業だと思います。
+
+新工場の設計・設備導入が進んでいるこの段階で、現場の安全管理システムについてご提案させていただきたくご連絡しました。
+
+食品工場では、原材料や完成品の搬入出にフォークリフトが頻繁に使用されます。冷凍食品工場の場合、低温環境下での作業は視界の制限や床面の結露による滑りやすさなど、通常の倉庫以上にフォークリフト事故のリスクが高まります。
+
+弊社の「Wアラート」は、RFIDとUWBを活用したフォークリフト接近検知・警告システムです。累計8,000台以上の導入実績があり、フォークリフトが作業者に接近すると自動で警告を発して接触事故を防止します。
+
+さらに、新工場の入退場管理として「Y-GATE」もご提案できます。RFIDを活用した入退場管理システムで、作業者の入退場を自動記録します。HACCP対応の食品衛生管理の観点から、「いつ・誰が・どのエリアにいたか」を正確に把握できることは、食品安全と労働安全の両面で大きな価値があります。
+
+新工場の設備選定が進むこのタイミングで、15分ほどお話しさせていただけませんか。</div>
+
+      <div class="point"><strong>Point:</strong> 「80億円新工場」「次世代型」「年間1,800万食」と大型投資の固有情報に触れ、タイミングの重要性を示す。食品工場特有の「低温環境下のフォークリフトリスク」に言及し、業界理解を伝える。WアラートとY-GATEの2製品をセットで提案することで、1社から複数製品の受注を狙う構造。「HACCPと労働安全の両面」というダブルの価値提案は、食品メーカーの安全担当者に刺さるメッセージ。新工場建設中という「設備選定が進むタイミング」を強調。</div>
+    </div>
+  </div>
+
+  <!-- 事例6: 三機テクノサポート — ハーネスアラート + Y-GATE -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">6</div>
+      <div>
+        <h3>三機テクノサポート — 親会社事故後の安全体制強化</h3>
+      </div>
+      <span class="tag">ハーネスアラート + Y-GATE</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc">三機工業グループの設備メンテナンス会社。空調・給排水・電気等の設計施工と保守管理を全国4拠点で展開。2025年10月に親会社の三機工業が大阪で重油流出事故を起こし、グループ全体で安全管理体制の見直しが急務に。安全機器導入への機運が最も高い時期。</p>
+
+      <div class="signal-box">
+        <div class="label">AIが検知した企業情報</div>
+        <p><strong>三機テクノサポート株式会社</strong>（三機工業グループ、従業員241名）。親会社の<strong>三機工業が2025年10月、大阪の日本生命保険施設で非常用発電機点検中に約4,000リットルの重油流出事故を発生</strong>。グループ全体で安全管理体制の見直しが進行中。三機工業は2025年度「全社安全大会」を開催し、<strong>「高めよう安全意識 守ろう作業手順」</strong>をスローガンに安全強化を推進。三機テクノサポートは空調・給排水等の設備メンテナンスを全国4拠点で展開しており、高所作業や機械室内での作業が日常的に発生。</p>
+        <div class="source">出典: <a href="https://www.sanki.co.jp/news/release/article659.html" target="_blank">三機工業 重油流出事故のお知らせ</a>｜<a href="https://www.sanki.co.jp/news/release/article619.html" target="_blank">三機工業 全社安全大会</a></div>
+      </div>
+
+      <div class="email-preview">三機テクノサポート株式会社
+安全品質管理部門 ご担当者様
+
+はじめまして。吉川工業株式会社の西川晋と申します。
+
+三機工業グループ様が2025年度全社安全大会で「高めよう安全意識 守ろう作業手順」を掲げ、グループ全体で安全管理体制の強化を推進されていることを拝見しました。
+
+設備メンテナンスの現場では、空調設備の点検・交換時の高所作業や、機械室内での狭所作業が日常的に発生します。フルハーネス型安全帯の装着は義務化されていますが、「装着しているか」を現場で常時確認し続けることは、管理者のリソースだけでは限界があります。
+
+弊社の「ハーネスアラートクラウド」は、安全帯のフック掛け状況をセンサーでリアルタイムに検知し、未装着の場合に作業者と管理者の双方にアラートを発するシステムです。2025年11月にリリースした新製品で、NETIS登録済みです。クラウド管理により、複数の現場をまたいだ安全帯の装着データを一元把握できます。
+
+加えて、「Y-GATE」（RFID入退場管理システム）もご提案できます。多数の作業者を様々な客先施設に派遣される貴社の事業形態では、「どの作業者が、いつ、どの現場にいるか」を正確に把握することが安全管理の基盤になります。
+
+安全体制の強化を推進されているこのタイミングで、弊社の安全ソリューションがお役に立てる部分があると考えています。15分ほどお話しさせていただけませんか。</div>
+
+      <div class="point"><strong>Point:</strong> 親会社の事故というセンシティブな話題に直接触れず、「安全大会のスローガン」から自然に安全強化の機運に言及する配慮。設備メンテナンス業界特有の「高所作業」「狭所作業」に触れ、ハーネスアラートの必然性を示す。Y-GATEとのセット提案で、多数の客先施設への作業者派遣という事業形態に合わせた入退場管理ソリューションを提供。「管理者のリソースだけでは限界がある」というフレーズは安全管理担当者の日常的な悩みに刺さる。</div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2: リードブースターの仕組み ===== -->
+  <div class="section-header" id="section2">
+    <h2>2. リードブースターの仕組み</h2>
+    <p>上記6事例のようなパーソナライズドメールを、<strong>毎週自動で生成し続ける</strong>仕組みです。<br>西川様の工数は「確認と修正」のみ。リサーチ・文面作成はすべてAIが担います。<br>
+    説明会でいただいた「製造業の現場にどうリーチするか」という課題への具体的な回答でもあります。</p>
+  </div>
+
+  <!-- なぜパーソナライズが重要か -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#1a1a1a;">W</div>
+      <div><h3>なぜ「パーソナライズ」が決定的に重要なのか</h3></div>
+      <span class="tag">WHY</span>
+    </div>
+    <div class="pattern-body">
+      <p style="font-size:14px; line-height:1.8; margin-bottom:16px;">企業の安全管理担当者や総務部には、毎日のように安全機器の営業メールが届いています。そのほとんどは開封すらされません。理由は明白で、<strong>「自社の現場を何も知らない相手からのテンプレートメール」</strong>だからです。</p>
+      <p style="font-size:14px; line-height:1.8; margin-bottom:16px;">一方、上記6つのメールをご覧ください。篠崎運送倉庫には「純木造定温倉庫」、ホイテクノ物流には「売上100億円目標」、萩原建設工業には「インフラDX大賞」、ノムラフーズには「80億円新工場」。<strong>相手企業の固有名詞、直近のニュース、課題を具体的に織り込んでいます</strong>。受け取った側は「この人はうちの会社のことを調べている」と感じ、読み進めます。</p>
+      <p style="font-size:14px; line-height:1.8;">しかし、従来このレベルのリサーチをするには、1社あたり30分から1時間のリサーチが必要でした。週25社なら12時間から25時間。西川様が本業（製品開発・技術営業）に使うべき時間です。<strong>リードブースターは、このリサーチ工数をAIで1社30秒に圧縮します。</strong></p>
+    </div>
+  </div>
+
+  <!-- 4ステップ -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#1a1a1a;">S</div>
+      <div><h3>4ステップで完結するAI営業アプローチ</h3></div>
+      <span class="tag">HOW IT WORKS</span>
+    </div>
+    <div class="pattern-body">
+      <table class="step-table">
+        <thead><tr><th>ステップ</th><th>内容</th><th>所要時間</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1. ターゲット設定</strong></td><td>吉川工業様の製品（Wアラート・ハーネスアラートクラウド・Y-GATE・AIソリューション）ごとに、業種・規模・課題でターゲット企業を定義。「新倉庫を建設した物流企業」「大規模建設工事を受注した建設会社」「新工場を計画中の食品メーカー」など。</td><td>初回のみ 1時間</td></tr>
+          <tr><td><strong>2. AIリサーチ</strong></td><td>各企業のプレスリリース・ニュース・IR情報をAIがスキャン。「新倉庫・新工場を建設中」「安全大会を開催」「労災事故が報道された」「NETIS登録技術を積極採用」などのシグナルを自動検知。</td><td>1社あたり 10〜30秒</td></tr>
+          <tr><td><strong>3. メール自動生成</strong></td><td>検知した情報＋吉川工業様の製品の強み（Wアラート累計8,000台、NETIS登録等）をもとに、1社1社パーソナライズされたメール文面を生成。テンプレートの一斉送信ではない。</td><td>1社あたり 10〜20秒</td></tr>
+          <tr><td><strong>4. 送信</strong></td><td>企業の問い合わせフォーム、またはメールで送信。西川様が文面を確認し、必要に応じて修正後ワンクリック。</td><td>1社あたり 30秒</td></tr>
+        </tbody>
+      </table>
+
+      <div class="point" style="margin-top:16px;"><strong>西川様の1日のイメージ：</strong> 毎週月曜の朝、リードブースターから「今週のアプローチリスト25社」がメールで届きます。各社のリサーチサマリーとパーソナライズメール文面がセットになっています。西川様は朝のコーヒーを飲みながら文面をチェック。「この1行は自分の言葉に変えたい」と思ったら修正し、OKなら送信ボタンを押すだけ。<strong>火曜以降は本業（製品開発・技術営業・展示会対応）に集中できます。</strong></div>
+    </div>
+  </div>
+
+  <!-- AIが検知するシグナル -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#1a1a1a;">D</div>
+      <div><h3>AIが検知する「アプローチシグナル」の例</h3></div>
+      <span class="tag">SIGNAL TYPES</span>
+    </div>
+    <div class="pattern-body">
+      <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">リードブースターのAIは、以下のようなシグナル（企業の変化や課題を示す情報）をリアルタイムで検知し、吉川工業様の製品に合致する企業を自動で選定します。</p>
+      <table class="step-table">
+        <thead><tr><th>シグナルタイプ</th><th>具体例</th><th>対応製品</th></tr></thead>
+        <tbody>
+          <tr><td><strong>新倉庫・新工場建設</strong></td><td>物流施設・食品工場・製造拠点の新設ニュース</td><td>Wアラート / Y-GATE</td></tr>
+          <tr><td><strong>労災事故報道</strong></td><td>フォークリフト事故、墜落事故、挟まれ事故の報道</td><td>Wアラート / ハーネスアラート</td></tr>
+          <tr><td><strong>安全大会・安全強化宣言</strong></td><td>安全大会の開催、安全スローガンの発表、安全投資の宣言</td><td>全製品</td></tr>
+          <tr><td><strong>法改正対応</strong></td><td>労安法改正、フルハーネス義務化、HACCP対応等のニュース</td><td>ハーネスアラート / Y-GATE</td></tr>
+          <tr><td><strong>DX・ICT推進</strong></td><td>DX認定取得、ICT施工推進、建設テック導入のニュース</td><td>全製品（ICT対応の安全機器として）</td></tr>
+          <tr><td><strong>M&A・拠点拡大</strong></td><td>子会社化、拠点統合・新設、グループ再編のニュース</td><td>Wアラート / Y-GATE（統一安全基準）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- シミュレーション -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#262626;">N</div>
+      <div><h3>週25社アプローチのシミュレーション</h3></div>
+      <span class="tag">SIMULATION</span>
+    </div>
+    <div class="pattern-body">
+      <p style="font-size:13px; color:var(--muted); margin-bottom:8px;">AIが毎週月曜に「今週アプローチする25社」のリストとメール文面をセットで出力。西川様は文面を確認し、修正して送信するだけ。</p>
+      <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">25社の内訳例: Wアラートターゲット10社＋ハーネスアラートターゲット8社＋Y-GATEターゲット4社＋AIソリューションターゲット3社</p>
+      <table class="sim-table">
+        <thead><tr><th></th><th>月間</th><th>3ヶ月</th><th>6ヶ月</th><th>12ヶ月</th></tr></thead>
+        <tbody>
+          <tr><td>アプローチ企業数</td><td>100社</td><td>300社</td><td>600社</td><td class="highlight">1,200社</td></tr>
+          <tr><td>返信率（想定2〜5%）</td><td>2〜5件</td><td>6〜15件</td><td>12〜30件</td><td class="highlight">24〜60件</td></tr>
+          <tr><td>商談化率（返信の50%）</td><td>1〜3件</td><td>3〜8件</td><td>6〜15件</td><td class="highlight">12〜30件</td></tr>
+          <tr><td>受注（商談の20%）</td><td>—</td><td>1〜2件</td><td>1〜3件</td><td class="highlight">2〜6件</td></tr>
+          <tr><td>西川様の工数</td><td>4〜8時間</td><td>12〜24時間</td><td>24〜48時間</td><td class="highlight">48〜96時間</td></tr>
+        </tbody>
+      </table>
+      <div class="point" style="margin-top:16px;"><strong>重要な視点：</strong> 安全機器は「1台導入して終わり」ではなく、拠点ごと・現場ごとに台数が増える「ストック型」のビジネスです。Wアラート1案件でフォークリフト10台分、ハーネスアラート1案件で50名分の作業者分が想定されるため、年間2〜6件の受注でも売上インパクトは大きい。さらに、パーソナライズドメールは「展示会で名刺交換して後日フォロー」と同等以上の信頼感を初回コンタクトから生み出せるため、返信率はテンプレートメールの5〜10倍になります。</div>
+    </div>
+  </div>
+
+  <!-- 展示会営業との比較 -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#1a1a1a;">C</div>
+      <div><h3>展示会営業 vs. リードブースター</h3></div>
+      <span class="tag">比較</span>
+    </div>
+    <div class="pattern-body">
+      <table class="compare-table">
+        <thead>
+          <tr><th></th><th>展示会・Webサイト（現状）</th><th>リードブースター</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>月間アプローチ数</td><td>展示会は年数回（待ち型）</td><td>100社（能動型）</td></tr>
+          <tr><td>ターゲット選定</td><td>来場者次第 / 問い合わせ待ち</td><td>製品に最適な企業をAIが選定</td></tr>
+          <tr><td>パーソナライズ度</td><td>低い（カタログ配布中心）</td><td>高い（企業ニュースに基づく）</td></tr>
+          <tr><td>タイミング</td><td>展示会の開催時期に依存</td><td>企業の課題発生を検知して即アプローチ</td></tr>
+          <tr><td>コスト</td><td>展示会1回で数十万〜数百万円</td><td>月額固定</td></tr>
+          <tr><td>リーチ範囲</td><td>来場者のみ</td><td>全国の対象企業に無制限</td></tr>
+          <tr><td>フォローアップ</td><td>名刺交換後に手動フォロー</td><td>自動でパーソナライズフォロー</td></tr>
+        </tbody>
+      </table>
+      <div class="point"><strong>補足：</strong> リードブースターは展示会の「代替」ではなく「補完」です。展示会は対面での関係構築に不可欠ですが、年に数回しか接点が作れません。リードブースターは、展示会と展示会の間の期間にも、毎週パイプラインが途切れない仕組みを作ります。さらに、展示会で名刺交換した企業へのフォローアップも、企業ごとにパーソナライズされた内容で自動生成できます。</div>
+
+      <p style="font-size:14px; margin: 20px 0 0; line-height: 1.8;">説明会でお伺いした通り、吉川工業様のターゲットは<strong>「SNSやLinkedInでリーチできない製造業の現場」</strong>です。安全管理担当者のメールボックスやお問い合わせフォームは、まさにそうした方々に直接届くチャネルです。上の事例のように、<strong>相手企業の固有名詞と課題を織り込んだメールであれば、テンプレート営業とは全く異なる反応が得られます。</strong></p>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3: 追加提案 ===== -->
+  <div class="section-header" id="section3">
+    <h2>3. 吉川工業様の営業課題に合わせた追加提案</h2>
+    <p>説明会でお伺いした「製造業のターゲットにどうリーチするか」という課題に対して、<br>リードブースターならではの追加提案をまとめました。</p>
+  </div>
+
+  <!-- 製品別ターゲット規模 -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#333;">T</div>
+      <div><h3>吉川工業様の製品別 ターゲット規模と想定アプローチ数</h3></div>
+      <span class="tag">TARGET MAP</span>
+    </div>
+    <div class="pattern-body">
+      <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">吉川工業様の主要製品ごとに、日本国内のターゲット企業数と、リードブースターでの年間アプローチ可能数を試算しました。</p>
+      <table class="step-table">
+        <thead><tr><th>製品</th><th>主要ターゲット</th><th>国内推定企業数</th><th>年間アプローチ可能</th></tr></thead>
+        <tbody>
+          <tr><td>Wアラート</td><td>物流倉庫（フォークリフト保有）、食品工場、製造工場</td><td>約5,000〜8,000社</td><td>1,200社</td></tr>
+          <tr><td>ハーネスアラートクラウド</td><td>建設会社（高所作業あり）、プラントメンテナンス</td><td>約3,000〜5,000社</td><td>1,000社</td></tr>
+          <tr><td>Y-GATE</td><td>工場・プラント（入退場管理が必要な大規模施設）</td><td>約2,000〜3,000社</td><td>800社</td></tr>
+          <tr><td>AIソリューション</td><td>DX推進中の製造業・物流企業（AIカメラ安全管理）</td><td>約1,000〜2,000社</td><td>500社</td></tr>
+        </tbody>
+      </table>
+      <div class="point" style="margin-top:16px;"><strong>合計：</strong> 吉川工業様の製品ポートフォリオ全体で、年間<strong>3,500社以上</strong>にアプローチ可能な市場が存在します。展示会とWebサイトへの問い合わせだけではアクセスできない企業が、この中に数千社含まれています。</div>
+    </div>
+  </div>
+
+  <!-- 新製品の発信支援 -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#333;">+</div>
+      <div><h3>ハーネスアラートクラウドの市場投入を加速する</h3></div>
+      <span class="tag">追加提案</span>
+    </div>
+    <div class="pattern-body">
+      <p style="font-size:14px; margin-bottom: 16px; line-height: 1.8;">2025年11月にリリースされたばかりの<strong>ハーネスアラートクラウド</strong>は、まさにリードブースターで一気に市場に投入すべき製品です。</p>
+      <p style="font-size:14px; margin-bottom: 16px; line-height: 1.8;">新製品のローンチ直後は、「どの企業に、どういう切り口で提案するか」を試行錯誤するフェーズです。展示会での反応を見ながら手探りで営業するのでは、市場投入のスピードが上がりません。リードブースターを使えば、<strong>全国の建設会社・プラントメンテナンス会社に向けて、1社1社パーソナライズされたメールを毎週自動で生成・送信</strong>できます。</p>
+      <p style="font-size:14px; margin-bottom: 16px; line-height: 1.8;">特に2025年4月の労安法改正で、保護措置の対象が一人親方や個人事業者にも拡大されました。この法改正を「アプローチのフック」として自動でメールに組み込むことで、<strong>「法改正への対応策としてのハーネスアラートクラウド」</strong>という訴求が可能です。</p>
+      <div class="point"><strong>ポイント：</strong> Wアラートは累計8,000台超の実績がありますが、ハーネスアラートクラウドは新製品。新製品の市場投入こそ、リードブースターが最も威力を発揮するフェーズです。「法改正」「NETIS登録」「クラウド管理」という3つのフックを組み合わせて、建設・プラント業界に一気にアプローチできます。</div>
+    </div>
+  </div>
+
+  <!-- 展示会フォローアップ自動化 -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#333;">+</div>
+      <div><h3>展示会で獲得した名刺のフォローアップ自動化</h3></div>
+      <span class="tag">追加提案</span>
+    </div>
+    <div class="pattern-body">
+      <p style="font-size:14px; margin-bottom: 16px; line-height: 1.8;">吉川工業様は2026年2月の<strong>食肉産業展</strong>にも出展されています。展示会で名刺交換した企業に対して、展示会後のフォローアップメールをリードブースターで自動パーソナライズすることも可能です。</p>
+      <p style="font-size:14px; margin-bottom: 16px; line-height: 1.8;">通常、展示会後のフォローアップは「ブースにお立ち寄りいただきありがとうございました」というテンプレートメールになりがちです。リードブースターを使えば、名刺交換した企業ごとに「貴社の〇〇工場の△△という課題に対して」というパーソナライズされたフォローアップを自動生成できます。</p>
+      <div class="point"><strong>ポイント：</strong> 展示会で100枚の名刺を獲得しても、フォローアップの質が低ければ商談にはつながりません。1社ごとにリサーチしてパーソナライズされたフォローメールを送ることで、「展示会で少し話しただけの企業」を「商談に進む見込み客」に変換できます。</div>
+    </div>
+  </div>
+
+  <!-- 導入ステップ -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#333;">1</div>
+      <div><h3>リードブースター 導入の3ステップ</h3></div>
+      <span class="tag">GETTING STARTED</span>
+    </div>
+    <div class="pattern-body">
+      <table class="step-table">
+        <thead><tr><th>ステップ</th><th>内容</th><th>期間</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Step 1. ヒアリング</strong></td><td>吉川工業様の製品ラインナップ、強み、ターゲット業種、過去の受注パターンを詳しくお伺いし、AIに学習させるプロフィールを作成します。製品カタログ、技術資料、過去の提案書をお預かりし、AIが「吉川工業の営業担当者」として正確に製品を説明できるようにします。</td><td>初回打ち合わせ<br>（1〜2時間）</td></tr>
+          <tr><td><strong>Step 2. ターゲット設計</strong></td><td>製品ごとにターゲット企業の条件を定義。業種・規模・課題・シグナルの組み合わせでリストを構築。まずは100社のパイロットリストを作成し、西川様にご確認いただきます。</td><td>1週間</td></tr>
+          <tr><td><strong>Step 3. 稼働開始</strong></td><td>毎週25社のアプローチを開始。最初の2週間はすべてのメール文面を西川様にご確認いただき、クオリティを調整。3週目以降は、西川様が「修正不要」と判断した文面はそのまま送信。</td><td>2週間で軌道に乗る</td></tr>
+        </tbody>
+      </table>
+      <div class="point" style="margin-top:16px;"><strong>所要期間：</strong> お打ち合わせから<strong>約3週間で稼働開始</strong>。初月から月100社へのアプローチが可能になります。特にハーネスアラートクラウドは2025年11月にリリースされたばかりの新製品ですので、早期に市場にリーチすることが競合優位につながります。</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="pattern" style="text-align:center; padding: 40px 28px;">
+    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">西川晋様へ</h3>
+    <p style="font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 640px; margin: 0 auto 20px;">
+      本ページでご覧いただいた6つのアプローチ事例は、すべてAIが自動生成したものです。<br>
+      吉川工業様の製品の強み、累計8,000台超のWアラートの実績、そしてターゲット企業の最新ニュース。<br>
+      これらを掛け合わせたパーソナライズドメールを、<strong>毎週100社に向けて自動生成・送信する</strong>。<br>
+      それがリードブースターです。
+    </p>
+    <p style="font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 640px; margin: 0 auto 20px;">
+      吉川工業様は1920年の創業以来、100年以上にわたって「現場の安全」を守る製品を作り続けてきました。<br>
+      Wアラート、ハーネスアラートクラウド、Y-GATE。<br>
+      これらの製品は、<strong>「正しい企業に、正しいタイミングで届けば必ず採用される」</strong>。<br>
+      私たちはそう確信しています。あとは「届ける仕組み」だけです。
+    </p>
+    <p style="font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 640px; margin: 0 auto 20px;">
+      「展示会と問い合わせ待ちの営業」から、<strong>「仕組みで営業機会を生み出す」</strong>フェーズへ。<br>
+      ぜひ次のステップについてお話しさせてください。
+    </p>
+    <p style="font-size: 13px; color: var(--text); font-weight: 500; margin-top: 24px;">
+      株式会社XDeli リードブースター<br>
+      <span style="font-size: 11px; color: var(--muted);">株式会社XDeli ／ 担当: 高田</span>
+    </p>
+    <p style="font-size: 12px; color: var(--muted); margin-top: 16px; line-height: 1.6;">
+      ご不明な点がございましたら、お気軽にお声がけください。
+    </p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="container">
+    本資料は株式会社XDeliが吉川工業株式会社 西川晋様向けに作成しました。<br>
+    <span style="opacity:0.5;">本ページに記載されたメール文面はAIが自動生成したデモンストレーションです。<br>
+    実際のサービス導入時には、西川様のご確認・修正を経てから送信されます。</span><br>
+    <span style="opacity:0.4; font-size:10px; margin-top:8px; display:inline-block;">Confidential ／ 2026年3月1日作成 ／ 株式会社XDeli</span>
+  </div>
+</div>
+
+</body>
+</html>

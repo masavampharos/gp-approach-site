@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>フォローアップ準備メモ — 吉川工業 西川晋様｜2025/12/5 説明会後</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #0a0a0a;
+  --bg: #f5f5f5;
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --muted: #737373;
+  --border: #d4d4d4;
+  --accent-blue: #1e40af;
+  --accent-green: #166534;
+  --accent-amber: #92400e;
+  --accent-red: #991b1b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans JP', 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.hero {
+  background: #0a0a0a;
+  color: white;
+  padding: 48px 40px;
+  border-bottom: 1px solid #1a1a1a;
+}
+.hero h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 8px; }
+.hero .meta { font-size: 13px; opacity: 0.5; font-weight: 300; }
+.hero .meta strong { opacity: 1; font-weight: 600; color: #60a5fa; }
+.hero .badges { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+.hero .badge {
+  display: inline-block; color: rgba(255,255,255,0.6);
+  font-size: 10px; font-weight: 500; padding: 3px 12px;
+  border: 1px solid rgba(255,255,255,0.2); letter-spacing: 0.15em;
+}
+.hero .badge.hot { border-color: #f87171; color: #f87171; }
+
+.container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+.section { margin: 40px 0 24px; padding-bottom: 10px; border-bottom: 2px solid var(--primary); }
+.section h2 { font-size: 16px; font-weight: 700; letter-spacing: 0.04em; }
+.section .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 24px 28px; margin-bottom: 16px;
+}
+.card h3 { font-size: 14px; font-weight: 700; margin-bottom: 12px; color: var(--primary); }
+.card p, .card li { font-size: 13px; line-height: 1.7; }
+.card ul { padding-left: 18px; }
+.card li { margin-bottom: 4px; }
+
+.profile-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+
+.tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; letter-spacing: 0.08em; border: 1px solid; margin-right: 6px; margin-bottom: 4px; }
+.tag-blue { color: var(--accent-blue); border-color: var(--accent-blue); }
+.tag-green { color: var(--accent-green); border-color: var(--accent-green); }
+.tag-amber { color: var(--accent-amber); border-color: var(--accent-amber); }
+.tag-red { color: var(--accent-red); border-color: var(--accent-red); }
+
+.timeline { border-left: 2px solid var(--border); padding-left: 20px; margin: 16px 0; }
+.timeline .event { margin-bottom: 16px; position: relative; }
+.timeline .event::before {
+  content: ''; position: absolute; left: -25px; top: 6px;
+  width: 8px; height: 8px; background: var(--primary); border-radius: 50%;
+}
+.timeline .event.them::before { background: #3b82f6; }
+.timeline .date { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; }
+.timeline .sender { font-size: 11px; font-weight: 700; margin-bottom: 2px; }
+.timeline .sender.us { color: var(--primary); }
+.timeline .sender.them { color: #2563eb; }
+.timeline .msg { font-size: 13px; color: #333; background: #f9f9f9; padding: 10px 14px; border-left: 3px solid var(--border); }
+.timeline .event.them .msg { border-left-color: #93c5fd; background: #eff6ff; }
+
+.highlight-box {
+  background: #fef3c7; border: 1px solid #fbbf24; border-left: 4px solid #f59e0b;
+  padding: 16px 20px; margin: 16px 0;
+}
+.highlight-box .label { font-size: 10px; font-weight: 700; color: var(--accent-amber); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+.highlight-box p, .highlight-box li { font-size: 13px; }
+.highlight-box ul { padding-left: 18px; margin-top: 6px; }
+
+.insight-box {
+  background: #eff6ff; border: 1px solid #93c5fd; border-left: 4px solid #3b82f6;
+  padding: 16px 20px; margin: 16px 0;
+}
+.insight-box .label { font-size: 10px; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+.insight-box p, .insight-box li { font-size: 13px; }
+.insight-box ul { padding-left: 18px; margin-top: 6px; }
+
+.danger-box {
+  background: #fef2f2; border: 1px solid #fca5a5; border-left: 4px solid #ef4444;
+  padding: 16px 20px; margin: 16px 0;
+}
+.danger-box .label { font-size: 10px; font-weight: 700; color: var(--accent-red); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+.danger-box p { font-size: 13px; }
+
+.talk-track {
+  background: #111; color: #d4d4d4; padding: 24px; font-size: 13px; line-height: 1.8;
+  margin: 12px 0; border: 1px solid #2a2a2a; position: relative;
+}
+.talk-track::before {
+  content: attr(data-label); position: absolute; top: -1px; left: 0;
+  background: #fff; color: #0a0a0a; font-size: 9px; font-weight: 700;
+  padding: 3px 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  border-bottom: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a;
+}
+.talk-track em { color: #60a5fa; font-style: normal; font-weight: 600; }
+.talk-track strong { color: #f9f9f9; }
+
+table.info-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+table.info-table th { background: #0a0a0a; color: white; padding: 8px 14px; text-align: left; font-weight: 600; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+table.info-table td { padding: 8px 14px; border-bottom: 1px solid var(--border); }
+table.info-table tr:nth-child(even) td { background: #f9f9f9; }
+
+.checklist { list-style: none; padding: 0; }
+.checklist li { padding: 6px 0; font-size: 13px; display: flex; align-items: flex-start; gap: 8px; }
+.checklist li::before { content: ''; flex-shrink: 0; width: 16px; height: 16px; border: 1.5px solid var(--border); margin-top: 2px; }
+
+.footer { text-align: center; padding: 32px 0; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 48px; }
+
+@media (max-width: 640px) {
+  .hero { padding: 32px 20px; }
+  .container { padding: 0 16px; }
+  .profile-grid { grid-template-columns: 1fr; }
+  .card { padding: 16px; }
+  .talk-track { padding: 20px 16px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>フォローアップ準備メモ — 吉川工業 西川晋様</h1>
+  <div class="meta"><strong>2025/12/5（金）</strong>にサービス説明会を実施済み｜Google Meet｜リードブースターサービス説明会</div>
+  <div class="meta" style="margin-top:4px;">参加: 西川晋（吉川工業 ICTソリューション事業部）× 高田（XDeli）</div>
+  <div class="badges">
+    <span class="badge">INTERNAL USE ONLY</span>
+    <span class="badge hot">フォローアップ</span>
+    <span class="badge">温度感: FIFTY-FIFTY</span>
+    <span class="badge">リードソース: HubSpotフォーム</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 1. 相手を知る -->
+  <div class="section">
+    <h2>1. 相手を知る</h2>
+    <div class="sub">西川晋（にしかわ すすむ） / 吉川工業株式会社</div>
+  </div>
+
+  <div class="profile-grid">
+    <div class="card">
+      <h3>会社概要</h3>
+      <table class="info-table">
+        <tr><td style="font-weight:600;width:100px;">社名</td><td>吉川工業株式会社</td></tr>
+        <tr><td style="font-weight:600;">創業</td><td>1920年（大正9年）</td></tr>
+        <tr><td style="font-weight:600;">所在地</td><td>福岡県北九州市八幡東区枝光2-1-15</td></tr>
+        <tr><td style="font-weight:600;">業種</td><td>鉄鋼・機械・RFID安全機器・ICTソリューション</td></tr>
+        <tr><td style="font-weight:600;">規模感</td><td>従業員 約1,600名 / グループ7社（海外含む）</td></tr>
+        <tr><td style="font-weight:600;">代表</td><td>代表取締役社長 吉川忠昭</td></tr>
+        <tr><td style="font-weight:600;">業界順位</td><td>鉄鋼メンテナンス業界3位</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>西川氏について</h3>
+      <ul>
+        <li>メールアドレス: s-nishikawa@ykc.co.jp</li>
+        <li>所属: ICTソリューション事業部（推定）</li>
+        <li>役職: 不明（Web上に情報なし）</li>
+        <li>HubSpotフォームからの問い合わせで「貴社の手法がどのようなものか気になりました」とコメント</li>
+        <li>経歴の詳細はWeb検索では特定できず</li>
+      </ul>
+      <p style="margin-top:12px; font-size:12px; color:var(--muted);">注意: 個人情報が限られているため、説明会での会話の内容を最大限活用する</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>吉川工業の主要製品（ICTソリューション事業部）</h3>
+    <table class="info-table">
+      <thead><tr><th>#</th><th>製品</th><th>特徴</th><th>ターゲット</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Wアラート</strong></td><td>RFID/UWBフォークリフト接近検知・警告。累計8,000台超。NETIS登録</td><td>物流倉庫・工場（フォークリフト保有）</td></tr>
+        <tr><td>2</td><td><strong>ハーネスアラートクラウド</strong></td><td>安全帯フック掛け状況リアルタイム検知。クラウド管理。NETIS登録。2025/11リリース</td><td>建設現場・プラント（高所作業）</td></tr>
+        <tr><td>3</td><td><strong>Y-GATE</strong></td><td>RFID入退場管理システム</td><td>工場・プラント・食品工場</td></tr>
+        <tr><td>4</td><td><strong>Y-MillAI</strong></td><td>AI画像認識による品質検査自動化</td><td>鉄鋼・製造業</td></tr>
+        <tr><td>5</td><td><strong>ME-TAG</strong></td><td>RFID資産管理ソリューション</td><td>工場・オフィス</td></tr>
+        <tr><td>6</td><td><strong>AIソリューション</strong></td><td>i-PRO AIカメラ連携の安全管理</td><td>全業種（安全管理高度化）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2. やり取りの経緯 -->
+  <div class="section">
+    <h2>2. やり取りの経緯</h2>
+    <div class="sub">HubSpotフォーム → 説明会実施 → フォローアップ（今ここ）</div>
+  </div>
+
+  <div class="card">
+    <div class="timeline">
+      <div class="event them">
+        <div class="date">12/4（木）</div>
+        <div class="sender them">西川 → HubSpotフォーム（リードブースターWebサイト経由）</div>
+        <div class="msg"><strong>「貴社の手法がどのようなものか気になりました」</strong>とコメント。自らフォームに問い合わせ。</div>
+      </div>
+
+      <div class="event">
+        <div class="date">12/5（金）説明会実施</div>
+        <div class="sender us">高田 × 西川 / Google Meet / リードブースター サービス説明会</div>
+        <div class="msg">
+          約30分の説明会を実施。以下が主な会話内容（tl;dvサマリーより）:
+          <br><br>
+          <strong>吉川工業のターゲット:</strong> フォークリフトが使われる倉庫、建設現場、AGVが動作するサイト
+          <br><br>
+          <strong>営業の課題:</strong> 製造業の現場にはSNSやLinkedInでリーチできない。展示会とWebサイトへの問い合わせ待ちが中心
+          <br><br>
+          <strong>料金について:</strong> 初期費用20万円＋成果報酬型。月20件程度のリードが見込めると説明
+          <br><br>
+          <strong>アクションアイテム:</strong> 高田がターゲット企業向けのカスタマイズされたアプローチ文章を作成する
+          <br><br>
+          <strong>西川氏の反応:</strong> 契約の可能性はfifty-fifty
+        </div>
+      </div>
+
+      <div class="event">
+        <div class="date">12/5以降 〜 現在（約3ヶ月経過）</div>
+        <div class="sender us">フォロー未実施</div>
+        <div class="msg">説明会後、アクションアイテムである「カスタマイズされたアプローチ文章の作成」が未完了のまま約3ヶ月が経過。メール・Slack・LinkedInでのやり取りなし。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 相手の課題 -->
+  <div class="section">
+    <h2>3. 西川さんの課題（説明会の会話から抽出）</h2>
+  </div>
+
+  <div class="highlight-box">
+    <div class="label">最重要課題: 製造業の現場にリーチする手段がない</div>
+    <p><strong>「製造業の現場にはSNSやLinkedInでリーチできない」</strong>。安全機器のターゲットは工場・倉庫・建設現場の安全管理担当者。しかし、これらの人々はSNSでの情報収集習慣が薄く、展示会とWebサイト経由の問い合わせ以外に能動的な営業チャネルがない。</p>
+  </div>
+
+  <div class="profile-grid">
+    <div class="insight-box">
+      <div class="label">課題1: 展示会依存の営業モデル</div>
+      <p>年に数回の展示会（食肉産業展など）が主な営業接点。展示会の間の期間は「問い合わせ待ち」の状態。パイプラインが不安定。</p>
+    </div>
+    <div class="insight-box">
+      <div class="label">課題2: 新製品の市場投入スピード</div>
+      <p>2025年11月リリースのハーネスアラートクラウドの認知拡大が課題。NETIS登録済みだが、ターゲット企業への情報伝達手段が限られている。</p>
+    </div>
+    <div class="insight-box">
+      <div class="label">課題3: 多製品ラインナップの最適提案</div>
+      <p>Wアラート、ハーネスアラート、Y-GATE、AIソリューションなど複数製品があるが、「どの企業にどの製品を提案するか」の判断に営業リソースが割かれる。</p>
+    </div>
+    <div class="insight-box">
+      <div class="label">課題4: 費用対効果への慎重さ</div>
+      <p>「契約の可能性はfifty-fifty」という評価。製造業らしい慎重な意思決定スタイル。「何が得られるか」を具体的に見せないと動かない。</p>
+    </div>
+  </div>
+
+  <!-- 4. フォローアップのゴールとアジェンダ -->
+  <div class="section">
+    <h2>4. フォローアップのゴール</h2>
+  </div>
+
+  <div class="card">
+    <h3>ゴール</h3>
+    <p style="font-size:15px;font-weight:700;margin-bottom:8px;">デモページを渡して「具体的にこういうことができる」を見せ、トライアルまたは契約に進める</p>
+    <p style="font-size:13px;color:var(--muted);">3ヶ月間フォローが空いているため、まずは「約束していたアプローチ文章の作成」を果たすことで信頼を回復する。デモページ自体がリードブースターの実力証明になる。</p>
+  </div>
+
+  <div class="card">
+    <h3>フォローアップの進め方</h3>
+    <table class="info-table">
+      <thead><tr><th>ステップ</th><th>内容</th><th>ポイント</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap;">Step 1</td><td><strong>メール送信</strong>: デモページURLを添えたお礼・フォローメール</td><td>「お約束していたアプローチ文章をお作りしました」と切り出す</td></tr>
+        <tr><td>Step 2</td><td><strong>デモページ確認</strong>: 西川様にページを見ていただく</td><td>6社の事例メールの質がリードブースターの実力証明になる</td></tr>
+        <tr><td>Step 3</td><td><strong>打ち合わせ設定</strong>: 30分のフォローアップMTGを設定</td><td>デモページの感想、ターゲットの追加・修正、契約条件の相談</td></tr>
+        <tr><td>Step 4</td><td><strong>トライアル提案</strong>: まずは100社パイロットで効果を検証</td><td>初期費用20万円+成果報酬の料金体系は説明会で提示済み</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. フォローメールのスクリプト -->
+  <div class="section">
+    <h2>5. フォローメールのスクリプト</h2>
+  </div>
+
+  <div class="talk-track" data-label="フォローメール（Gmail下書き用）">西川様
+
+先日はリードブースターのサービス説明会にお時間をいただき、ありがとうございました。
+ご連絡が遅くなり、大変失礼いたしました。
+
+説明会でお話しした「吉川工業様のターゲット企業に向けたカスタマイズアプローチ文章」をお作りしました。
+
+<strong>▼ デモページ（吉川工業様向け）</strong>
+https://masavampharos.github.io/gp-approach-site/5e22cfe4-ffd0-4c1d-a6d3-44b57e0e316f/
+
+物流倉庫、建設、食品工場、プラントメンテナンスの6社に対して、それぞれの直近ニュースを調査し、
+吉川工業様の製品（Wアラート、ハーネスアラートクラウド、Y-GATE）に合わせたアプローチメールを
+AIが自動生成した実例です。
+
+<em>すべて実在の企業・実在のニュースに基づいています。</em>
+
+ご覧いただいた上で、30分ほどお話しさせていただけると嬉しいです。
+ターゲット企業の追加・修正や、実際の導入ステップについてご相談できればと思います。
+
+どうぞよろしくお願いいたします。
+
+株式会社XDeli
+代表取締役 高田 真彰
+https://app.leadbooster.jp</div>
+
+  <!-- 6. 想定Q&A -->
+  <div class="section">
+    <h2>6. 想定Q&A</h2>
+  </div>
+
+  <div class="card">
+    <h3>Q: 3ヶ月も空いたのはなぜですか？</h3>
+    <p>→ 率直にお詫びする。「他のプロジェクトが重なり対応が遅れました。申し訳ありません。その分、しっかりとしたデモページをお作りしました」と、成果物で挽回する。言い訳よりも成果物の質で信頼を回復する。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: 製造業の安全担当者にメールで営業して本当に効果がありますか？</h3>
+    <p>→ 「テンプレートメールであれば効果は低いです。しかし、デモページでお見せしたように、各企業の直近ニュースや課題を調査した上でパーソナライズされたメールであれば、開封率・返信率は大きく変わります。テンプレートメールの返信率が0.5%以下なのに対し、パーソナライズドメールは2〜5%の返信率を実現しています」</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: フォークリフト関連は競合製品もあります。差別化になりますか？</h3>
+    <p>→ 「リードブースターが差別化するのはメールの質です。Wアラートの累計8,000台超の実績、NETIS登録、クラウド管理対応という御社の強みを、ターゲット企業ごとに最適な形で伝える。このリサーチと文面作成の工数を、人間がやれば1社30分、AIなら30秒です」</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: 月20件のリードは本当に取れますか？</h3>
+    <p>→ 「月100社にアプローチして返信率2〜5%の場合、2〜5件の返信が想定されます。そこから商談に進むのが50%程度。月20件のリードというのは、3〜6ヶ月かけてパイプラインが安定した後の目標値です。初月から20件は難しいですが、3ヶ月で累計300社にアプローチすれば、6〜15件の返信は現実的です」</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: ハーネスアラートクラウドは新製品ですが、実績がないと営業しづらいのでは？</h3>
+    <p>→ 「新製品だからこそリードブースターの価値が高いです。NETIS登録済み、Wアラートで培った8,000台超の実績、そして2025年4月の労安法改正という追い風がある。これらをメール文面に自動で組み込めます。展示会で反応を見る前に、建設・プラント業界に一気にアプローチできるのが強みです」</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: 料金をもう一度教えてください</h3>
+    <p>→ 「初期費用20万円、加えて成果報酬型の月額費用です。Wアラート1案件の受注で十分にペイする水準です。詳細はフォローアップのお打ち合わせでご説明します」</p>
+  </div>
+
+  <!-- 7. 注意点・リスク -->
+  <div class="section">
+    <h2>7. 注意点・リスク</h2>
+  </div>
+
+  <div class="danger-box">
+    <div class="label">注意: 3ヶ月のフォロー空白</div>
+    <p>説明会から3ヶ月が経過しており、西川様の温度感が下がっている可能性が高い。「約束したアプローチ文章を作らなかった」という信頼毀損がある。最初のフォローメールでは言い訳をせず、成果物（デモページ）の質で挽回する。「遅くなって申し訳ない。その分しっかりしたものを作りました」というスタンス。</p>
+  </div>
+
+  <div class="danger-box">
+    <div class="label">注意: 温度感fifty-fiftyの真意</div>
+    <p>説明会時点で「契約の可能性はfifty-fifty」と評価されていた。これは「興味はあるが、効果を確信できていない」状態。デモページ（6社分の実例メール）を見せることで、「こういうものが毎週自動で出てくるのか」と具体的にイメージしてもらうことが最優先。抽象的なメリット説明ではなく、実物で判断してもらう。</p>
+  </div>
+
+  <div class="danger-box">
+    <div class="label">注意: 西川様の決裁権</div>
+    <p>西川様の役職が不明。ICTソリューション事業部の担当者レベルの場合、契約の意思決定者は上長になる可能性がある。フォローアップMTGで、「社内の検討フロー」「決裁者は誰か」を自然にヒアリングする。</p>
+  </div>
+
+  <div class="highlight-box">
+    <div class="label">勝ち筋</div>
+    <ul>
+      <li><strong>デモページの質が勝負。</strong>6社分の実例メールが「テンプレートではなく、本当に1社1社調べている」ことを証明する</li>
+      <li><strong>製造業の営業課題に完全にフィット。</strong>「SNSでリーチできない」「展示会依存」という課題に対して、メール/フォーム経由のパーソナライズアプローチは最適解</li>
+      <li><strong>ハーネスアラートクラウドの市場投入を加速するという提案。</strong>新製品の営業をリードブースターで加速できるという具体的なユースケース</li>
+      <li><strong>吉川工業は大企業（1,600名）。</strong>リードブースターの月額費用は十分に予算内。Wアラート1案件の受注でROIが成立する</li>
+      <li><strong>「約束を果たす」信頼回復。</strong>遅れたが、質の高い成果物を届けることで「この会社は約束を守る」を証明する</li>
+    </ul>
+  </div>
+
+  <!-- 8. デモページリンク -->
+  <div class="section">
+    <h2>8. デモページ（フォローメールに添付）</h2>
+  </div>
+
+  <div class="card" style="text-align:center; padding:32px;">
+    <p style="font-size:11px; color:var(--muted); margin-bottom:8px; letter-spacing:0.1em; text-transform:uppercase;">パーソナライズデモページ</p>
+    <p style="font-size:16px; font-weight:700; margin-bottom:4px;">吉川工業様向け AI営業アプローチ デモ</p>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">西川さんの製品をAIがどう売るかを6社分で実演</p>
+    <a href="../5e22cfe4-ffd0-4c1d-a6d3-44b57e0e316f/" target="_blank" style="display:inline-block; background:#0a0a0a; color:white; padding:10px 28px; font-size:13px; font-weight:600; text-decoration:none; letter-spacing:0.05em;">デモページを開く</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  XDeli INTERNAL USE ONLY｜2026/3/1 フォローアップ準備資料
+</div>
+
+</body>
+</html>
