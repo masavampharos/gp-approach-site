@@ -68,7 +68,7 @@ const typeCls = { demo: 'demo', memo: 'memo', list: 'list', other: 'demo' };
 
 let contentHtml = `
 <div class="hero">
-  <h1>GP Approach Site</h1>
+  <h1>Approach Site</h1>
   <div class="subtitle">Personalized Sales Pages Index</div>
 </div>
 <div class="container">
