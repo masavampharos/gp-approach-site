@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>MTG準備メモ — リビンテクノロジーズ 鶴見泰久様｜3/3 16:00</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --primary: #0a0a0a;
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --muted: #737373;
+    --border: #d4d4d4;
+    --accent-blue: #1e40af;
+    --accent-green: #166534;
+    --accent-amber: #92400e;
+    --accent-red: #991b1b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .hero {
+    background: #0a0a0a;
+    color: white;
+    padding: 48px 40px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .hero h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 8px; }
+  .hero .meta { font-size: 13px; opacity: 0.5; font-weight: 300; }
+  .hero .meta strong { opacity: 1; font-weight: 600; color: #60a5fa; }
+  .hero .badges { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+  .hero .badge {
+    display: inline-block; color: rgba(255,255,255,0.6);
+    font-size: 10px; font-weight: 500; padding: 3px 12px;
+    border: 1px solid rgba(255,255,255,0.2); letter-spacing: 0.15em;
+  }
+  .hero .badge.hot { border-color: #f87171; color: #f87171; }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  .section { margin: 40px 0 24px; padding-bottom: 10px; border-bottom: 2px solid var(--primary); }
+  .section h2 { font-size: 16px; font-weight: 700; letter-spacing: 0.04em; }
+  .section .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 24px 28px; margin-bottom: 16px;
+  }
+  .card h3 { font-size: 14px; font-weight: 700; margin-bottom: 12px; color: var(--primary); }
+  .card p, .card li { font-size: 13px; line-height: 1.7; }
+  .card ul { padding-left: 18px; }
+  .card li { margin-bottom: 4px; }
+
+  .profile-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+
+  .tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; letter-spacing: 0.08em; border: 1px solid; margin-right: 6px; margin-bottom: 4px; }
+  .tag-blue { color: var(--accent-blue); border-color: var(--accent-blue); }
+  .tag-green { color: var(--accent-green); border-color: var(--accent-green); }
+  .tag-amber { color: var(--accent-amber); border-color: var(--accent-amber); }
+  .tag-red { color: var(--accent-red); border-color: var(--accent-red); }
+
+  .timeline { border-left: 2px solid var(--border); padding-left: 20px; margin: 16px 0; }
+  .timeline .event { margin-bottom: 16px; position: relative; }
+  .timeline .event::before {
+    content: ''; position: absolute; left: -25px; top: 6px;
+    width: 8px; height: 8px; background: var(--primary); border-radius: 50%;
+  }
+  .timeline .event.them::before { background: #3b82f6; }
+  .timeline .date { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; }
+  .timeline .sender { font-size: 11px; font-weight: 700; margin-bottom: 2px; }
+  .timeline .sender.us { color: var(--primary); }
+  .timeline .sender.them { color: #2563eb; }
+  .timeline .msg { font-size: 13px; color: #333; background: #f9f9f9; padding: 10px 14px; border-left: 3px solid var(--border); }
+  .timeline .event.them .msg { border-left-color: #93c5fd; background: #eff6ff; }
+
+  .highlight-box {
+    background: #fef3c7; border: 1px solid #fbbf24; border-left: 4px solid #f59e0b;
+    padding: 16px 20px; margin: 16px 0;
+  }
+  .highlight-box .label { font-size: 10px; font-weight: 700; color: var(--accent-amber); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+  .highlight-box p, .highlight-box li { font-size: 13px; }
+  .highlight-box ul { padding-left: 18px; margin-top: 6px; }
+
+  .insight-box {
+    background: #eff6ff; border: 1px solid #93c5fd; border-left: 4px solid #3b82f6;
+    padding: 16px 20px; margin: 16px 0;
+  }
+  .insight-box .label { font-size: 10px; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+  .insight-box p, .insight-box li { font-size: 13px; }
+  .insight-box ul { padding-left: 18px; margin-top: 6px; }
+
+  .danger-box {
+    background: #fef2f2; border: 1px solid #fca5a5; border-left: 4px solid #ef4444;
+    padding: 16px 20px; margin: 16px 0;
+  }
+  .danger-box .label { font-size: 10px; font-weight: 700; color: var(--accent-red); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+  .danger-box p { font-size: 13px; }
+
+  .talk-track {
+    background: #111; color: #d4d4d4; padding: 24px; font-size: 13px; line-height: 1.8;
+    margin: 12px 0; border: 1px solid #2a2a2a; position: relative;
+  }
+  .talk-track::before {
+    content: attr(data-label); position: absolute; top: -1px; left: 0;
+    background: #fff; color: #0a0a0a; font-size: 9px; font-weight: 700;
+    padding: 3px 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    border-bottom: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a;
+  }
+  .talk-track em { color: #60a5fa; font-style: normal; font-weight: 600; }
+  .talk-track strong { color: #f9f9f9; }
+
+  table.info-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
+  table.info-table th { background: #0a0a0a; color: white; padding: 8px 14px; text-align: left; font-weight: 600; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+  table.info-table td { padding: 8px 14px; border-bottom: 1px solid var(--border); }
+  table.info-table tr:nth-child(even) td { background: #f9f9f9; }
+
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 6px 0; font-size: 13px; display: flex; align-items: flex-start; gap: 8px; }
+  .checklist li::before { content: ''; flex-shrink: 0; width: 16px; height: 16px; border: 1.5px solid var(--border); margin-top: 2px; }
+
+  .footer { text-align: center; padding: 32px 0; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 48px; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 32px 20px; }
+    .container { padding: 0 16px; }
+    .profile-grid { grid-template-columns: 1fr; }
+    .card { padding: 16px; }
+    .talk-track { padding: 20px 16px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>MTG準備メモ — リビンテクノロジーズ 鶴見泰久様</h1>
+  <div class="meta"><strong>2026/3/3（月）16:00-17:00</strong>｜Google Meet｜リードブースター サンプル文面確認</div>
+  <div class="meta" style="margin-top:4px;">参加: 鶴見泰久（執行役員 経営企画部長）× 周栄・石田・高田（XDeli）</div>
+  <div class="badges">
+    <span class="badge">INTERNAL USE ONLY</span>
+    <span class="badge hot">サンプル文面確認MTG</span>
+    <span class="badge">3回目以降 温度感高い</span>
+    <span class="badge">東証グロース上場 4445</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ==================== 1. 相手を知る ==================== -->
+  <div class="section">
+    <h2>1. 相手を知る</h2>
+    <div class="sub">鶴見泰久（つるみ やすひさ）/ リビンテクノロジーズ株式会社 執行役員 経営企画部長</div>
+  </div>
+
+  <div class="profile-grid">
+    <div class="card">
+      <h3>会社概要</h3>
+      <table class="info-table">
+        <tr><td style="font-weight:600;width:100px;">社名</td><td>リビンテクノロジーズ株式会社（東証グロース 4445）</td></tr>
+        <tr><td style="font-weight:600;">設立</td><td>2004年1月</td></tr>
+        <tr><td style="font-weight:600;">所在地</td><td>東京都中央区日本橋堀留町1-8-12 さくら堀留ビル8F</td></tr>
+        <tr><td style="font-weight:600;">代表</td><td>川合大無（かわい ひろむ）</td></tr>
+        <tr><td style="font-weight:600;">従業員</td><td>146名（2024/9期）</td></tr>
+        <tr><td style="font-weight:600;">売上</td><td>35.9億円（2025/9期）前期比+7.1%</td></tr>
+        <tr><td style="font-weight:600;">営業利益</td><td>6.87億円（2025/9期）前期比+131.5%（V字回復）</td></tr>
+        <tr><td style="font-weight:600;">業種</td><td>不動産テック（プラットフォーム事業）</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>鶴見氏のキャリア</h3>
+      <ul>
+        <li><strong>東京大学 経済学部</strong>卒（1997年）</li>
+        <li><strong>日本生命保険</strong> 入社（1997年）、28年在籍</li>
+        <li><strong>Carnegie Mellon University</strong> MBA取得（2004年）</li>
+        <li><strong>CIIA（国際公認投資アナリスト）</strong> 資格保有</li>
+        <li><strong>Nippon Life Global Investors Americas</strong> 株式投資部長（2019年頃）</li>
+        <li><strong>日本生命</strong> シニアクレジットオフィサー（2023年頃）</li>
+        <li><strong>リビンテクノロジーズ</strong> 執行役員 経営企画部長（2025年3月就任）</li>
+      </ul>
+      <div style="margin-top:8px;">
+        <span class="tag tag-blue">東大経済</span>
+        <span class="tag tag-blue">CMU MBA</span>
+        <span class="tag tag-green">CIIA</span>
+        <span class="tag tag-amber">投資アナリスト出身</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>提供サービス一覧</h3>
+    <table class="info-table">
+      <thead><tr><th>#</th><th>サービス</th><th>特徴</th><th>ターゲット</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>リビンマッチ</strong></td><td>不動産一括査定サイト（年間18万件以上の査定依頼）。加盟店約2,100社。全国カバー</td><td>不動産仲介・買取会社（加盟店を増やしたい）</td></tr>
+        <tr><td>2</td><td><strong>メタ住宅展示場</strong></td><td>オンライン住宅展示場。VR/3Dモデルハウスをオンラインで閲覧可能</td><td>ハウスメーカー・工務店（出展クライアントを獲得したい）</td></tr>
+        <tr><td>3</td><td><strong>リビンマッチ 土地活用</strong></td><td>土地オーナー向け一括比較サービス</td><td>ハウスメーカー・建設会社</td></tr>
+        <tr><td>4</td><td><strong>ぬりかえ見積りドットコム</strong></td><td>外壁塗装の一括見積もりサービス</td><td>塗装会社</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>直近の業績・ニュース</h3>
+    <ul>
+      <li>2025/9期は営業利益が前期比2.3倍の<strong>V字回復</strong>。積極的なSEO投資とコスト最適化が奏功</li>
+      <li>2026/9期は営業利益-45%予想（M&A・新規事業投資を積極化するため）</li>
+      <li>2025年3月に鶴見氏が日本生命から転じ、<strong>経営企画部長として成長戦略を推進</strong></li>
+      <li>「リビンマッチ」は不動産一括査定で国内トップクラスの規模</li>
+    </ul>
+  </div>
+
+  <!-- ==================== 2. やり取りの経緯 ==================== -->
+  <div class="section">
+    <h2>2. やり取りの経緯</h2>
+    <div class="sub">メール → 複数回MTG → サンプル文面確認（今回）</div>
+  </div>
+
+  <div class="card">
+    <div class="timeline">
+      <div class="event them">
+        <div class="date">10/7（火）</div>
+        <div class="sender them">1回目のMTG実施</div>
+        <div class="msg">リビンテクノロジーズとの初回ミーティング。リードブースターのサービス概要を説明。鶴見さんが<strong>強い興味</strong>を示す。</div>
+      </div>
+
+      <div class="event them">
+        <div class="date">10/9（木）</div>
+        <div class="sender them">鶴見 → 高田（メール）</div>
+        <div class="msg">「御礼　２度目のミーティング」の件名でメール。<strong>サンプルターゲット企業リスト</strong>を提供。リビンマッチ向け3社、メタ住宅展示場向け3社を指定。</div>
+      </div>
+
+      <div class="event">
+        <div class="date">10/9（木）</div>
+        <div class="sender us">高田 → 鶴見</div>
+        <div class="msg">返信。2回目のミーティング日程を調整。</div>
+      </div>
+
+      <div class="event them">
+        <div class="date">10月中旬</div>
+        <div class="sender them">2回目のMTG実施</div>
+        <div class="msg">LeadBoosterの詳細を説明。鶴見さんから<strong>「ぜひ文面を拝見したい」</strong>と依頼。サンプルターゲット企業の文面を作成することに。</div>
+      </div>
+
+      <div class="event them">
+        <div class="date">10/23（木）</div>
+        <div class="sender them">鶴見 → 高田（メール）</div>
+        <div class="msg">メール件名「御礼　２度目のミーティング　→ぜひ文面を拝見したい」。<strong>鶴見さんからフォローアップ</strong>。サンプル文面の進捗を確認。</div>
+      </div>
+
+      <div class="event">
+        <div class="date">11/20（木）</div>
+        <div class="sender us">高田（LeadBooster予約）</div>
+        <div class="msg">LeadBooster Calendar予約を送付。3回目MTG日程を確定。</div>
+      </div>
+
+      <div class="event them">
+        <div class="date">11/27（木）</div>
+        <div class="sender them">3回目のMTG実施</div>
+        <div class="msg">サンプル文面の方向性を擦り合わせ。本格的なサンプル文面の作成・確認を次回（今回）に持ち越し。</div>
+      </div>
+
+      <div class="event">
+        <div class="date">2/21（金）</div>
+        <div class="sender us">高田（カレンダー招待）</div>
+        <div class="msg">今回のMTG（3/3 16:00-17:00）のカレンダー招待を送付。Google Meet設定。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="label">重要: 鶴見さんが指定したサンプルターゲット企業</div>
+    <ul>
+      <li><strong>リビンマッチ向け（不動産会社の加盟店獲得）:</strong> 近鉄不動産、ハウスフリーダム、レスパス</li>
+      <li><strong>メタ住宅展示場向け（ハウスメーカーの出展獲得）:</strong> 日本ハウスホールディングス、さくら、永和住宅</li>
+    </ul>
+  </div>
+
+  <!-- ==================== 3. 鶴見さんの課題 ==================== -->
+  <div class="section">
+    <h2>3. 鶴見さんの課題（やり取りから抽出）</h2>
+  </div>
+
+  <div class="highlight-box">
+    <div class="label">最重要課題: 加盟店・出展クライアントの新規獲得チャネル構築</div>
+    <p><strong>「ぜひ文面を拝見したい」</strong>と鶴見さん自ら依頼。リビンマッチの加盟店拡大、メタ住宅展示場の出展クライアント獲得を加速するための営業手法を求めている。投資アナリスト出身だけにROIを重視する意思決定スタイルと推測。</p>
+  </div>
+
+  <div class="profile-grid">
+    <div class="insight-box">
+      <div class="label">課題1: リビンマッチの加盟店拡大</div>
+      <p>現在約2,100社の加盟店。全国の不動産仲介・買取会社をさらに開拓し、<strong>ネットワーク効果を最大化</strong>したい。地方の中小不動産会社の取り込みが鍵。</p>
+    </div>
+    <div class="insight-box">
+      <div class="label">課題2: メタ住宅展示場の出展獲得</div>
+      <p>ハウスメーカーや工務店にオンライン展示場への出展を提案する必要がある。<strong>展示場のデジタル化</strong>というトレンドを訴求しつつ、コスト効率の良いリード獲得手段を提示したい。</p>
+    </div>
+    <div class="insight-box">
+      <div class="label">課題3: 2026/9期の成長投資</div>
+      <p>営業利益-45%予想は積極投資の裏返し。<strong>M&A・新規事業への投資を回収</strong>するため、既存事業の売上成長が必須。営業効率化は経営企画として優先度が高いはず。</p>
+    </div>
+    <div class="insight-box">
+      <div class="label">課題4: 鶴見さん自身のポジション</div>
+      <p>2025年3月に日本生命から転身。<strong>入社1年で成果を出す必要</strong>がある。新しい営業手法の導入は経営企画部長としての実績になる。</p>
+    </div>
+  </div>
+
+  <!-- ==================== 4. MTGのゴール ==================== -->
+  <div class="section">
+    <h2>4. MTGのゴールとアジェンダ</h2>
+  </div>
+
+  <div class="card">
+    <h3>ゴール</h3>
+    <p style="font-size:15px;font-weight:700;margin-bottom:8px;">サンプル文面を確認してもらい、「これなら使える」と判断してもらって契約に進む</p>
+    <p style="font-size:13px;color:var(--muted);">3回目以降のMTG。鶴見さん自らサンプルターゲット企業を指定してくるほど前向き。今回は具体的な文面の品質確認がメイン。文面のクオリティで「導入する/しない」が決まる重要なMTG。</p>
+  </div>
+
+  <div class="card">
+    <h3>アジェンダ（60分）</h3>
+    <table class="info-table">
+      <thead><tr><th>時間</th><th>内容</th><th>ポイント</th></tr></thead>
+      <tbody>
+        <tr><td style="white-space:nowrap;">0-5分</td><td>挨拶・近況確認</td><td>鶴見さんの経企部長としての取り組みに触れる</td></tr>
+        <tr><td>5-10分</td><td><strong>前回MTGの振り返り</strong></td><td>サンプル文面作成の経緯を確認</td></tr>
+        <tr><td>10-30分</td><td><strong>パーソナライズページを画面共有で見せる</strong></td><td>6社分のサンプル文面をデモページで披露。リビンマッチ3社→メタ住宅展示場3社の順</td></tr>
+        <tr><td>30-40分</td><td>文面のフィードバック収集</td><td>修正点・追加要望をヒアリング</td></tr>
+        <tr><td>40-50分</td><td>料金・導入ステップの確認</td><td>初期費用15万円+月額15万円を提示</td></tr>
+        <tr><td>50-60分</td><td>ネクストステップ確認</td><td>契約・セットアップのスケジュールを握る</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ==================== 5. ヒアリング質問 ==================== -->
+  <div class="section">
+    <h2>5. ヒアリング質問リスト</h2>
+    <div class="sub">鶴見さんの決裁プロセスと導入条件を把握する</div>
+  </div>
+
+  <div class="card">
+    <h3>サンプル文面の評価</h3>
+    <ul class="checklist">
+      <li>6社分の文面を見て、全体的なトーン・品質はいかがでしょうか？</li>
+      <li>「これは刺さる」と思った文面はどれですか？ 逆に違和感があったものは？</li>
+      <li>実際に送る場合、文面で直したい部分はありますか？</li>
+      <li>リビンマッチ向けとメタ住宅展示場向けで、訴求内容の方向性は合っていますか？</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>営業体制・決裁プロセス</h3>
+    <ul class="checklist">
+      <li>現在、加盟店獲得やクライアント獲得の営業はどのチームが担当していますか？</li>
+      <li>リードブースター導入の意思決定は鶴見さんで完結しますか？ それとも川合社長の承認が必要ですか？</li>
+      <li>導入する場合、まずリビンマッチとメタ住宅展示場どちらから始めたいですか？</li>
+      <li>予算感として、月額15万円（初期費用15万円）の決裁はどのような流れになりますか？</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>ターゲット・運用</h3>
+    <ul class="checklist">
+      <li>リビンマッチの加盟店開拓で、特に注力しているエリアや企業規模はありますか？</li>
+      <li>メタ住宅展示場に出展してほしいハウスメーカーの優先リストはありますか？</li>
+      <li>送信前の文面確認は鶴見さんが行いますか？ 別の担当者がいますか？</li>
+      <li>競合サービス（テレアポ代行、フォーム営業ツール等）は検討されていますか？</li>
+    </ul>
+  </div>
+
+  <!-- ==================== 6. トークトラック ==================== -->
+  <div class="section">
+    <h2>6. キートークトラック</h2>
+    <div class="sub">鶴見さんの課題に合わせた話し方</div>
+  </div>
+
+  <div class="talk-track" data-label="オープニング">鶴見様、本日もお時間いただきありがとうございます。
+周栄と石田も同席しております。
+
+前回お話しいただいた<em>サンプル文面の件</em>、お待たせしました。
+鶴見様にご指定いただいた6社分、AIがリサーチして生成した文面をお持ちしましたので、
+画面共有で一つずつ見ていただきながら、フィードバックをいただければと思います。</div>
+
+  <div class="talk-track" data-label="パーソナライズページを見せるとき">こちらが、鶴見様にご指定いただいた企業への<em>AIが生成したアプローチ文面</em>です。
+
+まずリビンマッチ向けの3社。近鉄不動産、ハウスフリーダム、レスパスです。
+ポイントは、AIが各社の<em>直近のニュースや動向を検知</em>して、それを文面に反映しているところです。
+
+例えばこの近鉄不動産の事例。近鉄不動産がシアトルに進出したというニュースをキャッチして、
+「国内事業のさらなる効率化」という文脈でリビンマッチへの加盟を提案しています。
+
+<strong>テンプレートの一斉送信ではなく、1社1社に合わせた文面をAIが自動で作る。</strong>
+これがリードブースターの強みです。</div>
+
+  <div class="talk-track" data-label="料金の話になったとき">料金体系は<em>初期費用15万円、月額15万円</em>です。
+
+リビンマッチの加盟店1社が獲得できれば、そこから継続的な送客手数料が発生しますよね。
+月額15万円は<em>加盟店1社獲得で十分にペイする</em>水準だと考えています。
+
+まずリビンマッチ向けから始めて、成果が出たらメタ住宅展示場向けにも展開するという
+段階的な進め方もできます。</div>
+
+  <div class="talk-track" data-label="クロージング">鶴見様、本日お見せした6社分の文面、いかがでしたでしょうか。
+
+リビンマッチは<em>約2,100社</em>の加盟店ネットワーク。ここからさらに拡大するには、
+従来の営業手法に加えて<em>AIによるスケーラブルなアプローチ</em>が有効です。
+
+<strong>まずはセットアップを開始して、最初の送信リストを一緒に作りませんか？</strong>
+
+鶴見様の方で社内確認が必要でしたら、このデモページをそのまま社内共有いただくこともできます。</div>
+
+  <!-- ==================== 7. 想定Q&A ==================== -->
+  <div class="section">
+    <h2>7. 想定Q&A</h2>
+  </div>
+
+  <div class="card">
+    <h3>Q: 送信先のリストはどう作る？ 不動産会社のリストはある？</h3>
+    <p>→ 弊社側で不動産仲介・買取会社のリストを業種・エリア・規模でフィルタリングして作成します。まだリビンマッチに加盟していない企業を優先的にリストアップします。鶴見様に確認いただいた上で送信する流れです。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: フォーム営業で不動産会社に送って大丈夫か？ クレームにならないか？</h3>
+    <p>→ パーソナライズされた文面なので、一般的なスパムとは全く異なります。各社の状況に合わせた提案メールのため、「営業メールが来た」ではなく「うちのことを調べて提案してくれた」と感じてもらえます。実際の送信前に鶴見様にご確認いただくので安心です。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: 月に何社くらいにアプローチできる？</h3>
+    <p>→ 週25社、月間約100社にアプローチできます。リビンマッチ向け50社、メタ住宅展示場向け50社のように分けることも可能です。反応率は業界平均で3-5%程度なので、月3-5件の問い合わせ・商談が見込めます。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: 今の営業チームのリソースで運用できる？</h3>
+    <p>→ 送信前の文面確認は週1回10分程度で完了します。返信が来た際の対応は御社の営業チームにお任せしますが、<strong>リードの獲得まではリードブースターが自動で行う</strong>ので、営業チームは商談に集中できます。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: 競合のフォーム営業ツールとの違いは？</h3>
+    <p>→ 一般的なフォーム営業ツールはテンプレートの一斉送信です。リードブースターは<strong>AIが1社1社をリサーチして、個別にカスタマイズした文面を生成</strong>します。先ほどお見せしたように、各社の直近ニュースや課題に言及するため、開封率・反応率が大幅に高くなります。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: 上場企業として、自動送信ツールを使うことのレピュテーションリスクは？</h3>
+    <p>→ リードブースターでは送信前に必ず人間（鶴見様側のチーム）が確認するフローを設けます。AIはあくまで文面を「提案」し、最終的な送信判断は御社側です。また、パーソナライズされた丁寧な文面のため、受信側にも「きちんと調べて送ってきた」という印象を与えます。</p>
+  </div>
+
+  <div class="card">
+    <h3>Q: 初期セットアップにどのくらいかかる？</h3>
+    <p>→ 約2-3週間です。ターゲット企業リストの作成、文面テンプレートの調整、テスト送信を経て本格稼働に入ります。鶴見様に確認いただく回数は2-3回程度です。</p>
+  </div>
+
+  <!-- ==================== 8. 注意点 ==================== -->
+  <div class="section">
+    <h2>8. 注意点・リスク</h2>
+  </div>
+
+  <div class="danger-box">
+    <div class="label">注意: 上場企業の意思決定プロセス</div>
+    <p>リビンテクノロジーズは東証グロース上場企業。鶴見さんは執行役員だが、<strong>最終的な契約は川合社長や取締役会の承認が必要な可能性</strong>がある。決裁フローを早めに確認し、必要であれば川合社長向けの説明資料も準備する。</p>
+  </div>
+
+  <div class="danger-box">
+    <div class="label">注意: 投資アナリスト出身のROI思考</div>
+    <p>鶴見さんはCarnegie Mellon MBA、CIIAの投資アナリスト出身。<strong>感覚ではなく数値で判断する</strong>タイプ。ROI、CPA、LTVなどの指標で効果を説明する必要がある。「1社獲得あたりのコスト」と「加盟店のLTV」を比較できるように準備する。</p>
+  </div>
+
+  <div class="danger-box">
+    <div class="label">注意: 2026/9期は投資フェーズ</div>
+    <p>営業利益-45%予想の年。<strong>新規コスト追加には慎重</strong>になる可能性もある。一方で「成長投資」の文脈に乗せられれば追い風。「リードブースターは営業チームを増やさずにリード獲得を自動化できる」という効率性を訴求する。</p>
+  </div>
+
+  <div class="highlight-box">
+    <div class="label">勝ち筋</div>
+    <ul>
+      <li>鶴見さん自らサンプルターゲット企業を指定してきた = <strong>導入意欲は高い</strong>。文面の品質さえ認められれば契約に進む可能性大</li>
+      <li>6社分のパーソナライズ文面デモは「自分たちの場合どうなるか」を具体的に見せられる最強の材料</li>
+      <li>リビンマッチの加盟店獲得はリードブースターの<strong>典型的な成功パターン</strong>（BtoB、明確なターゲット、継続収益）</li>
+      <li>上場企業の導入実績になれば、XDeliにとっても大きなリファレンス</li>
+      <li>3回以上のMTGを経ている信頼関係。「あとは文面を見てもらうだけ」のフェーズ</li>
+    </ul>
+  </div>
+
+  <!-- ==================== 9. デモページURL ==================== -->
+  <div class="section">
+    <h2>9. デモページ（画面共有で使用）</h2>
+  </div>
+
+  <div class="card" style="text-align:center; padding:32px;">
+    <p style="font-size:11px; color:var(--muted); margin-bottom:8px; letter-spacing:0.1em; text-transform:uppercase;">パーソナライズデモページ</p>
+    <p style="font-size:16px; font-weight:700; margin-bottom:4px;">リビンテクノロジーズ様向け AI営業アプローチ デモ</p>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">鶴見さんご指定の6社へのAI生成アプローチ文面を実演</p>
+    <a href="../5cacc1df-5e4c-4df5-a01d-0c9661271ea6/" target="_blank" style="display:inline-block; background:#0a0a0a; color:white; padding:10px 28px; font-size:13px; font-weight:600; text-decoration:none; letter-spacing:0.05em;">デモページを開く</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  XDeli INTERNAL USE ONLY｜2026/3/3 MTG準備資料
+</div>
+
+</body>
+</html>
