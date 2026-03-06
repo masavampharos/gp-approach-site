@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AI Sales Approach Demonstration — GrandTech Cloud Services</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --primary: #0a0a0a;
+    --accent: #0a0a0a;
+    --accent2: #333333;
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --muted: #737373;
+    --border: #d4d4d4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .hero {
+    background: #0a0a0a;
+    color: white;
+    padding: 64px 40px;
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .hero h1 {
+    font-size: 28px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .hero .subtitle { font-size: 13px; opacity: 0.5; font-weight: 300; letter-spacing: 0.05em; }
+  .hero .badge {
+    display: inline-block; background: transparent; color: rgba(255,255,255,0.4);
+    font-size: 10px; font-weight: 500; padding: 4px 14px;
+    border: 1px solid rgba(255,255,255,0.15); margin-top: 20px; letter-spacing: 0.2em;
+  }
+
+  /* Language toggle */
+  .lang-toggle {
+    position: fixed; top: 16px; right: 16px; z-index: 1000;
+    display: flex; gap: 0; border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+    border-radius: 4px; overflow: hidden;
+  }
+  .lang-toggle button {
+    padding: 6px 14px; border: none; cursor: pointer;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.05em;
+    background: transparent; color: rgba(255,255,255,0.5);
+    transition: all 0.2s;
+  }
+  .lang-toggle button.active {
+    background: white; color: #0a0a0a;
+  }
+  .lang-toggle button:hover:not(.active) {
+    color: rgba(255,255,255,0.8);
+  }
+
+  [lang="en"] { display: none; }
+  body.en [lang="en"] { display: block; }
+  body.en [lang="ja"] { display: none; }
+  body.en .email-preview::before { content: "AI-Generated Email Draft"; }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  .intro {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 32px; margin: -1px auto 40px; position: relative; z-index: 1;
+    border-top: none;
+  }
+  .intro h2 { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 16px; }
+  .intro p { font-size: 14px; line-height: 1.9; color: var(--text); }
+  .intro p + p { margin-top: 12px; }
+  .intro strong { font-weight: 700; }
+
+  .toc {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 28px 32px; margin-bottom: 40px;
+  }
+  .toc h2 { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 16px; }
+  .toc ol { list-style: none; counter-reset: toc; }
+  .toc li { counter-increment: toc; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .toc li:last-child { border-bottom: none; }
+  .toc li::before { content: counter(toc, decimal-leading-zero) "."; font-weight: 600; color: var(--muted); margin-right: 12px; font-size: 11px; font-variant-numeric: tabular-nums; }
+  .toc a { color: var(--text); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  .section-header { margin: 56px 0 24px; padding-bottom: 12px; border-bottom: 1px solid var(--primary); }
+  .section-header h2 { font-size: 18px; font-weight: 700; color: var(--primary); letter-spacing: 0.04em; }
+  .section-header p { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+  .pattern {
+    background: var(--card); border: 1px solid var(--border);
+    margin-bottom: 24px; overflow: hidden;
+  }
+  .pattern-header { padding: 20px 28px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+  .pattern-header .num {
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14px; color: white; flex-shrink: 0;
+    background: var(--primary);
+  }
+  .pattern-header h3 { font-size: 16px; font-weight: 700; }
+  .pattern-header .tag {
+    font-size: 10px; font-weight: 600; padding: 3px 10px; white-space: nowrap;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid currentColor; color: #404040;
+  }
+
+  .pattern-body { padding: 24px 28px; }
+  .pattern-body .desc { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.7; border-left: 2px solid var(--border); padding-left: 14px; }
+
+  .signal-box {
+    background: #f0f0f0; border-left: 3px solid var(--primary);
+    padding: 16px 20px; margin-bottom: 16px;
+  }
+  .signal-box .label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+  .signal-box p { font-size: 13px; line-height: 1.6; }
+  .signal-box .source { font-size: 11px; color: var(--muted); margin-top: 8px; }
+  .signal-box .source a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+  .email-preview {
+    background: #111111; color: #d4d4d4; padding: 28px;
+    font-family: 'Inter', 'Noto Sans JP', monospace; font-size: 13px;
+    line-height: 1.8; white-space: pre-line; margin-bottom: 16px; position: relative;
+    border: 1px solid #2a2a2a;
+  }
+  .email-preview::before {
+    content: "AIが生成するメール文面"; position: absolute; top: -1px; left: 0;
+    background: #ffffff; color: #0a0a0a; font-size: 9px; font-weight: 700;
+    padding: 3px 12px; font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border-bottom: 1px solid #2a2a2a; border-right: 1px solid #2a2a2a;
+  }
+
+  .point {
+    background: #f5f5f5; border: 1px solid var(--border);
+    padding: 14px 18px; font-size: 13px; line-height: 1.6;
+    border-left: 3px solid var(--primary);
+  }
+  .point strong { color: var(--primary); font-weight: 700; }
+
+  .step-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; border: 1px solid var(--border); }
+  .step-table th { background: var(--primary); color: white; padding: 10px 16px; text-align: left; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .step-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); }
+  .step-table tr:nth-child(even) td { background: #f9f9f9; }
+
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; border: 1px solid var(--border); }
+  .compare-table th { background: var(--primary); color: white; padding: 10px 16px; text-align: center; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; }
+  .compare-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); text-align: center; }
+  .compare-table td:first-child { text-align: left; font-weight: 600; }
+  .compare-table tr:nth-child(even) td { background: #f9f9f9; }
+
+  .sim-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; border: 1px solid var(--border); }
+  .sim-table th { background: #262626; color: white; padding: 10px 16px; text-align: center; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; }
+  .sim-table td { padding: 10px 16px; border-bottom: 1px solid var(--border); text-align: center; }
+  .sim-table td:first-child { text-align: left; font-weight: 500; }
+  .sim-table tr:nth-child(even) td { background: #f9f9f9; }
+  .sim-table .highlight { font-weight: 700; color: var(--primary); }
+
+  .service-map {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0;
+  }
+  .service-map .svc {
+    background: #fafafa; border: 1px solid var(--border); padding: 16px 20px;
+  }
+  .service-map .svc h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .service-map .svc p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+  .service-map .svc .target { font-size: 11px; color: #404040; margin-top: 8px; font-weight: 500; }
+
+  .footer { text-align: center; padding: 40px 0; font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 60px; letter-spacing: 0.05em; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 40px 20px; }
+    .hero h1 { font-size: 20px; }
+    .container { padding: 0 16px; }
+    .intro, .toc, .pattern-body, .pattern-header { padding-left: 16px; padding-right: 16px; }
+    .email-preview { padding: 20px 16px; font-size: 12px; }
+    .pattern-header { gap: 10px; }
+    .service-map { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Language Toggle -->
+<div class="lang-toggle">
+  <button id="btn-ja" class="active" onclick="setLang('ja')">JA</button>
+  <button id="btn-en" onclick="setLang('en')">EN</button>
+</div>
+
+<div class="hero">
+  <div lang="ja">
+    <h1>AI営業アプローチ デモンストレーション</h1>
+    <div class="subtitle">GrandTech Cloud Services様向け｜株式会社XDeli</div>
+  </div>
+  <div lang="en">
+    <h1>AI Sales Approach Demonstration</h1>
+    <div class="subtitle">For GrandTech Cloud Services｜XDeli, Inc.</div>
+  </div>
+  <div class="badge">CONFIDENTIAL</div>
+</div>
+
+<div class="container">
+
+  <!-- 導入文 -->
+  <div class="intro">
+    <h2>Introduction</h2>
+    <div lang="ja">
+      <p><strong>Waileng Ling</strong>様、<strong>Andy Cheng</strong>様、本ページはGrandTech Cloud Services様のビジネスに特化してお作りしたものです。</p>
+      <p>先日のミーティングで、<strong>日本市場への展開を本格的に進めたい</strong>とお伺いしました。日本のスタートアップやテック企業に対して、GCSのクラウドコスト最適化サービスとARMINプラットフォームを効果的にアプローチする方法をお見せします。</p>
+      <p>以下は、<strong>もしGrandTech Cloud Services様がリードブースターを使ったら</strong>、AIがどのように日本企業をリサーチし、GCS様のサービスを提案するパーソナライズドメールを自動生成するか。その<strong>実際のデモンストレーション</strong>です。</p>
+      <p>5社の実在企業に対して、GCS様のサービス内容を理解した上で、各企業のクラウド利用状況や直近ニュースを調査し、最適なタイミング・最適な切り口でアプローチするメール文面を生成しました。<strong>すべて実在のニュースに基づいています。</strong></p>
+    </div>
+    <div lang="en">
+      <p><strong>Waileng Ling</strong> and <strong>Andy Cheng</strong>, this page was created specifically for GrandTech Cloud Services' business.</p>
+      <p>In our recent meeting, you mentioned your goal to <strong>seriously expand into the Japanese market</strong>. We'd like to show you how to effectively approach Japanese startups and tech companies with GCS's cloud cost optimization services and the ARMIN platform.</p>
+      <p>Below is a <strong>live demonstration</strong> of what it would look like <strong>if GrandTech Cloud Services used LeadBooster</strong>. Our AI researches Japanese companies and auto-generates personalized outreach emails proposing GCS's services.</p>
+      <p>We've generated email drafts for 5 real Japanese companies, based on their actual cloud usage patterns and recent news. <strong>All company signals referenced are real and verified.</strong></p>
+    </div>
+  </div>
+
+  <!-- 目次 -->
+  <div class="toc">
+    <h2>Contents</h2>
+    <ol lang="ja">
+      <li><a href="#section1">ターゲット企業別アプローチ事例（5社。GCS様のサービスごとに最適な企業を選定）</a></li>
+      <li><a href="#section2">リードブースターの仕組み（4ステップ。週25社アプローチのシミュレーション）</a></li>
+      <li><a href="#section3">GCS Japan市場拡大シナリオ（3ヶ月で100社へのアプローチ計画）</a></li>
+    </ol>
+    <ol lang="en">
+      <li><a href="#section1">Target Company Approach Examples (5 companies, matched to GCS service categories)</a></li>
+      <li><a href="#section2">How LeadBooster Works (4 steps, simulation of 25 companies/week)</a></li>
+      <li><a href="#section3">GCS Japan Market Expansion Scenario (100 companies in 3 months)</a></li>
+    </ol>
+  </div>
+
+  <!-- ===== SECTION 1 ===== -->
+  <div class="section-header" id="section1">
+    <div lang="ja">
+      <h2>1. ターゲット企業別アプローチ事例</h2>
+      <p>GCS様のサービスを3つのカテゴリに分け、それぞれに最適な日本企業をAIが選定しました。<br>各企業のクラウド利用状況や直近ニュースを調査し、1社1社パーソナライズされたメール文面を自動生成した実例です。</p>
+    </div>
+    <div lang="en">
+      <h2>1. Target Company Approach Examples</h2>
+      <p>We've mapped GCS's services into 3 categories and selected optimal Japanese companies for each.<br>Each email is auto-generated based on real cloud usage patterns and recent company news.</p>
+    </div>
+  </div>
+
+  <!-- サービスマップ -->
+  <div class="pattern" style="padding: 28px;">
+    <div lang="ja">
+      <h3 style="margin-bottom: 8px; font-size: 15px;">GCS様のサービス × ターゲット企業マッピング</h3>
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.6;">リードブースターはまずGCS様のサービスを理解し、各サービスに最適なターゲット企業の「シグナル」を定義します。<br>以下のマッピングに基づいて、AIが企業ニュースをスキャンし、アプローチのタイミングを自動判定します。</p>
+    </div>
+    <div lang="en">
+      <h3 style="margin-bottom: 8px; font-size: 15px;">GCS Services × Target Company Mapping</h3>
+      <p style="font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.6;">LeadBooster first understands GCS's service portfolio, then defines "signal" criteria for optimal target companies.<br>Based on this mapping, AI scans company news and auto-determines the best timing for outreach.</p>
+    </div>
+    <div class="service-map">
+      <div class="svc">
+        <div lang="ja">
+          <h4>A. AWS/GCPコスト最適化</h4>
+          <p>リセラーディスカウント + ARMINによるFinOps。クラウド費用の可視化と最大20%のコスト削減。</p>
+          <div class="target">事例1: マネーフォワード ／ 事例2: タイミー</div>
+        </div>
+        <div lang="en">
+          <h4>A. AWS/GCP Cost Optimization</h4>
+          <p>Reseller discount + ARMIN FinOps platform. Cloud spend visibility and up to 20% cost reduction.</p>
+          <div class="target">Case 1: Money Forward / Case 2: Timee</div>
+        </div>
+      </div>
+      <div class="svc">
+        <div lang="ja">
+          <h4>B. マルチクラウド統合管理</h4>
+          <p>AWS + GCP等の複数クラウドを一元管理。統合請求、クロスリージョンアカウント管理。</p>
+          <div class="target">事例3: SmartHR ／ 事例4: Ubie</div>
+        </div>
+        <div lang="en">
+          <h4>B. Multi-Cloud Unified Management</h4>
+          <p>Centralized management of AWS + GCP. Unified billing, cross-region account management.</p>
+          <div class="target">Case 3: SmartHR / Case 4: Ubie</div>
+        </div>
+      </div>
+      <div class="svc">
+        <div lang="ja">
+          <h4>C. クラウドセキュリティ & コンサルティング</h4>
+          <p>クラウドセキュリティ監視、アーキテクチャコンサルティング、グローバル展開支援。</p>
+          <div class="target">事例5: ANDPAD</div>
+        </div>
+        <div lang="en">
+          <h4>C. Cloud Security & Consulting</h4>
+          <p>Cloud security monitoring, architecture consulting, global expansion support.</p>
+          <div class="target">Case 5: ANDPAD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 事例1: マネーフォワード -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">1</div>
+      <div>
+        <h3 lang="ja">マネーフォワード — AWSコスト最適化 × FinOps導入</h3>
+        <h3 lang="en">Money Forward — AWS Cost Optimization × FinOps</h3>
+      </div>
+      <span class="tag">COST OPTIMIZATION</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc" lang="ja">SaaS企業として急成長し、AWS上で400以上のVM、10以上のマルチテナントクラスタを運用。EKSベースのマイクロサービス化を進める中で、サービスごとのコスト可視化と最適化が急務。Terraformで管理しているが、クラウドコスト管理は別の課題。</p>
+      <p class="desc" lang="en">Rapidly growing SaaS company operating 400+ VMs and 10+ multi-tenant clusters on AWS. Transitioning to EKS-based microservices, with urgent need for per-service cost visibility and optimization. While managed via Terraform, cloud cost management remains a separate challenge.</p>
+
+      <div class="signal-box">
+        <div class="label" lang="ja">AIが検知した企業情報</div>
+        <div class="label" lang="en">AI-Detected Company Signal</div>
+        <div lang="ja">
+          <p><strong>株式会社マネーフォワード</strong>がオンプレミスからAWSへの大規模移行を推進中。Amazon EKSを活用したマイクロサービス化により、<strong>400以上のVM</strong>と<strong>10以上のマルチテナントクラスタ</strong>をAWS上で運用。AWS Cost ExplorerやSavings Plansによるコスト最適化に取り組んでいるが、サービス数の増加に伴いコスト管理の複雑性が増大。HashiCorp Terraform Cloudで構成管理を行い、AWSとオンプレミスが共存する環境を運用中。</p>
+          <div class="source">出典: <a href="https://aws.amazon.com/jp/solutions/case-studies/moneyforward/" target="_blank">AWS導入事例: マネーフォワード</a>｜<a href="https://www.hashicorp.com/ja/case-studies/money-forward" target="_blank">HashiCorp事例: Money Forward</a></div>
+        </div>
+        <div lang="en">
+          <p><strong>Money Forward, Inc.</strong> is undergoing a large-scale migration from on-premises to AWS. Leveraging Amazon EKS for microservices architecture, operating <strong>400+ VMs</strong> and <strong>10+ multi-tenant clusters</strong> on AWS. While using AWS Cost Explorer and Savings Plans for optimization, cost management complexity is growing with increasing service count. Managing infrastructure with HashiCorp Terraform Cloud across a hybrid AWS/on-premises environment.</p>
+          <div class="source">Source: <a href="https://aws.amazon.com/jp/solutions/case-studies/moneyforward/" target="_blank">AWS Case Study: Money Forward</a> | <a href="https://www.hashicorp.com/ja/case-studies/money-forward" target="_blank">HashiCorp: Money Forward</a></div>
+        </div>
+      </div>
+
+      <div class="email-preview" lang="ja">株式会社マネーフォワード
+インフラストラクチャー部門 御担当者様
+
+はじめまして。GrandTech Cloud Services Japan の Andy Cheng と申します。
+
+貴社のAWS導入事例を拝見し、EKSベースでのマイクロサービス化と400以上のVMの運用、大変先進的な取り組みだと感じました。
+
+弊社はAWSのアドバンスドパートナーとして、台湾・香港・シンガポール・マレーシア・インドネシアを含むアジア7拠点でクラウドコスト最適化サービスを提供しています。独自開発のFinOpsプラットフォーム「ARMIN」では、複数サービス・複数アカウントにまたがるAWSコストをリアルタイムで可視化し、最大20%のコスト削減を実現しています。
+
+特に貴社のようにサービス数が急拡大している環境では、サービスごとのコスト配分とReserved Instance / Savings Plansの最適化が重要です。ARMINは無料でご利用いただけるコストエクスプローラーも提供しており、現在のAWSコスト構造を可視化するだけでもお役に立てるかと思います。
+
+15分ほどのオンラインデモで、貴社のAWS環境に合わせた最適化シミュレーションをお見せできます。ご関心がありましたら、ご返信いただけますと幸いです。</div>
+
+      <div class="email-preview" lang="en">Money Forward, Inc.
+Infrastructure Department
+
+Dear Sir/Madam,
+
+My name is Andy Cheng from GrandTech Cloud Services Japan.
+
+I was impressed by your AWS case study, particularly the EKS-based microservices migration and management of 400+ VMs.
+
+As an AWS Advanced Partner operating across 7 locations in Asia (Taiwan, Hong Kong, Singapore, Malaysia, Indonesia, and Japan), we specialize in cloud cost optimization. Our proprietary FinOps platform "ARMIN" provides real-time visibility across multiple services and accounts, achieving up to 20% cost reduction for our clients.
+
+For environments like yours with rapidly expanding service counts, per-service cost allocation and Reserved Instance / Savings Plans optimization are critical. ARMIN includes a free cost explorer that can help visualize your current AWS cost structure.
+
+I'd love to show you a 15-minute online demo with an optimization simulation tailored to your AWS environment. If this sounds relevant, I'd be happy to arrange a call at your convenience.</div>
+
+      <div class="point" lang="ja"><strong>Point:</strong> AWS公式の導入事例ページに掲載されている情報（EKS、400+VM、マルチテナント）を引用し、調査の証拠を示す。「サービス数の急拡大」という現在進行形の課題に対して、ARMINの無料コストエクスプローラーという低コミットメントな入り口を提示。GCSのアジア7拠点というスケールメリットも、マネーフォワードの海外展開と接続できる。</div>
+      <div class="point" lang="en"><strong>Point:</strong> References specific data from AWS's official case study (EKS, 400+ VMs, multi-tenant) to demonstrate research. Addresses the ongoing challenge of "rapidly expanding services" by offering ARMIN's free cost explorer as a low-commitment entry point. GCS's 7 Asian locations also connect with Money Forward's international expansion plans.</div>
+    </div>
+  </div>
+
+  <!-- 事例2: タイミー -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">2</div>
+      <div>
+        <h3 lang="ja">タイミー — マルチアカウントAWSコスト管理</h3>
+        <h3 lang="en">Timee — Multi-Account AWS Cost Management</h3>
+      </div>
+      <span class="tag">COST OPTIMIZATION</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc" lang="ja">2024年に東証グロース市場に上場したスキマバイトプラットフォーム。20以上のAWSアカウントを保有し、IaC化率99%以上を維持。上場後のコスト管理の厳格化と、プラットフォームエンジニアリングチームによるインフラ最適化が進行中。</p>
+      <p class="desc" lang="en">A gig-work platform that went public on TSE Growth Market in 2024. Managing 20+ AWS accounts with 99%+ IaC coverage via Terraform. Post-IPO cost management rigor and platform engineering team-driven infrastructure optimization are underway.</p>
+
+      <div class="signal-box">
+        <div class="label" lang="ja">AIが検知した企業情報</div>
+        <div class="label" lang="en">AI-Detected Company Signal</div>
+        <div lang="ja">
+          <p><strong>株式会社タイミー</strong>が2024年7月に東証グロース市場に上場（初値時価総額1,760億円）。<strong>20以上のAWSアカウント</strong>を保有し、AWS Well-Architectedフレームワークに基づくアカウント分離を推進中。2025年12月にはAWS IAM Identity Centerの導入を完了し、Okta認証とTerraformによる認可管理の分離構成を採用。プラットフォームエンジニアリングチームがクラウドインフラ、CI/CD、Observability、セキュリティを一括管理。AWS Resource Explorerによるマルチアカウント環境の資産棚卸しも効率化中。</p>
+          <div class="source">出典: <a href="https://tech.timee.co.jp/entry/2025/12/04/090000" target="_blank">Timee Tech Blog: AWS IAM Identity Center導入記</a>｜<a href="https://tech.timee.co.jp/entry/2025/12/09/093000" target="_blank">AWS Resource Explorer活用</a></div>
+        </div>
+        <div lang="en">
+          <p><strong>Timee, Inc.</strong> went public on TSE Growth Market in July 2024 (initial market cap: JPY 176B). Operating <strong>20+ AWS accounts</strong> with AWS Well-Architected-based account separation. Completed AWS IAM Identity Center deployment in December 2025 with Okta authentication and Terraform-based authorization management. Platform Engineering team manages cloud infrastructure, CI/CD, Observability, and security. Also streamlining multi-account asset inventory with AWS Resource Explorer.</p>
+          <div class="source">Source: <a href="https://tech.timee.co.jp/entry/2025/12/04/090000" target="_blank">Timee Tech Blog: AWS IAM Identity Center</a> | <a href="https://tech.timee.co.jp/entry/2025/12/09/093000" target="_blank">AWS Resource Explorer</a></div>
+        </div>
+      </div>
+
+      <div class="email-preview" lang="ja">株式会社タイミー
+プラットフォームエンジニアリング部門 御担当者様
+
+はじめまして。GrandTech Cloud Services Japan の Andy Cheng と申します。
+
+貴社のテックブログを拝見し、20以上のAWSアカウントをTerraformで99%以上IaC化されている運用体制に感銘を受けました。2025年12月のIAM Identity Center導入記事も大変参考になりました。
+
+弊社のFinOpsプラットフォーム「ARMIN」は、まさに貴社のようなマルチアカウント環境に最適です。複数アカウントのコストを統合ダッシュボードでリアルタイム可視化し、アカウント横断でのReserved Instance / Savings Plansの最適配分を自動提案します。
+
+上場後のコスト管理体制の強化にもお役立ていただけると考えています。ARMINのコストエクスプローラーは無料でご利用いただけますので、まずは現状のコスト構造の可視化からお試しいただけます。
+
+15分ほどのデモで、マルチアカウント環境での最適化事例をお見せできます。ご興味がありましたら、ご返信ください。</div>
+
+      <div class="email-preview" lang="en">Timee, Inc.
+Platform Engineering Division
+
+Dear Sir/Madam,
+
+My name is Andy Cheng from GrandTech Cloud Services Japan.
+
+I've been following your tech blog and was impressed by your 99%+ IaC coverage across 20+ AWS accounts using Terraform. Your December 2025 article on IAM Identity Center deployment was particularly insightful.
+
+Our FinOps platform "ARMIN" is designed specifically for multi-account environments like yours. It provides real-time cost visibility across accounts on a unified dashboard and auto-recommends optimal Reserved Instance / Savings Plans allocation across accounts.
+
+We believe this could be particularly valuable for strengthening your post-IPO cost management framework. ARMIN's cost explorer is available for free, so you could start by simply visualizing your current cost structure.
+
+I'd love to show you a 15-minute demo with multi-account optimization case studies. Please let me know if you'd like to connect.</div>
+
+      <div class="point" lang="ja"><strong>Point:</strong> テックブログの具体的な記事名（IAM Identity Center導入記）に言及し、深い調査を示す。「20以上のAWSアカウント」「IaC化率99%」という技術的な詳細を引用することで、エンジニア組織への信頼感を構築。上場後のコスト管理厳格化というビジネスニーズに、ARMINの無料コストエクスプローラーを接続。</div>
+      <div class="point" lang="en"><strong>Point:</strong> References specific tech blog articles (IAM Identity Center) to demonstrate deep research. Citing technical details like "20+ AWS accounts" and "99% IaC coverage" builds credibility with engineering organizations. Connects ARMIN's free cost explorer to the post-IPO cost management rigor business need.</div>
+    </div>
+  </div>
+
+  <!-- 事例3: SmartHR -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">3</div>
+      <div>
+        <h3 lang="ja">SmartHR — ユニコーン企業のクラウドスケーリング</h3>
+        <h3 lang="en">SmartHR — Unicorn Cloud Scaling</h3>
+      </div>
+      <span class="tag">MULTI-CLOUD</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc" lang="ja">企業評価額5,000億円超のユニコーン企業。2030年までに売上1,000億円を目指す成長戦略を発表。急拡大するサービス群に伴い、クラウドインフラのコストとスケーリングが経営課題に。</p>
+      <p class="desc" lang="en">Unicorn with valuation exceeding JPY 500B. Announced growth strategy targeting JPY 100B revenue by 2030. Cloud infrastructure cost and scaling becoming a management priority as services rapidly expand.</p>
+
+      <div class="signal-box">
+        <div class="label" lang="ja">AIが検知した企業情報</div>
+        <div class="label" lang="en">AI-Detected Company Signal</div>
+        <div lang="ja">
+          <p><strong>株式会社SmartHR</strong>が2025年6月、「2030年・売上1,000億円」の成長戦略を発表。M&AとAI活用を成長の両輪に据え、人事労務プラットフォームから「AIを活用した人的資本経営プラットフォーム」への進化を目指す。2024年のシリーズE調達では約214億円のコミットメント（うち約100億円が新株発行）を獲得。2025年11月にはコーラルキャピタルが保有株をPEファンドに146億円で売却するなど、日本のスタートアップ市場最大規模のセカンダリー取引も発生。</p>
+          <div class="source">出典: <a href="https://thebridge.jp/2025/06/smarthr-aims-for-100-billion-yen-in-revenue-by-2030-business-strategy-meeting-held-interview-with-ceo-serizawa-and-cfo-mori" target="_blank">THE BRIDGE: SmartHR 2030年戦略</a></div>
+        </div>
+        <div lang="en">
+          <p><strong>SmartHR, Inc.</strong> announced its "JPY 100B revenue by 2030" growth strategy in June 2025. Positioning M&A and AI as twin growth drivers, evolving from an HR platform to an "AI-powered human capital management platform." Series E in 2024 secured JPY 21.4B in commitments (JPY 10B new equity). In November 2025, Coral Capital sold its stake for JPY 14.6B to a PE fund, Japan's largest-ever secondary transaction.</p>
+          <div class="source">Source: <a href="https://thebridge.jp/2025/06/smarthr-aims-for-100-billion-yen-in-revenue-by-2030-business-strategy-meeting-held-interview-with-ceo-serizawa-and-cfo-mori" target="_blank">THE BRIDGE: SmartHR 2030 Strategy</a></div>
+        </div>
+      </div>
+
+      <div class="email-preview" lang="ja">株式会社SmartHR
+CTO室 御担当者様
+
+はじめまして。GrandTech Cloud Services Japan の Andy Cheng と申します。
+
+貴社の「2030年・売上1,000億円」という成長戦略の発表を拝見しました。AI活用とM&Aによる急拡大フェーズに入る中で、クラウドインフラのスケーリングとコスト管理は重要な経営課題になると考えています。
+
+弊社は台湾発のAWS/GCPアドバンスドパートナーで、アジア7拠点でスタートアップ・成長企業のクラウドコスト最適化を専門としています。独自のマルチクラウド管理プラットフォーム「ARMIN」では、AWS・GCPのコストを統合ダッシュボードで一元管理し、サービス規模に応じた最適な料金プランを自動提案します。
+
+M&A後の異なるクラウド環境の統合管理にもARMINは力を発揮します。買収先がAWSを使い、既存サービスがGCPを使っているような場合にも、統合請求と横断的なコスト分析が可能です。
+
+まずは15分のオンラインデモで、成長フェーズにおけるクラウドコスト最適化の事例をお見せできればと思います。</div>
+
+      <div class="email-preview" lang="en">SmartHR, Inc.
+CTO Office
+
+Dear Sir/Madam,
+
+My name is Andy Cheng from GrandTech Cloud Services Japan.
+
+I was excited to learn about your "JPY 100B revenue by 2030" growth strategy. As you enter a rapid expansion phase driven by AI and M&A, cloud infrastructure scaling and cost management will become a critical business priority.
+
+As a Taiwan-based AWS/GCP Advanced Partner operating across 7 Asian locations, we specialize in cloud cost optimization for startups and growth-stage companies. Our multi-cloud management platform "ARMIN" provides a unified dashboard for AWS and GCP costs, auto-recommending optimal pricing plans based on service scale.
+
+ARMIN is also powerful for managing heterogeneous cloud environments post-M&A. When acquired companies use AWS while existing services run on GCP, unified billing and cross-platform cost analysis become essential.
+
+I'd love to show you a 15-minute online demo with case studies on cloud cost optimization during growth phases.</div>
+
+      <div class="point" lang="ja"><strong>Point:</strong> 「2030年・売上1,000億円」という具体的な戦略に言及し、その成長に伴うクラウドコスト課題を先回りして提起。M&A戦略とARMINのマルチクラウド統合管理を接続することで、SmartHR固有の課題に最適化されたメッセージに。CTO室宛てにすることで、技術意思決定者に直接リーチ。</div>
+      <div class="point" lang="en"><strong>Point:</strong> References the specific "JPY 100B by 2030" strategy, proactively raising cloud cost challenges that come with growth. Connects SmartHR's M&A strategy with ARMIN's multi-cloud management, creating a uniquely tailored message. Targeting the CTO Office ensures the message reaches technical decision-makers.</div>
+    </div>
+  </div>
+
+  <!-- 事例4: Ubie -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">4</div>
+      <div>
+        <h3 lang="ja">Ubie — グローバル展開のクラウドインフラ最適化</h3>
+        <h3 lang="en">Ubie — Global Expansion Cloud Infrastructure</h3>
+      </div>
+      <span class="tag">MULTI-CLOUD</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc" lang="ja">AI問診サービスを展開するヘルスケアスタートアップ。日本・シンガポール・米国に拠点を持ち、グローバル展開に伴うマルチリージョンのクラウドインフラ管理が課題。GCSのアジア拠点ネットワークとの親和性が高い。</p>
+      <p class="desc" lang="en">Healthcare startup offering AI-powered symptom checker. Operating in Japan, Singapore, and the US. Multi-region cloud infrastructure management for global expansion is a key challenge. Strong synergy with GCS's Asian office network.</p>
+
+      <div class="signal-box">
+        <div class="label" lang="ja">AIが検知した企業情報</div>
+        <div class="label" lang="en">AI-Detected Company Signal</div>
+        <div lang="ja">
+          <p><strong>Ubie株式会社</strong>がシンガポール法人を設立し、JETRO主催の「日ASEANにおけるアジアDX促進事業」に採択。その後、ターゲット市場をUSに1本化し、現在はプロダクト開発をAPAC（日本、インド、シンガポール）、マーケット開発をUS（ニューヨーク）というグローバル体制で運営。シリーズCで27.6億円を調達し、累計調達額は44.8億円。医療AIプラットフォームとして、日本・アジア・米国のマルチリージョンでクラウドインフラを運用中。</p>
+          <div class="source">出典: <a href="https://prtimes.jp/main/html/rd/p/000000008.000048083.html" target="_blank">PR TIMES: Ubieシンガポール法人設立</a>｜<a href="https://note.com/shokosuzuki/n/n8e50ef415169" target="_blank">Ubie Global Team振り返り</a></div>
+        </div>
+        <div lang="en">
+          <p><strong>Ubie, Inc.</strong> established a Singapore subsidiary and was selected for JETRO's "Asia DX Promotion Project." Subsequently shifted target market to US, now operating with product development in APAC (Japan, India, Singapore) and market development in US (New York). Raised JPY 2.76B in Series C with total funding of JPY 4.48B. Operating multi-region cloud infrastructure across Japan, Asia, and the US as a medical AI platform.</p>
+          <div class="source">Source: <a href="https://prtimes.jp/main/html/rd/p/000000008.000048083.html" target="_blank">PR TIMES: Ubie Singapore</a> | <a href="https://note.com/shokosuzuki/n/n8e50ef415169" target="_blank">Ubie Global Team Review</a></div>
+        </div>
+      </div>
+
+      <div class="email-preview" lang="ja">Ubie株式会社
+エンジニアリング部門 御担当者様
+
+はじめまして。GrandTech Cloud Services Japan の Andy Cheng と申します。
+
+貴社がJETROの「日ASEANにおけるアジアDX促進事業」に採択され、シンガポール法人を設立されたことを拝見しました。現在は日本・シンガポール・インド・米国にまたがるグローバル開発体制を構築されているとのこと、大変先進的な取り組みです。
+
+弊社GCSは台湾・香港・シンガポール・マレーシア・インドネシア・日本の7拠点でクラウドサービスを提供しており、貴社のアジア拠点と重なるカバレッジを持っています。マルチリージョンでのクラウドコスト最適化では、リージョン間のデータ転送コストの削減やリージョンごとのリソース最適化など、グローバル企業特有の課題に対応した実績があります。
+
+ARMINプラットフォームでは、全リージョンのコストを統合ダッシュボードで可視化し、リージョン別・サービス別のコスト分析が可能です。
+
+医療AIという機密性の高い領域での運用を考慮し、セキュリティ面でのサポートも含めてご提案できます。15分ほどお時間をいただけますでしょうか。</div>
+
+      <div class="email-preview" lang="en">Ubie, Inc.
+Engineering Division
+
+Dear Sir/Madam,
+
+My name is Andy Cheng from GrandTech Cloud Services Japan.
+
+I was impressed to learn about your selection for JETRO's "Asia DX Promotion Project" and the establishment of your Singapore subsidiary. Your global development structure spanning Japan, Singapore, India, and the US is truly pioneering.
+
+GCS operates across 7 locations in Taiwan, Hong Kong, Singapore, Malaysia, Indonesia, and Japan, providing coverage that closely matches your Asian footprint. We have proven experience in multi-region cloud cost optimization, addressing challenges unique to global companies such as cross-region data transfer cost reduction and region-specific resource optimization.
+
+Our ARMIN platform provides unified dashboard visibility across all regions, with cost analysis breakdowns by region and service.
+
+Considering the sensitivity of medical AI operations, we can also include security support in our proposal. Would you have 15 minutes for a quick conversation?</div>
+
+      <div class="point" lang="ja"><strong>Point:</strong> GCSのアジア拠点（台湾・香港・シンガポール・マレーシア・インドネシア）とUbieのアジア拠点が重なることを強調し、「地理的な親和性」という独自の価値を提示。医療AIという業界特性に合わせてセキュリティへの言及を追加。JETROのプロジェクト名を具体的に引用。</div>
+      <div class="point" lang="en"><strong>Point:</strong> Emphasizes the geographic overlap between GCS's Asian offices and Ubie's presence, presenting "geographic affinity" as a unique value proposition. Adds security reference tailored to the medical AI industry. Specifically cites the JETRO project name for credibility.</div>
+    </div>
+  </div>
+
+  <!-- 事例5: ANDPAD -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num">5</div>
+      <div>
+        <h3 lang="ja">ANDPAD — 建設SaaSのクラウドセキュリティ強化</h3>
+        <h3 lang="en">ANDPAD — Construction SaaS Cloud Security</h3>
+      </div>
+      <span class="tag">SECURITY & CONSULTING</span>
+    </div>
+    <div class="pattern-body">
+      <p class="desc" lang="ja">建設業界向けSaaSとして急成長。建設現場の図面や工程管理データなど、機密性の高いデータを大量に扱うため、クラウドセキュリティの強化が重要課題。シリーズDで122億円を調達し、海外展開も視野に。</p>
+      <p class="desc" lang="en">Rapidly growing construction industry SaaS. Handles large volumes of sensitive data including blueprints and project management data, making cloud security a critical priority. Raised JPY 12.2B in Series D with international expansion in view.</p>
+
+      <div class="signal-box">
+        <div class="label" lang="ja">AIが検知した企業情報</div>
+        <div class="label" lang="en">AI-Detected Company Signal</div>
+        <div lang="ja">
+          <p><strong>株式会社アンドパッド</strong>が建設業界向けクラウド型施工管理サービスを提供。<strong>利用社数19万社以上</strong>、<strong>ユーザー数51万人以上</strong>を突破。シリーズDで<strong>122億円</strong>を調達し、累計調達額は約213億円。建設現場の図面・写真・工程表などの大量データをクラウドで管理しており、建設業界特有のセキュリティ要件（現場写真の位置情報管理、協力会社間のアクセス制御等）への対応が急務。東南アジアへの展開も検討中。</p>
+          <div class="source">出典: <a href="https://andpad.co.jp/" target="_blank">ANDPAD公式サイト</a></div>
+        </div>
+        <div lang="en">
+          <p><strong>ANDPAD Inc.</strong> provides cloud-based construction management services. Surpassed <strong>190,000+ companies</strong> and <strong>510,000+ users</strong>. Raised <strong>JPY 12.2B</strong> in Series D with total funding of approximately JPY 21.3B. Manages massive volumes of blueprints, photos, and project schedules in the cloud, with urgent need for construction-specific security (site photo geolocation management, subcontractor access control, etc.). Exploring Southeast Asian expansion.</p>
+          <div class="source">Source: <a href="https://andpad.co.jp/" target="_blank">ANDPAD Official Site</a></div>
+        </div>
+      </div>
+
+      <div class="email-preview" lang="ja">株式会社アンドパッド
+インフラ・セキュリティ部門 御担当者様
+
+はじめまして。GrandTech Cloud Services Japan の Andy Cheng と申します。
+
+貴社が建設業界向けSaaSとして19万社以上にご利用いただいていることを拝見しました。建設現場の図面や工程データをクラウドで管理されている中、セキュリティ要件への対応は重要な課題かと思います。
+
+弊社GCSはAWS/GCPのアドバンスドパートナーとして、クラウドセキュリティ監視サービスを提供しています。アジア7拠点のセキュリティオペレーションセンターにより、24時間のセキュリティ監視と、インシデント発生時の迅速な対応が可能です。
+
+また、貴社が東南アジアへの展開を検討されているとお聞きしました。弊社はシンガポール、マレーシア、インドネシアに拠点を持っており、東南アジアでのクラウドインフラ構築とセキュリティ体制の整備を現地サポートでご支援できます。
+
+クラウドセキュリティの現状診断を無料でご提供しています。15分ほどのオンラインミーティングで、貴社の環境に合わせたセキュリティ強化プランをご提案させてください。</div>
+
+      <div class="email-preview" lang="en">ANDPAD Inc.
+Infrastructure & Security Division
+
+Dear Sir/Madam,
+
+My name is Andy Cheng from GrandTech Cloud Services Japan.
+
+I learned that your construction SaaS is now used by over 190,000 companies. Managing blueprints and project data in the cloud for the construction industry, security requirements must be a top priority.
+
+As an AWS/GCP Advanced Partner, GCS provides cloud security monitoring services. Our security operations centers across 7 Asian locations enable 24/7 security monitoring and rapid incident response.
+
+I also understand you're exploring expansion into Southeast Asia. With our offices in Singapore, Malaysia, and Indonesia, we can provide local support for cloud infrastructure setup and security framework development in the region.
+
+We offer a complimentary cloud security assessment. I'd love to schedule a 15-minute online meeting to propose a security enhancement plan tailored to your environment.</div>
+
+      <div class="point" lang="ja"><strong>Point:</strong> 建設業界特有のセキュリティ要件（図面管理、協力会社間アクセス制御）に言及し、業界理解を示す。東南アジア展開の検討とGCSのアジア拠点を接続し、「現地サポート」という具体的な価値を提示。無料のセキュリティ診断という低コミットメントなCTA。</div>
+      <div class="point" lang="en"><strong>Point:</strong> References construction-specific security needs (blueprint management, subcontractor access control) to show industry understanding. Connects ANDPAD's Southeast Asian expansion plans with GCS's regional offices, offering "local support" as tangible value. Free security assessment as a low-commitment CTA.</div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 2 ===== -->
+  <div class="section-header" id="section2">
+    <div lang="ja">
+      <h2>2. リードブースターの仕組み</h2>
+      <p>AIがどのように企業をリサーチし、パーソナライズドメールを生成するか。4ステップで完結します。</p>
+    </div>
+    <div lang="en">
+      <h2>2. How LeadBooster Works</h2>
+      <p>How AI researches companies and generates personalized emails. Completed in 4 steps.</p>
+    </div>
+  </div>
+
+  <!-- W: なぜパーソナライズが重要か -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#1a1a1a;">W</div>
+      <div>
+        <h3 lang="ja">なぜ「パーソナライズ」が決定的に重要なのか</h3>
+        <h3 lang="en">Why Personalization is Critically Important</h3>
+      </div>
+    </div>
+    <div class="pattern-body">
+      <div lang="ja">
+        <p style="font-size:14px; line-height:1.9; margin-bottom:16px;">日本企業の受信ボックスには毎日大量の営業メールが届きます。テンプレートの一斉送信は、開封すらされません。</p>
+        <p style="font-size:14px; line-height:1.9; margin-bottom:16px;">しかし、<strong>相手企業のクラウド利用状況や直近ニュースに言及したメール</strong>は、「調べてくれている」という印象を与え、返信率が劇的に向上します。上記5社のデモでご覧いただいた通り、AIは各企業のテックブログ、プレスリリース、AWS導入事例ページまで自動調査し、その企業にしか通用しないメール文面を生成します。</p>
+        <p style="font-size:14px; line-height:1.9;">パーソナライズされたメールの返信率は、テンプレートメールの<strong>10倍以上</strong>。これがリードブースターの最大の強みです。</p>
+      </div>
+      <div lang="en">
+        <p style="font-size:14px; line-height:1.9; margin-bottom:16px;">Japanese companies receive massive volumes of sales emails daily. Template-based mass emails don't even get opened.</p>
+        <p style="font-size:14px; line-height:1.9; margin-bottom:16px;">However, <strong>emails that reference a company's specific cloud usage and recent news</strong> create the impression of genuine research, dramatically improving response rates. As demonstrated in the 5 examples above, our AI automatically investigates tech blogs, press releases, and AWS case study pages to generate messages unique to each company.</p>
+        <p style="font-size:14px; line-height:1.9;">Personalized emails achieve response rates <strong>10x higher</strong> than template emails. This is LeadBooster's core advantage.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- S: 4ステップ -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#1a1a1a;">S</div>
+      <div>
+        <h3 lang="ja">4ステップで完結するAI営業アプローチ</h3>
+        <h3 lang="en">AI Sales Approach in 4 Steps</h3>
+      </div>
+    </div>
+    <div class="pattern-body">
+      <table class="step-table" lang="ja">
+        <tr><th>Step</th><th>内容</th><th>担当</th></tr>
+        <tr><td>1. ヒアリング</td><td>GCS様のサービス内容・ターゲット業界・除外リストをヒアリング</td><td>XDeli</td></tr>
+        <tr><td>2. リサーチ&リスト作成</td><td>AIが日本企業のクラウド利用状況・テックブログ・ニュースを調査。最適なターゲットリストを自動生成</td><td>AI + XDeli</td></tr>
+        <tr><td>3. メール文面生成</td><td>1社ごとにパーソナライズされたメール文面をAIが自動生成。GCS様のレビュー後に送信</td><td>AI + GCS確認</td></tr>
+        <tr><td>4. 配信&フォローアップ</td><td>メール・コンタクトフォーム・LinkedInで配信。反応に応じたフォローアップシーケンスを自動実行</td><td>AI + XDeli</td></tr>
+      </table>
+      <table class="step-table" lang="en">
+        <tr><th>Step</th><th>Description</th><th>Owner</th></tr>
+        <tr><td>1. Hearing</td><td>Gather GCS's service details, target industries, and exclusion lists</td><td>XDeli</td></tr>
+        <tr><td>2. Research & List Building</td><td>AI investigates Japanese companies' cloud usage, tech blogs, and news. Auto-generates optimal target lists</td><td>AI + XDeli</td></tr>
+        <tr><td>3. Email Generation</td><td>AI auto-generates personalized email drafts per company. Sent after GCS review</td><td>AI + GCS Review</td></tr>
+        <tr><td>4. Distribution & Follow-up</td><td>Distributed via email, contact forms, and LinkedIn. Automated follow-up sequences based on responses</td><td>AI + XDeli</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- N: シミュレーション -->
+  <div class="pattern">
+    <div class="pattern-header">
+      <div class="num" style="background:#1a1a1a;">N</div>
+      <div>
+        <h3 lang="ja">月2,000社アプローチのシミュレーション</h3>
+        <h3 lang="en">2,000 Companies/Month Approach Simulation</h3>
+      </div>
+    </div>
+    <div class="pattern-body">
+      <table class="sim-table" lang="ja">
+        <tr><th>指標</th><th>数値</th><th>備考</th></tr>
+        <tr><td>月間アプローチ数</td><td class="highlight">2,000社</td><td>メール + コンタクトフォーム + LinkedIn</td></tr>
+        <tr><td>開封率</td><td>40-50%</td><td>パーソナライズ件名による</td></tr>
+        <tr><td>返信率</td><td>0.5-1.5%</td><td>クラウドサービスの業界平均</td></tr>
+        <tr><td>月間商談数</td><td class="highlight">5-10件</td><td>段階的に改善</td></tr>
+        <tr><td>3ヶ月累計商談数</td><td class="highlight">20-40件</td><td>コンバージョン最適化後</td></tr>
+      </table>
+      <table class="sim-table" lang="en">
+        <tr><th>Metric</th><th>Value</th><th>Notes</th></tr>
+        <tr><td>Monthly Outreach</td><td class="highlight">2,000 companies</td><td>Email + Contact form + LinkedIn</td></tr>
+        <tr><td>Open Rate</td><td>40-50%</td><td>With personalized subject lines</td></tr>
+        <tr><td>Reply Rate</td><td>0.5-1.5%</td><td>Cloud services industry average</td></tr>
+        <tr><td>Monthly Meetings</td><td class="highlight">5-10</td><td>Progressively improving</td></tr>
+        <tr><td>3-Month Cumulative Meetings</td><td class="highlight">20-40</td><td>After conversion optimization</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== SECTION 3 ===== -->
+  <div class="section-header" id="section3">
+    <div lang="ja">
+      <h2>3. GCS Japan市場拡大シナリオ</h2>
+      <p>リードブースターを活用した3ヶ月の日本市場開拓プラン。</p>
+    </div>
+    <div lang="en">
+      <h2>3. GCS Japan Market Expansion Scenario</h2>
+      <p>A 3-month Japan market development plan powered by LeadBooster.</p>
+    </div>
+  </div>
+
+  <div class="pattern">
+    <div class="pattern-body">
+      <table class="step-table" lang="ja">
+        <tr><th>期間</th><th>活動内容</th><th>期待成果</th></tr>
+        <tr><td>1ヶ月目（準備）</td><td>ヒアリング、ターゲットリスト作成、メッセージ設計、LinkedInアカウント連携</td><td>ターゲット2,000社リスト完成</td></tr>
+        <tr><td>2ヶ月目（実行）</td><td>メール・フォーム・LinkedIn配信開始。週次レポート配信。A/Bテスト実施</td><td>月5-10件の商談獲得</td></tr>
+        <tr><td>3ヶ月目（最適化）</td><td>反応データに基づくメッセージ最適化。ターゲットリスト拡大。フォローアップ強化</td><td>月10-15件の商談獲得</td></tr>
+      </table>
+      <table class="step-table" lang="en">
+        <tr><th>Period</th><th>Activities</th><th>Expected Results</th></tr>
+        <tr><td>Month 1 (Setup)</td><td>Hearing, target list creation, message design, LinkedIn account integration</td><td>2,000-company target list completed</td></tr>
+        <tr><td>Month 2 (Execution)</td><td>Email, form, LinkedIn distribution begins. Weekly reports. A/B testing</td><td>5-10 meetings/month</td></tr>
+        <tr><td>Month 3 (Optimization)</td><td>Message optimization based on response data. Target list expansion. Enhanced follow-up</td><td>10-15 meetings/month</td></tr>
+      </table>
+
+      <div lang="ja">
+        <p style="font-size:14px; line-height:1.9; margin-top: 20px;">GCS様の日本語対応については、リードブースターがすべてのメッセージを日本語で生成・配信します。商談が成立した際には、GCS様の日本語が話せるメンバーが対応する形で問題ありません。メッセージの品質は上記5社のデモをご確認ください。</p>
+      </div>
+      <div lang="en">
+        <p style="font-size:14px; line-height:1.9; margin-top: 20px;">Regarding Japanese language support, LeadBooster generates and distributes all messages in Japanese. When meetings are secured, GCS's Japanese-speaking team members can handle the conversations. Please refer to the 5 demo examples above for message quality.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="pattern" style="text-align:center; padding: 40px 28px;">
+    <div lang="ja">
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">Waileng Ling様、Andy Cheng様へ</h3>
+      <p style="font-size: 14px; line-height: 1.9; margin-bottom: 12px;">GCS様のAWS/GCPコスト最適化サービスは、日本のスタートアップ・テック企業にとって確実にニーズがあります。</p>
+      <p style="font-size: 14px; line-height: 1.9; margin-bottom: 12px;">課題は「どうやって日本企業に効果的にリーチするか」です。リードブースターは、日本語でのパーソナライズドアプローチを月2,000社規模で自動化し、GCS Japan様の市場拡大を加速します。</p>
+      <p style="font-size: 14px; line-height: 1.9; margin-bottom: 20px;">5年以内に日本のスタートアップ向け主要クラウドプロバイダーになるという目標。リードブースターがその第一歩をお手伝いします。</p>
+      <p style="font-size: 12px; color: var(--muted);">株式会社XDeli リードブースター<br>担当: 高田</p>
+    </div>
+    <div lang="en">
+      <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">To Waileng Ling and Andy Cheng</h3>
+      <p style="font-size: 14px; line-height: 1.9; margin-bottom: 12px;">GCS's AWS/GCP cost optimization services clearly have demand among Japanese startups and tech companies.</p>
+      <p style="font-size: 14px; line-height: 1.9; margin-bottom: 12px;">The challenge is "how to effectively reach Japanese companies." LeadBooster automates personalized Japanese-language outreach at scale (2,000 companies/month), accelerating GCS Japan's market expansion.</p>
+      <p style="font-size: 14px; line-height: 1.9; margin-bottom: 20px;">Your goal of becoming a leading cloud service provider for Japanese startups within 5 years. LeadBooster can help you take that first step.</p>
+      <p style="font-size: 12px; color: var(--muted);">XDeli, Inc. LeadBooster<br>Contact: Masaaki Takata</p>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <div class="container">
+    <span lang="ja">
+      本資料は株式会社XDeliがGrandTech Cloud Services Waileng Ling様、Andy Cheng様向けに作成しました。<br>
+      <span style="opacity:0.5;">本ページに記載されたメール文面はAIが自動生成したデモンストレーションです。<br>
+      実際のサービス導入時には、GCS様のご確認・修正を経てから送信されます。</span><br>
+      <span style="opacity:0.4; font-size:10px; margin-top:8px; display:inline-block;">Confidential ／ 2026年3月6日作成 ／ 株式会社XDeli</span>
+    </span>
+    <span lang="en">
+      This document was prepared by XDeli, Inc. for GrandTech Cloud Services — Waileng Ling and Andy Cheng.<br>
+      <span style="opacity:0.5;">Email drafts on this page are AI-generated demonstrations.<br>
+      In actual service deployment, all messages will be reviewed and approved by GCS before sending.</span><br>
+      <span style="opacity:0.4; font-size:10px; margin-top:8px; display:inline-block;">Confidential / Created March 6, 2026 / XDeli, Inc.</span>
+    </span>
+  </div>
+</div>
+
+<script>
+function setLang(lang) {
+  document.body.className = lang === 'en' ? 'en' : '';
+  document.getElementById('btn-ja').className = lang === 'ja' ? 'active' : '';
+  document.getElementById('btn-en').className = lang === 'en' ? 'active' : '';
+}
+</script>
+
+</body>
+</html>
